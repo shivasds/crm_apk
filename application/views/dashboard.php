@@ -1,4 +1,11 @@
+
+<?php
+$this->load->view('inc/header');
+
+
+?>
 <link rel="stylesheet" type="text/css" href="<?=base_url('assets/');?>styles/framework.css">
+
 <body class="theme-light" data-highlight="blue2">
    
     <div id="page">
@@ -14,7 +21,7 @@
         Welcome to the CRM App
         </p>
 
-        <a href="index.html" class="button shadow-huge button-3d button-m button-round-small border-blue2-dark bg-blue2-light">Go to Home</a>
+        <a href="<?=base_url('Home');?>" class="button shadow-huge button-3d button-m button-round-small border-blue2-dark bg-blue2-light">Go to Home</a>
         <p class="center-text">
         <a href="#" class="icon icon-s icon-round shadow-huge bg-facebook"><i class="fab fa-facebook-f"></i></a>
         <a href="#" class="icon icon-s icon-round shadow-huge bg-instagram left-15 right-15 "><i class="fab fa-instagram"></i></a>
@@ -28,10 +35,6 @@
         </div>
         <div class="menu-hider"></div>
         </div>
-    
-    <script type="text/javascript" src="<?=base_url('assets/');?>scripts/jquery.js"></script>
-    <script type="text/javascript" src="<?=base_url('assets/');?>scripts/plugins.js"></script>
-    <script type="text/javascript" src="<?=base_url('assets/');?>scripts/custom.js" async></script>
 
 
 </body>
