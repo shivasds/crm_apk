@@ -24,14 +24,16 @@ $this->load->view('inc/header');
             padding: 15px;
         }
         a {
-    color: #337ab7!important;
-    text-decoration: none;
-}
-td, th {
-    padding: 0;
-    padding: 9px 4px;
-}
+                color: #337ab7!important;
+                text-decoration: none;
+            }
+
+            td, th {
+                padding: 0;
+                padding: 9px 6px;
+            }
     </style>
+
 <body class="theme-light" data-highlight="blue2">
     <div id="page">
       <?php
@@ -68,11 +70,19 @@ td, th {
                     </thead>
                     <tbody>
                         <tr>
+                                <td>Airi Satou</td>
+                                <td>Accountant</td>
+                                <td>Tokyo</td>
+                                <td><a href="#myModal" data-toggle="modal" data-target="#myModalcall"><i class="fas fa-phone color-green1-dark"></i></a></td>
+                                <td><a href="#myModal" data-toggle="modal" data-target="#myModal"><i class="fas fa-info-circle color-green1-dark"></i></a></td>
+                        
+                            
+                            </tr>
+                        <tr>
                             <td>Tiger Nixon</td>
                             <td>System Architect</td>
                             <td>Edinburgh</td>
                             <td><a href="#myModal" data-toggle="modal" data-target="#myModalcall"><i class="fas fa-phone color-green1-dark"></i></a></td>
-                         
                             <td><a href="#myModal" data-toggle="modal" data-target="#myModal"><i class="fas fa-info-circle color-green1-dark"></i></a></td>
                            
                         </tr>
@@ -106,16 +116,7 @@ td, th {
                        
                             
                         </tr>
-                        <tr>
-                            <td>Airi Satou</td>
-                            <td>Accountant</td>
-                            <td>Tokyo</td>
-                             <td><a href="#myModal" data-toggle="modal" data-target="#myModalcall"><i class="fas fa-phone color-green1-dark"></i></a></td>
-                         
-                         <td><a href="#myModal" data-toggle="modal" data-target="#myModal"><i class="fas fa-info-circle color-green1-dark"></i></a></td>
-                    
-                           
-                        </tr>
+                       
                         <tr>
                             <td>Brielle Williamson</td>
                             <td>Integration Specialist</td>
@@ -145,6 +146,37 @@ td, th {
                             <td><a href="#myModal" data-toggle="modal" data-target="#myModal"><i class="fas fa-info-circle color-green1-dark"></i></a></td>
                        
                          
+                        </tr>
+                        <tr>
+                            <td>Herrod Chandler</td>
+                            <td>Sales Assistant</td>
+                            <td>San Francisco</td>
+                             <td><a href="#myModal" data-toggle="modal" data-target="#myModalcall"><i class="fas fa-phone color-green1-dark"></i></a></td>
+                         
+                            <td><a href="#myModal" data-toggle="modal" data-target="#myModal"><i class="fas fa-info-circle color-green1-dark"></i></a></td>
+                       
+                           
+                        </tr>
+                        <tr>
+                            <td>Rhona Davidson</td>
+                            <td>Integration Specialist</td>
+                            <td>Tokyo</td>
+                             <td><a href="#myModal" data-toggle="modal" data-target="#myModalcall"><i class="fas fa-phone color-green1-dark"></i></a></td>
+                         
+                            <td><a href="#myModal" data-toggle="modal" data-target="#myModal"><i class="fas fa-info-circle color-green1-dark"></i></a></td>
+                       
+                         
+                        </tr>
+
+                        <tr>
+                            <td>Brielle Williamson</td>
+                            <td>Integration Specialist</td>
+                            <td>New York</td>
+                             <td><a href="#myModal" data-toggle="modal" data-target="#myModalcall"><i class="fas fa-phone color-green1-dark"></i></a></td>
+                         
+                            <td><a href="#myModal" data-toggle="modal" data-target="#myModal"><i class="fas fa-info-circle color-green1-dark"></i></a></td>
+                       
+                           
                         </tr>
                        
                      
@@ -182,7 +214,7 @@ td, th {
       <div class="modal-content">
       
         <div class="modal-body">
-          <p>Call Now.</p>
+          <p  style="margin-bottom: 8px; text-align: center;">Call Now.</p>
           <table>
             <tr>
                 <th>Customer</th>
@@ -213,7 +245,7 @@ td, th {
       <div class="modal-content">
       
         <div class="modal-body">
-          <p>Notes</p>
+          <p style="margin-bottom: 8px; text-align: center;">Notes</p>
           <table>
             <tr>
                 <th>Read Previos Note</th>
