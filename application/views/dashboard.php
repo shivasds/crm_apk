@@ -10,7 +10,7 @@
         $this->load->view('inc/fixed_header');
      ?>
        <?php
-          $this->load->view('inc/header');
+          $this->load->view('inc/footer');
        ?>
         <div class="page-content">
        <!-- Heading with back button -->
