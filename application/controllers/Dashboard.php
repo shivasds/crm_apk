@@ -166,7 +166,7 @@ class Dashboard extends CI_Controller {
             $data['live_feed_back'] = $this->user_model->get_live_feed_back();
             // echo "<pre>";print_r($data['productivity_report']);exit;
         }
-        $this->load->view('dashboard');
+        $this->load->view('dashboard',$data);
     }
 
     public function get_live_feed_back(){

@@ -26,7 +26,7 @@
             <div class="content"></div>
 
             <div class="grid-icons grid-icons-3">
-                <a href="<?=base_url('dashboard/call_for_the_day');?>" class="bg-gradient-magenta1 round-small  scale-hover">
+                <a href="#"  data-type="user_total" class="bg-gradient-magenta1 round-small  scale-hover view_callbacks">
                     <i class="fas fa-phone-volume"></i>
                     <span>Call for the day</span>
                 </a>
@@ -115,5 +115,70 @@
             $("#hideAll").hide();
 
         });
+         $('.view_callbacks').click(function(){
+            var type = $(this).data('type');
+            var data = {};
+            switch (type)
+            {
+                case "user_total":
+                    data.advisor = "<?php echo $user_id; ?>";
+                    data.due_date = "<?php echo date('Y-m-d'); ?>";
+                    data.access = 'read_write'; 
+                    break;
+
+                case "user_overdue":
+                    data.advisor = "<?php echo $user_id; ?>";
+                    data.due_date_to = "<?php echo date('Y-m-d H:i:s'); ?>";
+                    data.for = "dashboard";
+                    data.access = 'read_write'; 
+                    break;
+
+                case "user_active": 
+                    data.advisor = "<?php echo $user_id; ?>";
+                    data.for = "dashboard";
+                    data.access = 'read_write'; 
+                    break;
+
+                case "user_close": 
+                    data.advisor = "<?php echo $user_id; ?>";
+                    data.status = "close";
+                    break;
+
+                case "user_important":
+                    data.advisor = "<?php echo $user_id; ?>";
+                    data.access = 'read_write'; 
+                    data.important = 1;
+                    break;
+
+                case "manager_active": 
+                    data.advisor = "<?php echo $user_id; ?>";
+                    data.for = "dashboard";
+                    data.access = 'read_write'; 
+                    break;
+
+                case "manager_close":
+                    data.advisor = "<?php echo $user_id; ?>";
+                    data.status = "close";
+                    break;
+            }
+            
+            view_callbacks(data,'post');
+
+        });
+         function view_callbacks(data, method) {
+        var form = document.createElement('form');
+        form.method = method;
+        form.action = "<?php echo base_url()."view_callbacks?" ?>"+jQuery.param(data);
+        for (var i in data) {
+            var input = document.createElement('input');
+            input.type = "text";
+            input.name = i;
+            input.value = data[i];
+            form.appendChild(input);
+        }
+        //console.log(form);
+        document.body.appendChild(form);
+        form.submit();
+    }
     </script>
 </body>
