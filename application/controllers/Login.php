@@ -83,6 +83,7 @@ class Login extends CI_Controller {
                     $this->session->set_userdata($newdata);
                     //-- permission ----
                     $this->getPermission($this->session->userdata('user_id'));
+                    redirect(base_url());
                     }
                     else
                     {
