@@ -191,15 +191,20 @@ td {
 }
 
 th {
-    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    /* border-bottom: 1px solid rgba(255, 255, 255, .1);
     color: #1f1f1f;
     line-height: 45px;
-    background-color: #f6f6f6
+    background-color: #f6f6f6 */
+    border-bottom: 1px solid rgb(255, 255, 255);
+    color: #ffffff;
+    text-align: center;
+    background-color: #63a1b9;
 }
 
 td {
-    color: #666;
-    background-color: #fdfdfd
+     color: #666;
+    /*background-color: #fdfdfd */
+     background-color: #ffffff47;
 }
 
 table {
