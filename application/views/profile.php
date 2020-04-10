@@ -15,7 +15,7 @@
                 <!-- <div class="divider top-10"></div> -->
                 <!-- <p> Here all the details will be here of user</p> -->
                 <ul>
-                  <li>Email : <?= $this->session->userdata('user_email');?></li>
+                 <!--  <li>Email : <?= $this->session->userdata('user_email');?></li> -->
                      <li>Mobile : <?= $this->session->userdata('user_mobile');?></li>
                      <li>Employee Code : <?= $this->session->userdata('user_emp_code');?></li>  
                     <li>Last Login : <?= $this->session->userdata('last_login');?></li>
