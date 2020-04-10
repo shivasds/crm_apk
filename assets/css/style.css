@@ -1175,3 +1175,9 @@ i.lnr.lnr-user {
 		padding-bottom: 8px;
 	}
 }
+
+input[type=search] {
+    /* -webkit-appearance: none; */
+    border: 1px solid #80808073!important;
+    margin-left: 10px;
+}
