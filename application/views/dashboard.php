@@ -4,8 +4,12 @@
  <link rel="stylesheet" type="text/css" href="<?=base_url('../assets/')?>styles/framework.css">
 
 <body class="theme-light" data-highlight="blue2">
-    <div id="page">
-
+    
+<div id="page">
+    
+<div id="page-preloader">
+<div class="loader-main"><div class="preload-spinner border-highlight"></div></div>
+</div>
       <?php
         $this->load->view('inc/fixed_header');
      ?>
