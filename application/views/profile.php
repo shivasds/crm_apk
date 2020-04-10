@@ -21,6 +21,6 @@
                     <li>Last log-in time</li>
                 </ul>
                 <div class="divider top-10"></div>
-                <a href="<?=base_url('login')?>" class=" button button-full button-m button-margins round-small bg-red2-dark bottom-30">Log out</a>
+                <a href="<?=base_url('login/logout')?>" class=" button button-full button-m button-margins round-small bg-red2-dark bottom-30">Log out</a>
             </div>
         </div>
