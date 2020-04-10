@@ -190,11 +190,11 @@ td, th {
             </tr>
             <tr>
                 <td>abc</td>
-                <td><a href="tel:+91 1234567898"><i class="fas fa-info-circle color-green1-dark"></i></a></td>
+                <td><a href="tel:+91 1234567898"><i class="fas fa-phone color-green1-dark"></i></a></td>
             </tr>
             <tr>
                 <td>abc</td>
-                <td><a href="tel:+91 1234567898"><i class="fas fa-info-circle color-green1-dark"></i></a></td>
+                <td><a href="tel:+91 1234567898"><i class="fas fa-phone color-green1-dark"></i></a></td>
             </tr>
             </table>
             
