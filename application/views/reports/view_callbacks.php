@@ -84,6 +84,7 @@ $this->load->view('inc/header');
                             <th>Customer Name</th>
                             <th>Project</th>
                             <th>Status</th>
+                            <th class="hidden"></th>
                             <th>Call</th>
                             <th>Info</th>
                             
@@ -103,7 +104,8 @@ $this->load->view('inc/header');
                             <td><?php echo $data->name; ?></td>
                             <td><?php echo $data->project_name; ?></td>
                             <td><?php echo $data->status_name; ?></td>
-                             <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
+                            <td class="hidden"><?php echo $data->contact_no1; ?></td>
+                             <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
                             <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-info-circle "></i></button></td>
                           
                         </tr>
@@ -142,6 +144,12 @@ $this->load->view('inc/header');
                 "sScrollX": true
             });
         });
+
+        function getrowvalue(id){
+            var trid=$(id).parents('tr').children();
+             $("#customertdname").text($(trid[1]).text());
+             $("#customertdphone").text($(trid[4]).text());
+        }
     </script>
 </body>
 
@@ -159,13 +167,10 @@ $this->load->view('inc/header');
                 <th>Number</th>
             </tr>
             <tr>
-                <td>abc</td>
-                <td><a href="tel:+91 1234567898"><i class="fas fa-phone color-green1-dark"></i></a></td>
+                <td id="customertdname">abc</td>
+                <td id="customertdphone"><a href="tel:+91 1234567898"><i class="fas fa-phone color-green1-dark"></i></a></td>
             </tr>
-            <tr>
-                <td>abc</td>
-                <td><a href="tel:+91 1234567898"><i class="fas fa-phone color-green1-dark"></i></a></td>
-            </tr>
+          
             </table>
             
         </div>

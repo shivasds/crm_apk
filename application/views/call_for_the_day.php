@@ -207,7 +207,7 @@ $this->load->view('inc/header');
     </script>
 </body>
 
-<div class="modal fade" id="myModalcall" role="dialog">
+  <div class="modal fade" id="myModalcall" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -259,7 +259,7 @@ $this->load->view('inc/header');
                 <td><a><i class="fab fa-readme color-blue-dark"></i></a></td>
                 <td><a><i class="fas fa-plus-circle color-green1-dark"></i></a></td>
             </tr>
-            </table>
+          </table>
             
         </div>
        
