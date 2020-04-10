@@ -22,6 +22,7 @@
     <link rel="stylesheet" type="text/css" href="<?=base_url('assets/')?>fonts/css/fontawesome-all.min.css">
    
     <link rel="stylesheet" href="<?=base_url('assets/')?>css/icon-font.min.css" type='text/css' />
+    <link rel="manifest" href="<?=base_url('assets/')?>styles/manifest.json" data-pwa-version="set_by_pwa.js">
     <!-- //lined-icons -->
     <script src="<?=base_url('assets/')?>js/jquery-1.10.2.min.js"></script>
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
