@@ -51,8 +51,11 @@ class Dashboard extends CI_Controller {
 
 
 
-	public function index() {
-	 
+	public function index() {      
+        $this->load->view('login_welcome');
+	}
+    public function home($value='')
+    {
         $data['name'] = "index";
         $data['user_id'] = $this->session->userdata('user_id');
         $data['profile_pic'] = $this->user_model->get_profile_pic_name($data['user_id']);
@@ -80,8 +83,8 @@ class Dashboard extends CI_Controller {
             $prArry = array();
             $i = 1;
             foreach ($fetchData as $key => $value) {
-            	$prArry[$value['id']][$key] = $value['id'];
-            	$prArry[$value['id']][$key] = $value['projectName'];
+                $prArry[$value['id']][$key] = $value['id'];
+                $prArry[$value['id']][$key] = $value['projectName'];
             }
             $data['site_visit_projects'] = $prArry;
             $data['site_visit_data'] = $fetchData;
@@ -163,9 +166,8 @@ class Dashboard extends CI_Controller {
             $data['live_feed_back'] = $this->user_model->get_live_feed_back();
             // echo "<pre>";print_r($data['productivity_report']);exit;
         }
-      
-        $this->load->view('dashboard',$data);
-	}
+        $this->load->view('dashboard');
+    }
 
     public function get_live_feed_back(){
         $live_feed_back = $this->user_model->get_live_feed_back();
