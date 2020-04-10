@@ -17,37 +17,30 @@ $this->load->view('inc/header');
 
 
     <div class="error_page">
-        <?php
-    if ($this->session->flashdata('success')) {
-        ?>
-        <div class="alert alert-success">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <strong style="color: #3c763d;"><i class="fa fa-save" aria-hidden="true"></i></strong> <span
-                    style="color: #3c763d;"><?= $this->session->flashdata('success') ?></span>
-        </div>
-        <?php
-    }
-    if ($this->session->flashdata('error')) {
-        ?>
-        <div class="alert alert-danger">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <strong style="color: #a94442;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></strong> <span
-                    style="color: #a94442;"><?= $this->session->flashdata('error') ?></span>
-        </div>
-        <?php
-    } 
-    ?>
+   
 
         <div class="error-top">
             <h2 class="inner-tittle page"></h2>
             <div class="login">
-                <h3 class="inner-tittle t-inner">FBP Login</h3>
+                <!-- <h3 class="inner-tittle t-inner">FBP Login</h3> -->
                 <div class="buttons login">
                     <ul>
                         <a href="login.html"><img src="<?=base_url('assets/');?>images/logo.png"></a>
                         <div class="clearfix"></div>
                     </ul>
                 </div>
+                <?php
+  
+  if ($this->session->flashdata('error')) {
+      ?>
+      <div class="alert alert-danger">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <strong style="color: #a94442;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></strong> <span
+                  style="color: #a94442;"><?= $this->session->flashdata('error') ?></span>
+      </div>
+      <?php
+  } 
+  ?>
                 <form action="<?php echo base_url()?>login" method="POST" enctype="multipart/form-data" role="form" autocomplete="off">
                     <input type="text" class="text" value="username" name="userName" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'username';}">
                     <input type="password" value="Password" name="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
@@ -77,7 +70,7 @@ $this->load->view('inc/header');
 
     </div>
 
-    <script src="js/bootstrap.min.js"></script>
+    <script src="<?=base_url('assets/');?>js/bootstrap.min.js"></script>
 
     <script type="text/javascript">
     </script>
