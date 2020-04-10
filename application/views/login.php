@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE HTML>
 <html>
 
@@ -13,6 +14,11 @@ $this->load->view('inc/header');
     }
 </style>
 
+=======
+<?php
+$this->load->view('inc/header');
+?>
+>>>>>>> 981dcb1ba7aca62ce34ffc7687d278d2fd701ea8
 <body>
 
 
