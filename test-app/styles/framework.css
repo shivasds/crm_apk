@@ -7881,9 +7881,9 @@ html.lb-disable-scrolling {
 }
 
 .theme-light .header-title {
-    color: #1f1f1f
+    color: #1f1f1f!important
 }
 
 .theme-light .header-icon {
-    color: #1f1f1f
+    color: #1f1f1f!important
 }
