@@ -53,6 +53,16 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
+//	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
+
+/*
+ *---------------------------------------------------------------
+ * ERROR REPORTING
+ *---------------------------------------------------------------
+ *
+ * Different environments will require different levels of error reporting.
+ * By default development will show errors but testing and live will hide them.
+ */
 $domain = (! empty($_SERVER['HTTP_HOST'])) ? strtolower($_SERVER['HTTP_HOST']) : 'cli';
 
 if (strpos($domain, '.dev') !== false || strpos($domain, 'localhost') !== false || strpos($domain, '.local') !== false || $domain == 'cli')
@@ -63,19 +73,16 @@ else
 {
    define('ENVIRONMENT', 'production');
 }
-
 switch (ENVIRONMENT)
 {
 	case 'development':
 		error_reporting(-1);
 		ini_set('display_errors', 1);
-		ini_set('memory_limit', '1200M');
 	break;
 
 	case 'testing':
 	case 'production':
 		ini_set('display_errors', 0);
-		ini_set('memory_limit', '1200M');
 		if (version_compare(PHP_VERSION, '5.3', '>='))
 		{
 			error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
