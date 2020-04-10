@@ -1106,7 +1106,8 @@ footer  p a:hover ,.footer p a:hover{
 	-o-border-radius: 50%;
 	-moz-border-radius: 50%;
 	-webkit-border-radius: 50%;
-	border: 3px solid #fff;
+	width: 16%;
+	border: 3px solid #488298;
 }
 
 .down p {
@@ -1180,4 +1181,11 @@ input[type=search] {
     /* -webkit-appearance: none; */
     border: 1px solid #80808073!important;
     margin-left: 10px;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    z-index: 3;
+    color: #fff!important;
+    cursor: default;
+    background-color: #337ab7;
+    border-color: #337ab7;
 }

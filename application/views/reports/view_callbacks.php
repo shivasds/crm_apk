@@ -11,6 +11,7 @@ $this->load->view('inc/header');
         color: #f1c836;
     }
     </style>
+
     <div class="container"> 
         <div class="row"> 
             <div class="text-center alrtMsg">
@@ -19,11 +20,12 @@ $this->load->view('inc/header');
             </div>
         </div>
     </div>
+
     <?php
     die;
-}
-
+     }
     ?>
+ 
  <link rel="stylesheet" type="text/css" href="<?=base_url('assets/')?>styles/framework.css">
   
  <style>
@@ -48,11 +50,11 @@ $this->load->view('inc/header');
         a {
     color: #337ab7!important;
     text-decoration: none;
-}
-td, th {
-    padding: 0;
-    padding: 9px 4px;
-}
+        }
+        td, th {
+            padding: 0;
+            padding: 9px 4px;
+        }
     </style>
 <body class="theme-light" data-highlight="blue2">
     <div id="page">
@@ -70,10 +72,8 @@ td, th {
             <div class="divider divider-margins"></div>
 
             <div class="content">
-                <h5>Todays Call</h5>
-                <p class="bottom-25">
-                
-                </p>
+                <h5>Todays Due Call</h5>
+               
             </div>
 
             <div class="">
@@ -92,21 +92,20 @@ td, th {
                     <tbody>
                         <?php
                         $i= 1; 
-            if(count($result)>0){
+                      if(count($result)>0){
                          foreach ($result as $data) {
-                $duedate = explode(" ", $data->due_date);
-                $duedate = $duedate[0]; 
-                ?>
+                        $duedate = explode(" ", $data->due_date);
+                        $duedate = $duedate[0]; 
+                        ?>
 
                        <tr id="row<?php echo $data->id; ?>" <?php if(strtotime($duedate)<strtotime('today')){?> class="highlight_past" <?php }elseif(strtotime($duedate) == strtotime('today')) {?> class="highlight_now" <?php }elseif(strtotime($duedate)>strtotime('today')){ ?> class="highlight_future" <?php } ?>>
                              <td><?php echo $i; ?></td>
                             <td><?php echo $data->name; ?></td>
                             <td><?php echo $data->project_name; ?></td>
                             <td><?php echo $data->status_name; ?></td>
-                            <td><a href="#myModal" data-toggle="modal" data-target="#myModalcall"><i class="fas fa-phone color-green1-dark"></i></a></td>
-                         
-                            <td><a href="#myModal" data-toggle="modal" data-target="#myModal"><i class="fas fa-info-circle color-green1-dark"></i></a></td>
-                           
+                             <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
+                            <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-info-circle "></i></button></td>
+                          
                         </tr>
                         <?php $i++; } }
                         else
@@ -122,9 +121,9 @@ td, th {
 
             </div>
             <div style="margin-top: 20px">
-        <span class="pull-left"><p>Showing <?php echo ($this->uri->segment(2)) ? $this->uri->segment(2)+1 : 1; ?> to <?= ($this->uri->segment(2)+count($result)); ?> of <?= $totalRecords ; ?> entries</p></span>
-        <ul class="pagination pull-right"><?php echo $links; ?></ul>
-    </div>
+                <span class="pull-left"><p>Showing <?php echo ($this->uri->segment(2)) ? $this->uri->segment(2)+1 : 1; ?> to <?= ($this->uri->segment(2)+count($result)); ?> of <?= $totalRecords ; ?> entries</p></span>
+                <ul class="pagination pull-right"><?php echo $links; ?></ul>
+             </div>
 
         </div>
          
@@ -139,9 +138,7 @@ td, th {
 
     <script>
         $(document).ready(function() {
-            $('#example').DataTable({
-                pagingType: "simple",
-                //"sScrollY": "200px",
+            $('#examplehide').DataTable({
                 "sScrollX": true
             });
         });

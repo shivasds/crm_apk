@@ -206,6 +206,10 @@ td {
     /*background-color: #fdfdfd */
      background-color: #ffffff47;
 }
+.bg-icon {
+    background-color: #63a1b9!important;
+    color: #FFFFFF;
+}
 
 table {
     background-color: #f6f6f6;
