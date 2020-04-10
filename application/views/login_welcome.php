@@ -1,3 +1,6 @@
+<?php
+    $this->load->view('inc/header');
+?>
 <link rel="stylesheet" type="text/css" href="<?=base_url('assets/');?>styles/framework.css">
 <body class="theme-light" data-highlight="blue2">
    
@@ -14,7 +17,7 @@
         Welcome to the CRM App
         </p>
 
-        <a href="<?=base_url("dashboard/home");?>" class="button shadow-huge button-3d button-m button-round-small border-blue2-dark bg-blue2-light">Go to Home</a>
+        <a href="<?=base_url("dashboard/home");?>" class="btn btn-primary">Go to Home</a>
         <p class="center-text">
         <a href="#" class="icon icon-s icon-round shadow-huge bg-facebook"><i class="fab fa-facebook-f"></i></a>
         <a href="#" class="icon icon-s icon-round shadow-huge bg-instagram left-15 right-15 "><i class="fab fa-instagram"></i></a>

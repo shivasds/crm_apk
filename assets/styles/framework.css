@@ -1,7 +1,7 @@
 .header-logo {
     background-size: 28px 28px;
     width: 50px;
-    background-image: url(../images/preload-logo.png)
+ 
 }
 
 * {
@@ -7881,9 +7881,9 @@ html.lb-disable-scrolling {
 }
 
 .theme-light .header-title {
-    color: #1f1f1f
+    color: #1f1f1f!important
 }
 
 .theme-light .header-icon {
-    color: #1f1f1f
+    color: #1f1f1f!important
 }
