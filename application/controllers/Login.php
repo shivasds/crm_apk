@@ -11,19 +11,15 @@ class Login extends CI_Controller {
     }
 
 	public function index() {
+        $this->data['heading'] = "FBP Login Page";
         if ($this->session->userdata('is_loggedin')) 
-            redirect(base_url());
-        $this->data = array(
-            "error" => false,
-            "message" => ""
-        );
+            redirect(base_url());   
         if($this->input->post()){
             $username=$this->input->post('userName');
             $password=$this->input->post('password');
             $type_array=$this->login_model->get_user_type($username);
-            $user_type=$type_array['type'];
+            $user_type=$type_array['type'];  
             $data = $this->login_model->user_login($username,$password,$user_type);
-         
             if($data){
                 if($data->active){
                     if($data->is_new && ($data->type == 1)){
@@ -55,7 +51,7 @@ class Login extends CI_Controller {
                             $user_type='City_head';
                             break;
                         
-                    }
+                    }  
                     if( $user_type == 'user')
                     { 
                         $date1 = date('Y-m-d',strtotime($data->login_time));
@@ -69,14 +65,7 @@ class Login extends CI_Controller {
                             $bool = $this->login_model->updateWhere($where1,'user',$data1);
                            
                         }
-                    }
-					if($user_type=='admin')
-			{
-				$this->data['error'] = true;
-                $this->data['message'] = "Oops! Invalid Username/Password"; 
-			 
-			}else{
-                    $newdata = array(
+                        $newdata = array(
                         'user_id' => $data->id,
                         'username'  => $username,
                         'user_email' => $data->email,
@@ -94,15 +83,12 @@ class Login extends CI_Controller {
                     $this->session->set_userdata($newdata);
                     //-- permission ----
                     $this->getPermission($this->session->userdata('user_id'));
+                    }
+                    else
+                    {
+                        $this->session->set_flashdata('error', 'Only Users Can Login Using This App');
 
-                    /*if($data->type == 1){
-                        if($this->callback_model->check_yesterdays_dar($data->id) == 0){
-                            $this->session->set_userdata('dar_flag', 1);
-                            redirect(base_url('generate_dar'));
-                        }
-                    }*/
-                    redirect(base_url());
-					}
+                    }
                 }
                 else{
                     $this->data['error'] = true;

@@ -7,16 +7,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <link href="<?=base_url('assets/');?>css/bootstrap.min.css" rel='stylesheet' type='text/css' />
     <!-- Custom CSS -->
-    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link href="<?=base_url('assets/');?>css/style.css" rel='stylesheet' type='text/css' />
     <!-- Graph CSS -->
-    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="<?=base_url('assets/');?>css/font-awesome.css" rel="stylesheet">
     <!-- jQuery -->
 
-    <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
+    <link rel="stylesheet" href="<?=base_url('assets/');?>css/icon-font.min.css" type='text/css' />
     <!-- //lined-icons -->
-    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="<?=base_url('assets/');?>js/jquery-1.10.2.min.js"></script>
     <!--clock init-->
 </head>
 <style>
@@ -30,7 +30,28 @@
 
 <body>
 
+
     <div class="error_page">
+        <?php
+    if ($this->session->flashdata('success')) {
+        ?>
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <strong style="color: #3c763d;"><i class="fa fa-save" aria-hidden="true"></i></strong> <span
+                    style="color: #3c763d;"><?= $this->session->flashdata('success') ?></span>
+        </div>
+        <?php
+    }
+    if ($this->session->flashdata('error')) {
+        ?>
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <strong style="color: #a94442;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></strong> <span
+                    style="color: #a94442;"><?= $this->session->flashdata('error') ?></span>
+        </div>
+        <?php
+    } 
+    ?>
 
         <div class="error-top">
             <h2 class="inner-tittle page"></h2>
@@ -38,17 +59,15 @@
                 <h3 class="inner-tittle t-inner">FBP Login</h3>
                 <div class="buttons login">
                     <ul>
-                        <a href="login.html"><img src="images/logo.png"></a>
+                        <a href="login.html"><img src="<?=base_url('assets/');?>images/logo.png"></a>
                         <div class="clearfix"></div>
                     </ul>
                 </div>
-                <form>
-                    <input type="text" class="text" value="E-mail address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'E-mail address';}">
-                    <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
-
-                    <button class="btn btn-success">
-                        <a href="splash-screen.html" style="color: aliceblue;">Login</a>
-                    </button>
+                <form action="<?php echo base_url()?>login" method="POST" enctype="multipart/form-data" role="form" autocomplete="off">
+                    <input type="text" class="text" value="username" name="userName" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'username';}">
+                    <input type="password" value="Password" name="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+ 
+                    <input type="submit" class="btn btn-success"name="login" value="Login">
                     <div class="clearfix"></div>
 
                     <div class="new">
