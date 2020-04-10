@@ -1,24 +1,8 @@
-<<<<<<< HEAD
-<!DOCTYPE HTML>
-<html>
-
+ 
 <?php
 $this->load->view('inc/header');
 ?>
-<style>
-    .error_page {
-        background: #052963;
-        position: relative;
-        padding: 11em 0;
-        width: 100%;
-    }
-</style>
-
-=======
-<?php
-$this->load->view('inc/header');
-?>
->>>>>>> 981dcb1ba7aca62ce34ffc7687d278d2fd701ea8
+ 
 <body>
 
 

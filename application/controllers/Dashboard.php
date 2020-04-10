@@ -51,10 +51,10 @@ class Dashboard extends CI_Controller {
 
 
 
-	public function index() {      
+	public function home() {      
         $this->load->view('login_welcome');
 	}
-    public function home($value='')
+    public function index($value='')
     {
         $data['name'] = "index";
         $data['user_id'] = $this->session->userdata('user_id');
