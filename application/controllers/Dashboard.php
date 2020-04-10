@@ -1305,4 +1305,7 @@ class Dashboard extends CI_Controller {
                 }
             }
         }
+        public function call_for_the_day($value='')
+        {
+           $this->load->view("call_for_the_day");        }
 }

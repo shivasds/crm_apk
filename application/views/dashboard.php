@@ -26,7 +26,7 @@
             <div class="content"></div>
 
             <div class="grid-icons grid-icons-3">
-                <a href="calls.html" class="bg-gradient-magenta1 round-small  scale-hover">
+                <a href="<?=base_url('dashboard/call_for_the_day');?>" class="bg-gradient-magenta1 round-small  scale-hover">
                     <i class="fas fa-phone-volume"></i>
                     <span>Call for the day</span>
                 </a>

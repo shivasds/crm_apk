@@ -4,21 +4,21 @@
                     <a href="#" class="close-menu icon icon-xs float-right"><i class="fa fa-times-circle color-red2-light font-24"></i></a>
                 </div>
                 <div class="down top-30">
-                    <a><img src="<?=base_url('assets/')?>images/admin.jpg"></a>
-                    <a><span class=" name-caret">Jasmin Leo</span></a>
-                    <p>Sample User</p>
+                    <a><img src="https://newcrm.fullbasketproperty.com/uploads/<?= $this->session->userdata('profile_pic');?>"></a>
+                    <a ><span class=" name-caret" style="color: black !important;"><?= $this->session->userdata('user_name');?></span></a>
+                    <p style="color: black !important;">RM : <?= $this->session->userdata('manager_name');?> </p>
 
                 </div>
 
             </div>
             <div class="content">
                 <!-- <div class="divider top-10"></div> -->
-                <p> Here all the details will be here of user</p>
+                <!-- <p> Here all the details will be here of user</p> -->
                 <ul>
-                    <li>user code</li>
-                    <li>id</li>
-                    <li>post</li>
-                    <li>Last log-in time</li>
+                 <!--  <li>Email : <?= $this->session->userdata('user_email');?></li> -->
+                     <li>Mobile : <?= $this->session->userdata('user_mobile');?></li>
+                     <li>Employee Code : <?= $this->session->userdata('user_emp_code');?></li>  
+                    <li>Last Login : <?= $this->session->userdata('last_login');?></li>
                 </ul>
                 <div class="divider top-10"></div>
                 <a href="<?=base_url('login/logout')?>" class=" button button-full button-m button-margins round-small bg-red2-dark bottom-30">Log out</a>
