@@ -50,142 +50,134 @@ $this->load->view('inc/header');
             <div class="divider divider-margins"></div>
 
             <div class="content">
-                <h5>Todays Call</h5>
-                <p class="bottom-25">
-                  Want to Call Back ..
-                </p>
-            </div>
+           
+           
+                <div class="content-title has-border border-highlight bottom-18">
+                        <h3>Todays Call</h3>
+                        <p class="bottom-25">
+                        Want to Call Back ..
+                    </p>
+                        <a href="#" class="color-highlight"><i class="fa fa-chevron-down"></i></a>
+                </div>
 
-            <div class="">
-                <table id="example" class="display" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>Customer Name</th>
-                            <th>Project</th>
-                            <th>Status</th>
-                            <th>Call</th>
-                            <th>Info</th>
+                <div class="">
+                    <table id="example" class="display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Customer Name</th>
+                                <th>Project</th>
+                                <th>Status</th>
+                                <th>Call</th>
+                                <th>Info</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                    <td>Airi Satou</td>
+                                    <td>Accountant</td>
+                                    <td>Tokyo</td>
+                                    <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
+                                    <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
                             
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                                <td>Airi Satou</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td><a href="#myModal" data-toggle="modal" data-target="#myModalcall"><i class="fas fa-phone color-green1-dark"></i></a></td>
-                                <td><a href="#myModal" data-toggle="modal" data-target="#myModal"><i class="fas fa-info-circle color-green1-dark"></i></a></td>
-                        
+                                
+                                </tr>
+                            <tr>
+                                <td>Tiger Nixon</td>
+                                <td>System Architect</td>
+                                <td>Edinburgh</td>
+                                <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
+                                <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
                             
                             </tr>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td><a href="#myModal" data-toggle="modal" data-target="#myModalcall"><i class="fas fa-phone color-green1-dark"></i></a></td>
-                            <td><a href="#myModal" data-toggle="modal" data-target="#myModal"><i class="fas fa-info-circle color-green1-dark"></i></a></td>
-                           
-                        </tr>
-                        <tr>
-                            <td>Garrett Winters</td>
-                            <td>Accountant</td>
-                            <td>Tokyo</td>
-                             <td><a href="#myModal" data-toggle="modal" data-target="#myModalcall"><i class="fas fa-phone color-green1-dark"></i></a></td>
-                         
-                            <td><a href="#myModal" data-toggle="modal" data-target="#myModal"><i class="fas fa-info-circle color-green1-dark"></i></a></td>
-                       
+                            <tr>
+                                <td>Garrett Winters</td>
+                                <td>Accountant</td>
+                                <td>Tokyo</td>
+                                <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
+                                <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
                             
-                        </tr>
-                        <tr>
-                            <td>Ashton Cox</td>
-                            <td>Junior Technical Author</td>
-                            <td>San Francisco</td>
-                             <td><a href="#myModal" data-toggle="modal" data-target="#myModalcall"><i class="fas fa-phone color-green1-dark"></i></a></td>
-                         
-                            <td><a href="#myModal" data-toggle="modal" data-target="#myModal"><i class="fas fa-info-circle color-green1-dark"></i></a></td>
-                       
-                          
-                        </tr>
-                        <tr>
-                            <td>Cedric Kelly</td>
-                            <td>Senior Javascript Developer</td>
-                            <td>Edinburgh</td>
-                             <td><a href="#myModal" data-toggle="modal" data-target="#myModalcall"><i class="fas fa-phone color-green1-dark"></i></a></td>
-                         
-                            <td><a href="#myModal" data-toggle="modal" data-target="#myModal"><i class="fas fa-info-circle color-green1-dark"></i></a></td>
-                       
+                                
+                            </tr>
+                            <tr>
+                                <td>Ashton Cox</td>
+                                <td>Junior Technical Author</td>
+                                <td>San Francisco</td>
+                                <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
+                                <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
                             
-                        </tr>
-                       
-                        <tr>
-                            <td>Brielle Williamson</td>
-                            <td>Integration Specialist</td>
-                            <td>New York</td>
-                             <td><a href="#myModal" data-toggle="modal" data-target="#myModalcall"><i class="fas fa-phone color-green1-dark"></i></a></td>
-                         
-                            <td><a href="#myModal" data-toggle="modal" data-target="#myModal"><i class="fas fa-info-circle color-green1-dark"></i></a></td>
-                       
-                           
-                        </tr>
-                        <tr>
-                            <td>Herrod Chandler</td>
-                            <td>Sales Assistant</td>
-                            <td>San Francisco</td>
-                             <td><a href="#myModal" data-toggle="modal" data-target="#myModalcall"><i class="fas fa-phone color-green1-dark"></i></a></td>
-                         
-                            <td><a href="#myModal" data-toggle="modal" data-target="#myModal"><i class="fas fa-info-circle color-green1-dark"></i></a></td>
-                       
-                           
-                        </tr>
-                        <tr>
-                            <td>Rhona Davidson</td>
-                            <td>Integration Specialist</td>
-                            <td>Tokyo</td>
-                             <td><a href="#myModal" data-toggle="modal" data-target="#myModalcall"><i class="fas fa-phone color-green1-dark"></i></a></td>
-                         
-                            <td><a href="#myModal" data-toggle="modal" data-target="#myModal"><i class="fas fa-info-circle color-green1-dark"></i></a></td>
-                       
-                         
-                        </tr>
-                        <tr>
-                            <td>Herrod Chandler</td>
-                            <td>Sales Assistant</td>
-                            <td>San Francisco</td>
-                             <td><a href="#myModal" data-toggle="modal" data-target="#myModalcall"><i class="fas fa-phone color-green1-dark"></i></a></td>
-                         
-                            <td><a href="#myModal" data-toggle="modal" data-target="#myModal"><i class="fas fa-info-circle color-green1-dark"></i></a></td>
-                       
-                           
-                        </tr>
-                        <tr>
-                            <td>Rhona Davidson</td>
-                            <td>Integration Specialist</td>
-                            <td>Tokyo</td>
-                             <td><a href="#myModal" data-toggle="modal" data-target="#myModalcall"><i class="fas fa-phone color-green1-dark"></i></a></td>
-                         
-                            <td><a href="#myModal" data-toggle="modal" data-target="#myModal"><i class="fas fa-info-circle color-green1-dark"></i></a></td>
-                       
-                         
-                        </tr>
+                            
+                            </tr>
+                            <tr>
+                                <td>Cedric Kelly</td>
+                                <td>Senior Javascript Developer</td>
+                                <td>Edinburgh</td>
+                                <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
+                                <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
+                            
+                            </tr>
+                        
+                            <tr>
+                                <td>Brielle Williamson</td>
+                                <td>Integration Specialist</td>
+                                <td>New York</td>
+                                <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
+                                <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
+                            
+                            
+                            </tr>
+                            <tr>
+                                <td>Herrod Chandler</td>
+                                <td>Sales Assistant</td>
+                                <td>San Francisco</td>
+                                <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
+                                <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
+                            
+                            </tr>
+                            <tr>
+                                <td>Rhona Davidson</td>
+                                <td>Integration Specialist</td>
+                                <td>Tokyo</td>
+                                <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
+                                <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
+                            
+                            
+                            </tr>
+                            <tr>
+                                <td>Herrod Chandler</td>
+                                <td>Sales Assistant</td>
+                                <td>San Francisco</td>
+                                <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
+                                <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
+                            
+                            
+                            </tr>
+                            <tr>
+                                <td>Rhona Davidson</td>
+                                <td>Integration Specialist</td>
+                                <td>Tokyo</td>
+                                <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
+                                <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
+                            
+                            </tr>
 
-                        <tr>
-                            <td>Brielle Williamson</td>
-                            <td>Integration Specialist</td>
-                            <td>New York</td>
-                             <td><a href="#myModal" data-toggle="modal" data-target="#myModalcall"><i class="fas fa-phone color-green1-dark"></i></a></td>
-                         
-                            <td><a href="#myModal" data-toggle="modal" data-target="#myModal"><i class="fas fa-info-circle color-green1-dark"></i></a></td>
-                       
-                           
-                        </tr>
-                       
-                     
+                            <tr>
+                                <td>Brielle Williamson</td>
+                                <td>Integration Specialist</td>
+                                <td>New York</td>
+                                <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
+                                <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
+                            
+                            </tr>
+                        
+                        
 
-                    </tbody>
+                        </tbody>
 
-                </table>
+                    </table>
+                </div>
+
             </div>
-
         </div>
        <!-- Profile -->
        <?php

@@ -48,8 +48,8 @@ $this->load->view('inc/header');
             padding: 15px;
         }
         a {
-    color: #337ab7!important;
-    text-decoration: none;
+            color: #337ab7!important;
+            text-decoration: none;
         }
         td, th {
             padding: 0;
@@ -72,8 +72,10 @@ $this->load->view('inc/header');
             <div class="divider divider-margins"></div>
 
             <div class="content">
-                <h5>Todays Due Call</h5>
-               
+            
+            <div class="content-title has-border border-highlight bottom-18">
+                    <h3>Todays Due Call</h3>
+                    <a href="#" class="color-highlight"><i class="fa fa-chevron-down"></i></a>
             </div>
 
             <div class="">
@@ -128,7 +130,7 @@ $this->load->view('inc/header');
              </div>
 
         </div>
-         
+        </div>
        <!-- Profile -->
        <?php
             $this->load->view('profile');
