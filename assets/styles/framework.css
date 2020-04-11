@@ -315,7 +315,7 @@ h5,
 h6 {
     margin-bottom: 5px;
     letter-spacing: -.9px;
-    font-weight: 700;
+    font-weight: 500;
     font-family: ibm plex sans, sans-serif
 }
 
@@ -349,7 +349,7 @@ h4 {
 }
 
 h5 {
-    font-size: 17px;
+    font-size: 15px;
     line-height: 22px
 }
 
@@ -4885,7 +4885,7 @@ input[type=file] {
 }
 
 .search-page .search-result-list {
-    min-height: 80px;
+    min-height: 50px;
     margin-bottom: 20px
 }
 
@@ -4896,8 +4896,8 @@ input[type=file] {
 }
 
 .search-page .search-results h1 {
-    font-size: 15px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 500;
     /* padding-left: 100px; */
     margin-bottom: 0
 }
@@ -4915,7 +4915,8 @@ input[type=file] {
     height: 30px;
     line-height: 31px;
     padding: 0 12px;
-    top: 50%;
+    /* top: 50%; */
+    top: 25%;
     transform: translateY(-50%);
     color: #fff;
     font-size: 10px;

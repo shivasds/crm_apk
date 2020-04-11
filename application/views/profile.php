@@ -4,7 +4,7 @@
                     <a href="#" class="close-menu icon icon-xs float-right"><i class="fa fa-times-circle color-red2-light font-24"></i></a>
                 </div>
                 <div class="down top-30">
-                    <a><img src="https://newcrm.fullbasketproperty.com/uploads/<?= $this->session->userdata('profile_pic');?>"></a>
+                    <a><img src="https://newcrm.fullbasketproperty.com/uploads/<?= $this->session->userdata('profile_pic');?>" style="width: 100px; height: 100px;"></a>
                     <a ><span class=" name-caret" style="color: black !important;"><?= $this->session->userdata('user_name');?></span></a>
                     <p style="color: black !important;">RM : <?= $this->session->userdata('manager_name');?> </p>
 

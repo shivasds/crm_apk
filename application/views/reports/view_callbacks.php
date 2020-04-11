@@ -148,7 +148,8 @@ $this->load->view('inc/header');
         function getrowvalue(id){
             var trid=$(id).parents('tr').children();
              $("#customertdname").text($(trid[1]).text());
-             $("#customertdphone").text($(trid[4]).text());
+             $("#custPhoneancor").text($(trid[4]).text());
+             $("#custPhoneancor").attr("href","tel:+91 "+$(trid[4]).text());
         }
     </script>
 </body>
@@ -160,7 +161,7 @@ $this->load->view('inc/header');
       <div class="modal-content">
       
         <div class="modal-body">
-          <p>Call Now.</p>
+          <p style="margin-bottom: 1px;text-align: center;">Call Now.</p>
           <table>
             <tr>
                 <th>Customer</th>
@@ -168,7 +169,7 @@ $this->load->view('inc/header');
             </tr>
             <tr>
                 <td id="customertdname">abc</td>
-                <td id="customertdphone"><a href="tel:+91 1234567898"><i class="fas fa-phone color-green1-dark"></i></a></td>
+                <td id="customertdphone"><a id= "custPhoneancor" href=""><i class="fas fa-phone color-green1-dark"></i></a></td>
             </tr>
           
             </table>
@@ -188,7 +189,7 @@ $this->load->view('inc/header');
       <div class="modal-content">
       
         <div class="modal-body">
-          <p>Notes</p>
+          <p style="margin-bottom: 1px;text-align: center;">Notes</p>
           <table>
             <tr>
                 <th>Read Previos Note</th>
