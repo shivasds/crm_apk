@@ -929,7 +929,7 @@ h5 {
     pointer-events: none!important
 }
 
-.preload-spinner {
+/* .preload-spinner {
     animation: preload-spin1 1.2s ease infinite;
     clip: rect(0, 40px, 40px, 20px);
     height: 40px;
@@ -952,7 +952,7 @@ h5 {
     border-style: solid;
     border-width: 3px;
     border-color: inherit
-}
+} */
 
 @keyframes preload-spin1 {
     25% {
@@ -987,7 +987,7 @@ h5 {
 .preload-full:after {
     border-width: 20px
 }
-
+/* 
 .bg-0 {
     background-image: url(../images/pictures/0t.jpg)
 }
@@ -1110,14 +1110,14 @@ h5 {
 
 .bg-30 {
     background-image: url(../images/pictures/30.jpg)
-}
+} */
 
 .bg-menu {
     background-image: url(../images/bg1.jpg)
 }
 
 .bg-login {
-    background-image: url(../images/pictures_vertical/bg1.jpg)
+    background-image: url(../assets/images/bg1.jpg)
 }
 
 .divider {

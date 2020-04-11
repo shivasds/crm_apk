@@ -102,20 +102,40 @@
       
         <div class="modal-body">
           <p  style="margin-bottom: 8px; text-align: center;">Call Now.</p>
-          <table>
-            <tr>
-                <th>Customer</th>
-                <th>Number</th>
-            </tr>
-            <tr>
-                <td>abc</td>
-                <td><a href="tel:+91 1234567898"><i class="fas fa-phone color-green1-dark"></i></a></td>
-            </tr>
-            <tr>
-                <td>abc</td>
-                <td><a href="tel:+91 1234567898"><i class="fas fa-phone color-green1-dark"></i></a></td>
-            </tr>
-            </table>
+          <form action="contact.php" method="post" class="contactForm" id="contactForm">
+            <span class="color-highlight">Here is your Formate to register client</span>
+            top-10
+            <fieldset>
+                   <div class="input-style input-style-2 has-icon input-required">
+                    <i class="input-icon fa fa-user"></i>
+                    <span>Name</span>
+                    <em>(required)</em>
+                    <input type="name" placeholder="">
+                    </div>
+
+                    <div class="input-style input-style-2 input-required">
+                        <span>Phone</span>
+                        <em>(required)</em>
+                        <input type="Phone" placeholder="">
+                    </div>
+
+                    <div class="input-style input-style-2 input-required">
+                        <span>Email</span>
+                        <em>(required)</em>
+                        <input type="email" placeholder="">
+                    </div>
+
+                    <div class="input-style input-style-2 form-field form-text input-required">
+                    <span>Preformat text</span>
+                    <em>(required)</em>
+                    <textarea name="PreformatTextarea" class="Preformatarea requiredField" id="PreformatTextarea"></textarea>
+                    </div>
+
+                   <div class="form-button">
+                    <input type="submit" class="button bg-highlight button-m button-full round-small shadow-huge bottom-0 contactSubmitButton" value="Send Message" data-formId="contactForm" />
+                    </div>
+            </fieldset>
+        </form>
             
         </div>
        
