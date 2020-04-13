@@ -135,6 +135,7 @@ $CI=&get_instance();
 
         </div>
         </div>
+        <div style="margin-bottom: 60px">
        <!-- Profile -->
        <?php
             $this->load->view('profile');
