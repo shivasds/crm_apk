@@ -89,6 +89,7 @@ $CI=&get_instance();
                             <th>Status</th>
                             <th class="hidden"></th>
                             <th>Call</th>
+                            <th class="hidden"></th>
                             <th>Info</th>
                             
                         </tr>
@@ -109,7 +110,7 @@ $CI=&get_instance();
                             <td><?php echo $data->status_name; ?></td>
                             <td class="hidden"><?php echo $data->contact_no1; ?></td>
                              <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
-                             <td class="hidden"><textarea class="form-control" name="notes" id="previous_callback1" rows="5"  id="comment" readonly><?= $CI->previous_callback_apk($data->id)['previous_callback']?></textarea></td>
+                             <td class="hidden"><?= $CI->previous_callback_apk($data->id)['previous_callback']?></td>
                             <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-info-circle "></i></button></td>
 
                           
@@ -154,8 +155,8 @@ $CI=&get_instance();
             var trid=$(id).parents('tr').children();
              $("#customertdname").text($(trid[1]).text());
              $(".custPhoneancor").text($(trid[4]).text());
-             $(".custPhonetag").text($(trid[4]).text());
              $(".custPhoneancor").attr("href","tel:+91 "+$(trid[4]).text());
+             $("#previousNotesTxtArea").text($(trid[6]).text());
            
         }
     </script>
@@ -203,14 +204,16 @@ $CI=&get_instance();
                 <th>Add Notes</th>
             </tr>
             <tr>
-                <td class="custPhonetag"><a class= ""><i class="fab fa-readme color-blue-dark"></i></a></td>
-                <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#addnotes" class="icon icon-xs icon-circle shadow-huge bg-icon" data-dismiss="modal"><i class="fas fa-plus-circle "></i></button></td>
+            <td><textarea class="form-control" name="notes" rows="5" cols="30" id="previousNotesTxtArea" readonly></textarea></td>
+            <td>
+                <button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#addnotes" class="icon icon-xs icon-circle shadow-huge bg-icon" data-dismiss="modal">
+                   <i class="fas fa-plus-circle "></i>
+                </button>
+            </td>
+        
                 
             </tr>
-            <tr>
-                <td class="custPhonetag"><a class= ""><i class="fab fa-readme color-blue-dark"></i></a></td>
-                <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#addnotes" class="icon icon-xs icon-circle shadow-huge bg-icon" data-dismiss="modal"><i class="fas fa-plus-circle "></i></button></td>
-            </tr>
+            
             </table>
             
         </div>
@@ -229,9 +232,55 @@ $CI=&get_instance();
       
         <div class="modal-body">
           <p style="margin-bottom: 1px;text-align: center;">Add Notes</p>
-          <table>
-          <textarea class="form-control" name="notes">Lorem ipsum</textarea>
-            </table>
+          <form>
+            <!-- <div class="form-row">
+                <div class="form-group col-md-6">
+                <label for="inputEmail4">Email</label>
+                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                </div>
+                <div class="form-group col-md-6">
+                <label for="inputPassword4">Password</label>
+                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                </div>
+            </div> -->
+            <!-- <div class="form-group">
+                <label for="inputAddress">Address</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            </div>
+            <div class="form-group">
+                <label for="inputAddress2">Address 2</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            </div> -->
+            <div class="form-row">
+               <div class="form-group col-md-6">
+                <label for="inputState">Status</label>
+                <select id="inputState" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>...</option>
+                </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <div class="content reassign accordion-style-2">
+                    <a data-accordion="accordion-content-6" href="#" class="accordion-toggle-last">
+                    <i class="accordion-icon-left fa fa-users  color-blue2-dark"></i>
+                      Reassign Another
+                    <i class="accordion-icon-right fa fa-arrow-down"></i>
+                    </a>
+                    <p id="accordion-content-6" class="accordion-content bottom-10">
+                    This is the accordion content. You can add any content you want to it. Really, anything!
+                    Add images, text, lists, captions or any element you want.
+                    </p>
+                 </div>
+                </div>
+             </div>
+         
+
+                        <div class="fac fac-checkbox fac-blue"><span></span>
+                        <input id="box2-fac-checkbox" type="checkbox" value="1" checked="">
+                        <label for="box2-fac-checkbox">Important</label>
+                        </div>
+            <button type="submit" class="btn btn-primary">Add</button>
+            </form>
             
         </div>
        
