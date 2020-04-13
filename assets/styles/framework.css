@@ -7774,3 +7774,8 @@ html.lb-disable-scrolling {
 .theme-light .header-icon {
     color: #1f1f1f!important
 }
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #1717172b;
+}

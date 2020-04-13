@@ -201,11 +201,12 @@ $this->load->view('inc/header');
             </tr>
             <tr>
                 <td class="custPhonetag"><a class= ""><i class="fab fa-readme color-blue-dark"></i></a></td>
-                <td><a><i class="fas fa-plus-circle color-green1-dark"></i></a></td>
+                <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#addnotes" class="icon icon-xs icon-circle shadow-huge bg-icon" data-dismiss="modal"><i class="fas fa-plus-circle "></i></button></td>
+                
             </tr>
             <tr>
                 <td class="custPhonetag"><a class= ""><i class="fab fa-readme color-blue-dark"></i></a></td>
-                <td><a><i class="fas fa-plus-circle color-green1-dark"></i></a></td>
+                <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#addnotes" class="icon icon-xs icon-circle shadow-huge bg-icon" data-dismiss="modal"><i class="fas fa-plus-circle "></i></button></td>
             </tr>
             </table>
             
@@ -215,3 +216,24 @@ $this->load->view('inc/header');
       
     </div>
   </div>
+
+
+  <div class="modal fade" id="addnotes" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+      
+        <div class="modal-body">
+          <p style="margin-bottom: 1px;text-align: center;">Add Notes</p>
+          <table>
+          <textarea class="form-control" name="notes">Lorem ipsum</textarea>
+            </table>
+            
+        </div>
+       
+      </div>
+      
+    </div>
+  </div>
+  
