@@ -30,8 +30,8 @@ $CI=&get_instance();
  <link rel="stylesheet" type="text/css" href="<?=base_url('assets/')?>styles/framework.css">
   
  <style>
-        
-        .table-scroll th {
+       
+       .table-scroll th {
             padding: 3px 10px;
         }
         
@@ -64,102 +64,110 @@ $CI=&get_instance();
      ?>
        <?php
           $this->load->view('inc/footer');
-
+       ?>
+       <div class="page-content">
+          <?php
               $this->load->view('inc/collapsable_header');
             ?>
             <div class="clearfix"></div>
              <style>
-  @media screen and (min-width: 768px) {
-    modal_
-    .modal-dialog  {
-      width:900px;
-    }
-  }
-  .form-group input[type="checkbox"] {
-    display: none;
-  }
-  .form-group input[type="checkbox"] + .btn-group > label span {
-    width: 20px;
-  }
-  .form-group input[type="checkbox"] + .btn-group > label span:first-child {
-    display: none;
-  }
-  .form-group input[type="checkbox"] + .btn-group > label span:last-child {
-    display: inline-block;   
-  }
-  .form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
-    display: inline-block;
-  }
-  .form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
-    display: none;   
-  }
-  tr.highlight_past td.due_date{
-    background-color: #cc6666 !important;
-  }
-  tr.highlight_now td.due_date{
-    background-color: #e4b13e !important;
-  }
-  tr.highlight_future td.due_date{
-    background-color: #65dc68 !important;
-  }
-  #history_table td {
-    border: 1px solid #aaa;
-    padding: 5px
-    }
-    
-    
-</style>
-
-<br/><br/>
- 
-    <div class="container">
-<table id="example" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%" >
-    <thead>
-        <tr>
-            <th>No</th>
-            <th>Contact Name</th>  
-            <th>Project</th>
-            <th>Status</th>   
-            <th class="hidden"></th>
-            <th>Call</th>
-            <th class="hidden"></th>
-            <th>Info</th>
-        </tr>
-    </thead> 
-    <tbody id="main_body">
-        <?php $i= 1;
-        if ($result) { 
-        if(count($result)>0){
-        foreach ($result as $data) {
-            $duedate = explode(" ", $data->due_date);
-            $duedate = $duedate[0]; ?>
-            <tr id="row<?php echo $i ?>" <?php if(strtotime($duedate)<strtotime('today')){?> class="highlight_past" <?php }elseif(strtotime($duedate) == strtotime('today')) {?> class="highlight_now" <?php }elseif(strtotime($duedate)>strtotime('today')){ ?> class="highlight_future" <?php } ?>>
-                <td><?php echo $i; ?></td>
-                <td><?php echo $data->name; ?></td>
-                <!-- <td><?php echo $data->contact_no1 ?></td>  -->
-                <td><?php echo $data->project_name; ?></td>  
-                <td><?php echo $data->status_name; ?></td> 
-                 <td class="hidden"><?php echo $data->contact_no1; ?></td>
-                             <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
-                             <td class="hidden"><?= $CI->previous_callback_apk($data->id)['previous_callback']?></td>
-                            <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-info-circle "></i></button></td>
-            </tr>
-        <?php $i++; } } }
-          else
-                {
-                    echo "<tr><td colspan=13 align=center>No Data Found</td></tr>";
+                @media screen and (min-width: 768px) {
+                  modal_
+                  .modal-dialog  {
+                    width:900px;
+                  }
                 }
-                ?>
-    </tbody>
-</table>
-<div style="margin-top: 20px">
-             <span class="pull-left"><p>Showing <?php echo ($this->uri->segment(2)) ? $this->uri->segment(2)+1 : 1; ?> to <?= ($this->uri->segment(2)+count($result)); ?> of <?= $totalRecords; ?> entries</p></span>
-              <ul class="pagination pull-right"><?php echo $links; ?></ul> 
-        </div>
-</div> 
-<br/><br/><br/>
+                .form-group input[type="checkbox"] {
+                  display: none;
+                }
+                .form-group input[type="checkbox"] + .btn-group > label span {
+                  width: 20px;
+                }
+                .form-group input[type="checkbox"] + .btn-group > label span:first-child {
+                  display: none;
+                }
+                .form-group input[type="checkbox"] + .btn-group > label span:last-child {
+                  display: inline-block;   
+                }
+                .form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
+                  display: inline-block;
+                }
+                .form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
+                  display: none;   
+                }
+                tr.highlight_past td.due_date{
+                  background-color: #cc6666 !important;
+                }
+                tr.highlight_now td.due_date{
+                  background-color: #e4b13e !important;
+                }
+                tr.highlight_future td.due_date{
+                  background-color: #65dc68 !important;
+                }
+                #history_table td {
+                  border: 1px solid #aaa;
+                  padding: 5px
+                  }
+                  
+    
+             </style>
+           <div class="divider divider-margins"></div>
+   
+            <div class="content">
+                  
+                  <div class="content-title has-border border-highlight bottom-18">
+                          <h3>Heading</h3>
+                          <a href="#" class="color-highlight"><i class="fa fa-chevron-down"></i></a>
+                  </div>
 
-
+                  <div class="">
+                      <table id="example"class="display" style="width:100%">
+                          <thead>
+                              <tr>
+                                  <th>No</th>
+                                  <th>Contact Name</th>  
+                                  <th>Project</th>
+                                  <th>Status</th>   
+                                  <th class="hidden"></th>
+                                  <th>Call</th>
+                                  <th class="hidden"></th>
+                                  <th>Info</th>
+                              </tr>
+                          </thead> 
+                          <tbody id="main_body">
+                              <?php $i= 1;
+                              if ($result) { 
+                              if(count($result)>0){
+                              foreach ($result as $data) {
+                                  $duedate = explode(" ", $data->due_date);
+                                  $duedate = $duedate[0]; ?>
+                                  <tr id="row<?php echo $i ?>" <?php if(strtotime($duedate)<strtotime('today')){?> class="highlight_past" <?php }elseif(strtotime($duedate) == strtotime('today')) {?> class="highlight_now" <?php }elseif(strtotime($duedate)>strtotime('today')){ ?> class="highlight_future" <?php } ?>>
+                                      <td><?php echo $i; ?></td>
+                                      <td><?php echo $data->name; ?></td>
+                                      <!-- <td><?php echo $data->contact_no1 ?></td>  -->
+                                      <td><?php echo $data->project_name; ?></td>  
+                                      <td><?php echo $data->status_name; ?></td> 
+                                      <td class="hidden"><?php echo $data->contact_no1; ?></td>
+                                     <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
+                                     <td class="hidden"><?= $CI->previous_callback_apk($data->id)['previous_callback']?></td>
+                                    <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-info-circle "></i></button></td>
+                                  </tr>
+                              <?php $i++; } } }
+                                else
+                                      {
+                                          echo "<tr><td colspan=13 align=center>No Data Found</td></tr>";
+                                      }
+                                      ?>
+                          </tbody>
+                      </table>
+                      <div style="margin-top: 20px">
+                                  <span class="pull-left"><p>Showing <?php echo ($this->uri->segment(2)) ? $this->uri->segment(2)+1 : 1; ?> to <?= ($this->uri->segment(2)+count($result)); ?> of <?= $totalRecords; ?> entries</p></span>
+                                    <ul class="pagination pull-right"><?php echo $links; ?></ul> 
+                      </div>
+                  </div> 
+            </div>
+       </div>
+       <div style="margin-bottom: 60px">
        <!-- Profile -->
        <?php
             $this->load->view('profile');
@@ -171,7 +179,7 @@ $CI=&get_instance();
 
     <script>
         $(document).ready(function() {
-            $('#examplehide').DataTable({
+            $('#example').DataTable({
                 "sScrollX": true
             });
         });
@@ -187,7 +195,7 @@ $CI=&get_instance();
     </script>
 </body>
 
-<div class="modal fade" id="myModalcall" role="dialog">
+   <div class="modal fade" id="myModalcall" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -230,7 +238,7 @@ $CI=&get_instance();
             </tr>
             <tr>
             <td><textarea class="form-control" name="notes" rows="5" cols="30" id="previousNotesTxtArea" readonly></textarea></td>
-            <td>
+          <td>
                 <button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#addnotes" class="icon icon-xs icon-circle shadow-huge bg-icon" data-dismiss="modal">
                    <i class="fas fa-plus-circle "></i>
                 </button>
@@ -258,24 +266,7 @@ $CI=&get_instance();
         <div class="modal-body">
           <p style="margin-bottom: 1px;text-align: center;">Add Notes</p>
           <form>
-            <!-- <div class="form-row">
-                <div class="form-group col-md-6">
-                <label for="inputEmail4">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-                </div>
-                <div class="form-group col-md-6">
-                <label for="inputPassword4">Password</label>
-                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-                </div>
-            </div> -->
-            <!-- <div class="form-group">
-                <label for="inputAddress">Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-            </div>
-            <div class="form-group">
-                <label for="inputAddress2">Address 2</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-            </div> -->
+           
             <div class="form-row">
                <div class="form-group col-md-6">
                 <label for="inputState">Status</label>

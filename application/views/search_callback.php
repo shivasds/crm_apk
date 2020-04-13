@@ -68,46 +68,44 @@ $CI=&get_instance();
               $this->load->view('inc/collapsable_header');
             ?>
              <style>
-  @media screen and (min-width: 768px) {
-    modal_
-    .modal-dialog  {
-      width:900px;
-    }
-  }
-  .form-group input[type="checkbox"] {
-    display: none;
-  }
-  .form-group input[type="checkbox"] + .btn-group > label span {
-    width: 20px;
-  }
-  .form-group input[type="checkbox"] + .btn-group > label span:first-child {
-    display: none;
-  }
-  .form-group input[type="checkbox"] + .btn-group > label span:last-child {
-    display: inline-block;   
-  }
-  .form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
-    display: inline-block;
-  }
-  .form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
-    display: none;   
-  }
-  tr.highlight_past td.due_date{
-    background-color: #cc6666 !important;
-  }
-  tr.highlight_now td.due_date{
-    background-color: #e4b13e !important;
-  }
-  tr.highlight_future td.due_date{
-    background-color: #65dc68 !important;
-  }
-  #history_table td {
-    border: 1px solid #aaa;
-    padding: 5px
-    }
-    
-    
-</style>
+                  @media screen and (min-width: 768px) {
+                    modal_
+                    .modal-dialog  {
+                      width:900px;
+                    }
+                  }
+                  .form-group input[type="checkbox"] {
+                    display: none;
+                  }
+                  .form-group input[type="checkbox"] + .btn-group > label span {
+                    width: 20px;
+                  }
+                  .form-group input[type="checkbox"] + .btn-group > label span:first-child {
+                    display: none;
+                  }
+                  .form-group input[type="checkbox"] + .btn-group > label span:last-child {
+                    display: inline-block;   
+                  }
+                  .form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
+                    display: inline-block;
+                  }
+                  .form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
+                    display: none;   
+                  }
+                  tr.highlight_past td.due_date{
+                    background-color: #cc6666 !important;
+                  }
+                  tr.highlight_now td.due_date{
+                    background-color: #e4b13e !important;
+                  }
+                  tr.highlight_future td.due_date{
+                    background-color: #65dc68 !important;
+                  }
+                  #history_table td {
+                    border: 1px solid #aaa;
+                    padding: 5px
+                    }
+            </style>
 
 <div class="container">
   <div class="page-header"> 
@@ -135,48 +133,48 @@ $CI=&get_instance();
   </form>
 </div>
 
-<?php 
-if ($_SERVER['REQUEST_METHOD'] == 'POST'){ ?>
+      <?php 
+      if ($_SERVER['REQUEST_METHOD'] == 'POST'){ ?>
     <div class="container">
-<table id="example" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%" >
-    <thead>
-        <tr>
-            <th>No</th>
-            <th>Contact Name</th>  
-            <th>Project</th>
-            <th>Status</th>   
-            <th class="hidden"></th>
-            <th>Call</th>
-            <th class="hidden"></th>
-            <th>Info</th>
-        </tr>
-    </thead> 
-    <tbody id="main_body">
-        <?php $i= 1;
-        if ($result) { 
-        if(count($result)>0){
-        foreach ($result as $data) {
-            $duedate = explode(" ", $data->due_date);
-            $duedate = $duedate[0]; ?>
-            <tr id="row<?php echo $i ?>" <?php if(strtotime($duedate)<strtotime('today')){?> class="highlight_past" <?php }elseif(strtotime($duedate) == strtotime('today')) {?> class="highlight_now" <?php }elseif(strtotime($duedate)>strtotime('today')){ ?> class="highlight_future" <?php } ?>>
-                <td><?php echo $i; ?></td>
-                <td><?php echo $data->name; ?></td>
-                <!-- <td><?php echo $data->contact_no1 ?></td>  -->
-                <td><?php echo $data->project_name; ?></td>  
-                <td><?php echo $data->status_name; ?></td> 
-                 <td class="hidden"><?php echo $data->contact_no1; ?></td>
-                             <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
-                             <td class="hidden"><?= $CI->previous_callback_apk($data->id)['previous_callback']?></td>
-                            <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-info-circle "></i></button></td>
+    <table id="example" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%" >
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Contact Name</th>  
+                <th>Project</th>
+                <th>Status</th>   
+                <th class="hidden"></th>
+                <th>Call</th>
+                <th class="hidden"></th>
+                <th>Info</th>
             </tr>
-        <?php $i++; } } }
-          else
-                {
-                    echo "<tr><td colspan=13 align=center>No Data Found</td></tr>";
-                }
-                ?>
-    </tbody>
-</table>
+        </thead> 
+        <tbody id="main_body">
+            <?php $i= 1;
+            if ($result) { 
+            if(count($result)>0){
+            foreach ($result as $data) {
+                $duedate = explode(" ", $data->due_date);
+                $duedate = $duedate[0]; ?>
+                <tr id="row<?php echo $i ?>" <?php if(strtotime($duedate)<strtotime('today')){?> class="highlight_past" <?php }elseif(strtotime($duedate) == strtotime('today')) {?> class="highlight_now" <?php }elseif(strtotime($duedate)>strtotime('today')){ ?> class="highlight_future" <?php } ?>>
+                    <td><?php echo $i; ?></td>
+                    <td><?php echo $data->name; ?></td>
+                    <!-- <td><?php echo $data->contact_no1 ?></td>  -->
+                    <td><?php echo $data->project_name; ?></td>  
+                    <td><?php echo $data->status_name; ?></td> 
+                    <td class="hidden"><?php echo $data->contact_no1; ?></td>
+                                <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
+                                <td class="hidden"><?= $CI->previous_callback_apk($data->id)['previous_callback']?></td>
+                                <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-info-circle "></i></button></td>
+                </tr>
+            <?php $i++; } } }
+              else
+                    {
+                        echo "<tr><td colspan=13 align=center>No Data Found</td></tr>";
+                    }
+                    ?>
+        </tbody>
+    </table>
 </div>
 <?php } ?>
 <br/><br/><br/>

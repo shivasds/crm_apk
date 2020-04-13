@@ -1924,7 +1924,7 @@
               prefetchBlacklist: ".no-prefetch",
               locationHeader: "X-SmoothState-Location",
               cacheLength: 0,
-              loadingClass: "is-loading",
+            //   loadingClass: "is-loading",
               scroll: !1,
               alterRequest: function(t) {
                   return t

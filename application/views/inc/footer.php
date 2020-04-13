@@ -10,3 +10,4 @@ $nav = $this->uri->segment(1);
             <a href=""><i class="fa fa-bars"></i><span>Menu</span></a>
             <div class="clear"></div>
  </div>
+
