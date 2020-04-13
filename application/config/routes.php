@@ -55,6 +55,7 @@ $route['view_callbacks/(:num)'] = 'dashboard/view_callbacks';
 $route['search_callback'] = 'dashboard/search_callback';
 $route['callbacks'] = 'dashboard/callbacks';
 $route['callbacks/(:num)'] = 'dashboard/callbacks';
+$route['callback-details'] 			= 'dashboard/get_callback_details';
 
 
 

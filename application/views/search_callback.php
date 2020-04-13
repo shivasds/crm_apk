@@ -164,7 +164,7 @@ $CI=&get_instance();
                     <td><?php echo $data->status_name; ?></td> 
                     <td class="hidden"><?php echo $data->contact_no1; ?></td>
                                 <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
-                                <td class="hidden"><?= $CI->previous_callback_apk($data->id)['previous_callback']?></td>
+                                <td class="hidden"></td>
                                 <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-info-circle "></i></button></td>
                 </tr>
             <?php $i++; } } }
