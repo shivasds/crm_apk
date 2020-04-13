@@ -264,14 +264,12 @@ $CI=&get_instance();
                         <label class="label-control">Current Callback</label>
                         <textarea class="form-control" name="notes" rows="5" cols="30" id="previousNotesTxtArea" ></textarea>
                 </div>
-
-                <div class="fac fac-checkbox fac-blue"><span></span>
-                        <input id="box2-fac-checkbox" type="checkbox" value="1" checked="">
-                        <label for="box2-fac-checkbox">Important</label>
-                 </div>
             </div>
 
-                     
+                        <div class="fac fac-checkbox fac-blue"><span></span>
+                        <input id="box2-fac-checkbox" type="checkbox" value="1" checked="">
+                        <label for="box2-fac-checkbox">Important</label>
+                        </div>
             <button type="submit" class="btn btn-primary">Add</button>
             </form>
             
