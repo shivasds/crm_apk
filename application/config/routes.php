@@ -52,6 +52,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'dashboard';
 $route['view_callbacks'] = 'dashboard/view_callbacks';
 $route['view_callbacks/(:num)'] = 'dashboard/view_callbacks';
+$route['search_callback'] = 'dashboard/search_callback';
+$route['callbacks'] = 'dashboard/callbacks';
+$route['callbacks/(:num)'] = 'dashboard/callbacks';
+
+
+
+
+
+
 $route['404_override'] = ''; 
 
 $route['translate_uri_dashes'] = FALSE;

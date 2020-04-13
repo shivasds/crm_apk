@@ -34,11 +34,11 @@
                     <i class="fas fa-headset"></i>
                     <span>Over Due Calls</span>
                 </a>
-                <a href="#" class="bg-gradient-blue2 round-small  scale-hover ">
+                <a href="<?=base_url('search_callback')?>" class="bg-gradient-blue2 round-small  scale-hover ">
                     <i class="fab fa-searchengin"></i>
                     <span>Search</span>
                 </a>
-                <a href="#" class="bg-gradient-blue2 round-small  scale-hover">
+                <a href="<?=base_url('callbacks')?>" class="bg-gradient-blue2 round-small  scale-hover">
                     <i class="fa fa-phone"></i>
                     <span>View Calls</span>
                 </a>
