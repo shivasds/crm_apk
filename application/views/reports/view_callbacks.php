@@ -108,6 +108,7 @@ $CI=&get_instance();
                             <td><?php echo $data->project_name; ?></td>
                             <td><?php echo $data->status_name; ?></td>
                             <td class="hidden"><?php echo $data->contact_no1; ?></td>
+                            <td  onclick="getrowvalue(this)"><?php echo $data->id; ?></td>
                              <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
                              <td class="hidden"><?= $CI->previous_callback_apk($data->id)['previous_callback']?></td>
                             <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-info-circle "></i></button></td>
@@ -155,7 +156,8 @@ $CI=&get_instance();
              $("#customertdname").text($(trid[1]).text());
              $(".custPhoneancor").text($(trid[4]).text());
              $(".custPhoneancor").attr("href","tel:+91 "+$(trid[4]).text());
-             $("#previousNotesTxtArea").text($(trid[6]).text());
+             $("#c_id").text($(trid[5]).text());
+             $("#previousNotesTxtArea").text($(trid[7]).text());
            
         }
     </script>
@@ -202,10 +204,14 @@ $CI=&get_instance();
           <table>
             <tr>
                 <th>Read Previos Note</th>
+                <th>id</th>
                 <th>Add Notes</th>
             </tr>
             <tr>
             <td><textarea class="form-control" name="notes" rows="5" cols="30" id="previousNotesTxtArea" readonly></textarea></td>
+            <td><div class="form-row">
+             <input type="text" name="c_id" id="c_id" value="">
+         </div></td>
             <td>
                 <button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#addnotes" class="icon icon-xs icon-circle shadow-huge bg-icon" data-dismiss="modal">
                    <i class="fas fa-plus-circle "></i>
@@ -233,14 +239,17 @@ $CI=&get_instance();
       
         <div class="modal-body">
           <p style="margin-bottom: 1px;text-align: center;">Add Notes</p>
-          <form>
-  
+          <form method="post" action="<?=base_url('callback-details');?>" name="callback_details" autocomplete="off">
+           
             <div class="form-row">
                <div class="form-group col-md-6">
                     <label for="inputState">Status</label>
-                    <select id="inputState" class="form-control">
-                        <option selected>Choose...</option>
-                        <option>...</option>
+                    <select  class="form-control"  id="m_status" onchange="status(this.value)" name="status_id" required="required">
+                        <option value="">Select</option>
+                        <?php $statuses= $this->common_model->all_active_statuses(); 
+                        foreach( $statuses as $status){ ?>
+                            <option value="<?php echo $status->id; ?>"><?php echo $status->name ?></option>
+                        <?php } ?>           
                     </select>
                 </div>
                 <div class="form-group col-md-6">
@@ -259,17 +268,21 @@ $CI=&get_instance();
                 </div>
                
             </div>
+
             <div class="form-row">
                 <div class="form-group col-md-12">
                         <label class="label-control">Current Callback</label>
-                        <textarea class="form-control" name="notes" rows="5" cols="30" id="previousNotesTxtArea" ></textarea>
+<textarea class="form-control" name="notes" rows="5" id="current_callback1" name="current_callback1" onkeyup="curr(this.value)" placeholder="Please Update Your Changes To Save"></textarea>
                 </div>
             </div>
 
-                        <div class="fac fac-checkbox fac-blue"><span></span>
-                        <input id="box2-fac-checkbox" type="checkbox" value="1" checked="">
-                        <label for="box2-fac-checkbox">Important</label>
-                        </div>
+                        <input type="checkbox" name="important" id="fancy-checkbox-warning" autocomplete="off" />
+                            <div class="btn-group">
+                                
+                                <label for="fancy-checkbox-warning" class="btn btn-default active">
+                                   Important
+                                </label>
+                            </div>
             <button type="submit" class="btn btn-primary">Add</button>
             </form>
             
