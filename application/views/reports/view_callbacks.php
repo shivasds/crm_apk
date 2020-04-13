@@ -108,7 +108,7 @@ $CI=&get_instance();
                             <td><?php echo $data->project_name; ?></td>
                             <td><?php echo $data->status_name; ?></td>
                             <td class="hidden"><?php echo $data->contact_no1; ?></td>
-                            <td  onclick="getrowvalue(this)"><?php echo $data->id; ?></td>
+                            <td  class="hidden" onclick="getrowvalue(this)"><?php echo $data->id; ?></td>
                              <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
                              <td class="hidden"><?= $CI->previous_callback_apk($data->id)['previous_callback']?></td>
                             <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-info-circle "></i></button></td>
@@ -160,6 +160,13 @@ $CI=&get_instance();
              $("#previousNotesTxtArea").text($(trid[7]).text());
            
         }
+
+        function getmodeltablevalue(id)
+        {
+            var trid=$(id).parents('tr').children();
+            $(".addnotesmodalbtn").attr('id',$("#c_id").text());
+            $("#addnotesdivid").text($("#c_id").text());
+        }
     </script>
 
 
@@ -204,16 +211,17 @@ $CI=&get_instance();
           <table>
             <tr>
                 <th>Read Previos Note</th>
-                <th>id</th>
+                <th class="hidden">id</th>
                 <th>Add Notes</th>
             </tr>
             <tr>
             <td><textarea class="form-control" name="notes" rows="5" cols="30" id="previousNotesTxtArea" readonly></textarea></td>
-            <td><div class="form-row">
-             <input type="text" name="c_id" id="c_id" value="">
-         </div></td>
+            <td class="hidden">
+                <div id="c_id"></div>
+            </td>
+
             <td>
-                <button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#addnotes" class="icon icon-xs icon-circle shadow-huge bg-icon" data-dismiss="modal">
+                <button style="cursor:pointer" onclick="getmodeltablevalue(this)" href="#myModal" data-toggle="modal" data-target="#addnotes" class="icon icon-xs icon-circle shadow-huge bg-icon" data-dismiss="modal">
                    <i class="fas fa-plus-circle "></i>
                 </button>
             </td>
@@ -268,11 +276,17 @@ $CI=&get_instance();
                 </div>
                
             </div>
+            <div class="form-row hidden">
+                <div class="form-group col-md-12">
+                        <label class="label-control">id</label>
+                        <input  id="addnotesdivid" name="idoftable" >
+                </div>
+            </div>
 
             <div class="form-row">
                 <div class="form-group col-md-12">
                         <label class="label-control">Current Callback</label>
-<textarea class="form-control" name="notes" rows="5" id="current_callback1" name="current_callback1" onkeyup="curr(this.value)" placeholder="Please Update Your Changes To Save"></textarea>
+                        <textarea class="form-control" name="notes" rows="5" id="current_callback1" name="current_callback1" onkeyup="curr(this.value)" placeholder="Please Update Your Changes To Save"></textarea>
                 </div>
             </div>
 
@@ -283,7 +297,7 @@ $CI=&get_instance();
                                    Important
                                 </label>
                             </div>
-            <button type="submit" class="btn btn-primary">Add</button>
+            <button type="submit" id="" class="btn btn-primary addnotesmodalbtn">Add</button>
             </form>
             
         </div>
