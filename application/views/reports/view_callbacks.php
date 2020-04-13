@@ -26,10 +26,9 @@ $CI=&get_instance();
     die;
      }
     ?>
- 
- <link rel="stylesheet" type="text/css" href="<?=base_url('assets/')?>styles/framework.css">
-  
- <style>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="<?=base_url('assets/')?>styles/framework.css">
+<style>
         
         .table-scroll th {
             padding: 3px 10px;
@@ -160,6 +159,8 @@ $CI=&get_instance();
            
         }
     </script>
+
+
 </body>
 
 <div class="modal fade" id="myModalcall" role="dialog">
@@ -233,31 +234,14 @@ $CI=&get_instance();
         <div class="modal-body">
           <p style="margin-bottom: 1px;text-align: center;">Add Notes</p>
           <form>
-            <!-- <div class="form-row">
-                <div class="form-group col-md-6">
-                <label for="inputEmail4">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-                </div>
-                <div class="form-group col-md-6">
-                <label for="inputPassword4">Password</label>
-                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-                </div>
-            </div> -->
-            <!-- <div class="form-group">
-                <label for="inputAddress">Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-            </div>
-            <div class="form-group">
-                <label for="inputAddress2">Address 2</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-            </div> -->
+  
             <div class="form-row">
                <div class="form-group col-md-6">
-                <label for="inputState">Status</label>
-                <select id="inputState" class="form-control">
-                    <option selected>Choose...</option>
-                    <option>...</option>
-                </select>
+                    <label for="inputState">Status</label>
+                    <select id="inputState" class="form-control">
+                        <option selected>Choose...</option>
+                        <option>...</option>
+                    </select>
                 </div>
                 <div class="form-group col-md-6">
                   <div class="content reassign accordion-style-2">
@@ -266,19 +250,28 @@ $CI=&get_instance();
                       Reassign Another
                     <i class="accordion-icon-right fa fa-arrow-down"></i>
                     </a>
-                    <p id="accordion-content-6" class="accordion-content bottom-10">
-                    This is the accordion content. You can add any content you want to it. Really, anything!
-                    Add images, text, lists, captions or any element you want.
-                    </p>
+
+                    <div id="accordion-content-6" class="accordion-content bottom-10">
+                    <input type="datetime-local" id="birthdaytime" name="birthdaytime">
+                       
+                    </div>
                  </div>
                 </div>
-             </div>
-         
+               
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                        <label class="label-control">Current Callback</label>
+                        <textarea class="form-control" name="notes" rows="5" cols="30" id="previousNotesTxtArea" ></textarea>
+                </div>
 
-                        <div class="fac fac-checkbox fac-blue"><span></span>
+                <div class="fac fac-checkbox fac-blue"><span></span>
                         <input id="box2-fac-checkbox" type="checkbox" value="1" checked="">
                         <label for="box2-fac-checkbox">Important</label>
-                        </div>
+                 </div>
+            </div>
+
+                     
             <button type="submit" class="btn btn-primary">Add</button>
             </form>
             
@@ -288,4 +281,3 @@ $CI=&get_instance();
       
     </div>
   </div>
-  
