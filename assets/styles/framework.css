@@ -3602,11 +3602,11 @@ h5 {
 .grid-icons a i {
     color: #fff;
     font-size: 32px;
-    line-height: 40px;
+    line-height: 23px;
     text-align: center;
     display: block;
     padding-top: 40px;
-    padding-bottom: 15px
+    padding-bottom: 15px;
 }
 
 .grid-icons a span {
@@ -3632,12 +3632,13 @@ h5 {
 
 .grid-icons-3 a i {
     font-size: 24px;
-    padding-top: 25px
+    padding-top: 15px;
 }
 
 .grid-icons-3 a span {
     font-size: 12px;
-    padding-bottom: 25px
+    padding-bottom: 39px;
+    height: 45px;
 }
 
 .grid-icons-3 a {

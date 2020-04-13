@@ -48,7 +48,7 @@
                 </a>
                 <a href="#" class="bg-gradient-blue2 round-small  scale-hover">
                     <i class="fa fa-envelope"></i>
-                    <span>Send</span>
+                    <span>Send Thank you Mail</span>
                 </a>
                 <!-- Hidden BUUTONS -->
                 <div class="" id="myDIV" style="display: none;">
