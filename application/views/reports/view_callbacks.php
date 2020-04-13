@@ -108,7 +108,7 @@ $this->load->view('inc/header');
                             <td><?php echo $data->status_name; ?></td>
                             <td class="hidden"><?php echo $data->contact_no1; ?></td>
                              <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
-                            <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-info-circle "></i></button></td>
+                            <td><button style="cursor:pointer"  onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-info-circle "></i></button></td>
                           
                         </tr>
                         <?php $i++; } }
@@ -150,8 +150,10 @@ $this->load->view('inc/header');
         function getrowvalue(id){
             var trid=$(id).parents('tr').children();
              $("#customertdname").text($(trid[1]).text());
-             $("#custPhoneancor").text($(trid[4]).text());
-             $("#custPhoneancor").attr("href","tel:+91 "+$(trid[4]).text());
+             $(".custPhoneancor").text($(trid[4]).text());
+             $(".custPhonetag").text($(trid[4]).text());
+             $(".custPhoneancor").attr("href","tel:+91 "+$(trid[4]).text());
+           
         }
     </script>
 </body>
@@ -171,7 +173,7 @@ $this->load->view('inc/header');
             </tr>
             <tr>
                 <td id="customertdname">abc</td>
-                <td id="customertdphone"><a id= "custPhoneancor" href=""><i class="fas fa-phone color-green1-dark"></i></a></td>
+                <td class="customertdphone"><a class= "custPhoneancor" href=""><i class="fas fa-phone color-green1-dark"></i></a></td>
             </tr>
           
             </table>
@@ -198,11 +200,11 @@ $this->load->view('inc/header');
                 <th>Add Notes</th>
             </tr>
             <tr>
-                <td><a><i class="fab fa-readme color-blue-dark"></i></a></td>
+                <td class="custPhonetag"><a class= ""><i class="fab fa-readme color-blue-dark"></i></a></td>
                 <td><a><i class="fas fa-plus-circle color-green1-dark"></i></a></td>
             </tr>
             <tr>
-                <td><a><i class="fab fa-readme color-blue-dark"></i></a></td>
+                <td class="custPhonetag"><a class= ""><i class="fab fa-readme color-blue-dark"></i></a></td>
                 <td><a><i class="fas fa-plus-circle color-green1-dark"></i></a></td>
             </tr>
             </table>

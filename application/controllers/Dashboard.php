@@ -1019,6 +1019,7 @@ class Dashboard extends CI_Controller {
         $data['result'] = $this->callback_model->search_callback(null,$where,$offset,VIEW_PER_PAGE, null, $for,$report);
 
         //$data['result'] = $this->callback_model->search_callback(null,$where,null,null,null,$for,$report);
+       
         $data['report'] = $report;
         $data['dept'] = $dept;
         $data['city'] = $city;
