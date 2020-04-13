@@ -1307,5 +1307,19 @@ class Dashboard extends CI_Controller {
         }
         public function call_for_the_day($value='')
         {
-           $this->load->view("call_for_the_day");        }
+           $this->load->view("call_for_the_day");       
+        }
+
+        public function previous_callback_apk($id='')
+        {
+        $indiv_callback_data = $this->callback_model->get_callback_data($id); 
+        $previous_callback = "";
+        foreach ($indiv_callback_data as $callback_data) {
+            $previous_callback .= $callback_data->status."****".$callback_data->date_added."****".$callback_data->user;
+            $previous_callback .= "\n---------------------------------\n";
+            $previous_callback .= $callback_data->current_callback."\n\n";
+        }
+        $data['previous_callback'] = $previous_callback;
+        return $data;
+           }
 }

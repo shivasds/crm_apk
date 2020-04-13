@@ -1,5 +1,6 @@
 <?php
 $this->load->view('inc/header');
+$CI=&get_instance();
  
     if(!$this->session->userdata('permissions') && $this->session->userdata('permissions')=='' ) {
     ?>
@@ -106,7 +107,9 @@ $this->load->view('inc/header');
                             <td><?php echo $data->status_name; ?></td>
                             <td class="hidden"><?php echo $data->contact_no1; ?></td>
                              <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
-                            <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-info-circle "></i></button></td>
+                             <td class="hidden"><textarea class="form-control" name="notes" id="previous_callback1" rows="5"  id="comment" readonly><?= $CI->previous_callback_apk($data->id)['previous_callback']?></textarea></td>
+                            <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-info-circle "></i></button></td>
+
                           
                         </tr>
                         <?php $i++; } }
@@ -149,7 +152,7 @@ $this->load->view('inc/header');
             var trid=$(id).parents('tr').children();
              $("#customertdname").text($(trid[1]).text());
              $("#custPhoneancor").text($(trid[4]).text());
-             $("#custPhoneancor").attr("href","tel:+91 "+$(trid[4]).text());
+             $("#custPhoneancor").attr("href","tel: "+$(trid[4]).text());
         }
     </script>
 </body>
@@ -198,11 +201,7 @@ $this->load->view('inc/header');
             <tr>
                 <td><a><i class="fab fa-readme color-blue-dark"></i></a></td>
                 <td><a><i class="fas fa-plus-circle color-green1-dark"></i></a></td>
-            </tr>
-            <tr>
-                <td><a><i class="fab fa-readme color-blue-dark"></i></a></td>
-                <td><a><i class="fas fa-plus-circle color-green1-dark"></i></a></td>
-            </tr>
+            </tr> 
             </table>
             
         </div>
