@@ -27,7 +27,7 @@
   
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="<?=base_url('assets/')?>scripts/plugins.js"></script>
-    <!-- <script type="text/javascript" src="<?=base_url('assets/')?>scripts/custom.js"></script> 
+    <!-- <script type="text/javascript" src="<?=base_url('assets/')?>scripts/custom.js"></script> -->
     <!--clock init-->
 </head>
 <style>

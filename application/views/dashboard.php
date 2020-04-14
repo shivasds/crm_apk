@@ -42,7 +42,7 @@
                     <i class="fa fa-phone"></i>
                     <span>View Calls</span>
                 </a>
-                <a href="#" class="bg-gradient-blue2 round-small  scale-hover">
+                <a href="<?=base_url('dashboard/Registration_email');?>" class="bg-gradient-blue2 round-small  scale-hover">
                     <i class="far fa-registered"></i>
                     <span>Register</span>
                 </a>

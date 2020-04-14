@@ -116,7 +116,7 @@ $CI=&get_instance();
             <div class="content">
                   
                   <div class="content-title has-border border-highlight bottom-18">
-                          <h3>Heading</h3>
+                          <h3>Callbacks</h3>
                           <a href="#" class="color-highlight"><i class="fa fa-chevron-down"></i></a>
                   </div>
 
