@@ -3,35 +3,7 @@ $this->load->view('inc/header');
 
 ?>
  <link rel="stylesheet" type="text/css" href="<?=base_url('assets/')?>styles/framework.css">
-  
- <style>
-       
-       .table-scroll th {
-            padding: 3px 10px;
-        }
-        
-        th {
-            line-height: 25px;
-        }
-        
-        .table-scroll {
-            overflow-x: scroll;
-            padding: 0px 10px;
-        }
-        
-        #example_wrapper {
-            margin-bottom: 40px!important;
-            padding: 15px;
-        }
-        a {
-            color: #337ab7!important;
-            text-decoration: none;
-        }
-        td, th {
-            padding: 0;
-            padding: 9px 4px;
-        }
-    </style>
+
 
 <body class="theme-light" data-highlight="blue2">
     <div id="page">
@@ -59,14 +31,14 @@ $this->load->view('inc/header');
             <div class="content">
                    <div class="content-title has-border border-highlight bottom-18">
                           <h3>Callbacks</h3>
-                           <a href="#" class="color-highlight"><i class="fa fa-chevron-down"></i></a>
+                        
                   </div>
 
                   <div class="">
                       <table id="tableexample"class="display" style="width:100%">
                           <thead>
                               <tr>
-                                  <th>No</th>
+                                  <th class="hidden">No</th>
                                   <th>Contact Name</th>  
                                   <th>Project</th>
                                   <th>Status</th> 
@@ -85,7 +57,7 @@ $this->load->view('inc/header');
                                   $duedate = $duedate[0];  
                                   ?>
                                   <tr id="row<?php echo $i ?>" <?php if(strtotime($duedate)<strtotime('today')){?> class="highlight_past" <?php }elseif(strtotime($duedate) == strtotime('today')) {?> class="highlight_now" <?php }elseif(strtotime($duedate)>strtotime('today')){ ?> class="highlight_future" <?php } ?>>
-                                      <td><?php echo $i; ?></td>
+                                      <td class="hidden"><?php echo $i; ?></td>
                                       <td><?php echo $data->name; ?></td>
                                       <td><?php echo $data->project_name; ?></td>  
                                       <td class="<?php echo $data->status_name; ?>"><?php echo $data->status_name; ?></td> 
@@ -178,8 +150,9 @@ $this->load->view('inc/header');
     <script>
         $(document).ready(function() {
             $('#tableexample').DataTable({
-                pagingType: "simple",
-                //"sScrollY": "200px",
+                "bInfo": false, //Dont display info e.g. "Showing 1 to 4 of 4 entries"
+                    "paging": false,//Dont want paging                
+                    "bPaginate": false,//Dont want paging 
                 "sScrollX": true
             });
         });
