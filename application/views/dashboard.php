@@ -45,14 +45,14 @@
                     <i class="fa fa-phone"></i>
                     <span>View Calls</span>
                 </a>
-                <a href="<?=base_url('dashboard/Registration_email');?>" class="bg-gradient-blue2 round-small  scale-hover">
+               <!--  <a href="<?=base_url('dashboard/Registration_email');?>" class="bg-gradient-blue2 round-small  scale-hover">
                     <i class="far fa-registered"></i>
                     <span>Register</span>
                 </a>
                 <a href="<?=base_url('thankyou_mail')?>" class="bg-gradient-blue2 round-small  scale-hover">
                     <i class="fa fa-envelope"></i>
                     <span>Send Thank you Mail</span>
-                </a>
+                </a> -->
                 <!-- Hidden BUUTONS -->
                 <div class="" id="myDIV" style="display: none;">
                     <a href="#" class="bg-gradient-blue2 round-small  scale-hover">

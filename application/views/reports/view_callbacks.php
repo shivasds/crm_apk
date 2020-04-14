@@ -107,10 +107,18 @@ $this->load->view('inc/header');
                 </table>
 
             </div>
+            <?php
+            if(is_numeric($this->uri->segment(2)))
+            {
+            ?>
             <div style="margin-top: 20px">
                 <span class="pull-left"><p>Showing <?php echo ($this->uri->segment(2)) ? $this->uri->segment(2)+1 : 1; ?> to <?= ($this->uri->segment(2)+count($result)); ?> of <?= $totalRecords ; ?> entries</p></span>
                 <ul class="pagination pull-right"><?php echo $links; ?></ul>
              </div>
+             <?php
+
+            } 
+            ?>
 
         </div>
         </div>
