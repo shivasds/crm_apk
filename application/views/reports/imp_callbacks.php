@@ -64,11 +64,7 @@ $CI=&get_instance();
        <?php
           $this->load->view('inc/footer');
        ?>
-    <!-- Profile -->
-    <?php
-         $this->load->view('profile');
 
-        ?>
         <div class="page-content">
             <?php
               $this->load->view('inc/collapsable_header');
@@ -85,62 +81,57 @@ $CI=&get_instance();
             <div class="">
                 <table id="examplehide" class="display" style="width:100%">
                     <thead>
-                        <tr>
-                            <th>S.No</th>
+                        <tr> 
                             <th>Customer Name</th>
-                            <th>Project</th>
-                            <th>Status</th>
-                            <th class="hidden"></th>
-                            <th>Call</th>
-                            <th class="hidden"></th>
-                            <th>Info</th>
+                            <th>Assigned User</th>
+                            <th>Email</th> 
+                            <th>    Last added Note</th> 
                             
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                        $i= 1; 
-                      if(count($result)>0){
-                         foreach ($result as $data) {
-                        $duedate = explode(" ", $data->due_date);
-                        $duedate = $duedate[0]; 
-                        ?>
+                                                <?php
 
-                       <tr id="row<?php echo $data->id; ?>" <?php if(strtotime($duedate)<strtotime('today')){?> class="highlight_past" <?php }elseif(strtotime($duedate) == strtotime('today')) {?> class="highlight_now" <?php }elseif(strtotime($duedate)>strtotime('today')){ ?> class="highlight_future" <?php } ?>>
-                             <td><?php echo $i; ?></td>
-                            <td><?php echo $data->name; ?></td>
-                            <td><?php echo $data->project_name; ?></td>
-                            <td><?php echo $data->status_name; ?></td>
-                            <td class="hidden"><?php echo $data->contact_no1; ?></td>
-                            <td  class="hidden" onclick="getrowvalue(this)"><?php echo $data->id; ?></td>
-                             <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
-                             <td class="hidden"><?= $CI->previous_callback_apk($data->id)['previous_callback']?></td>
-                            <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-info-circle "></i></button></td>
+                                                                                            if(count($imp_callbacks)>0)
+                                                                                            {
+                                                                                              foreach ($imp_callbacks as $callback) { ?>
+                                                                                            
+                                        <tr>
+                                            <td><a href="<?php echo base_url().'dashboard/view_callbacks/'.$user_id; ?>" data-type="user_important" data-id="<?php echo $callback->id; ?>"><?php echo $callback->name; ?></a></td>
+                                            <td><?php echo $callback->user_name; ?></td>
+                                            <td>
+                                                <?php 
+                                                    echo $callback->email1; 
+                                                    if($callback->email2)
+                                                        echo ", ".$callback->email2;
+                                                ?>
+                                            </td>
+                                            <td><?php echo $callback->last_note; ?></td>
+                                        </tr>
+                                    <?php }
+                                }
+                                 else
+                                        echo '<tr><td colspan="3">No records found!</td></tr>';
 
-                          
-                        </tr>
-                        <?php $i++; } }
-                        else
-                        {
-                            echo "<tr><td colspan='6'> No Data Available</td></tr>";
-                        }
-
-                        ?>
+                                     ?>
                          
                     </tbody>
 
                 </table>
 
             </div>
-            <div style="margin-top: 20px">
-                <span class="pull-left"><p>Showing <?php echo ($this->uri->segment(2)) ? $this->uri->segment(2)+1 : 1; ?> to <?= ($this->uri->segment(2)+count($result)); ?> of <?= $totalRecords ; ?> entries</p></span>
+            <!-- <div style="margin-top: 20px">
+                <span class="pull-left"><p>Showing <?php echo ($this->uri->segment(2)) ? $this->uri->segment(2)+1 : 1; ?> to <?= ($this->uri->segment(2)+count($imp_callbacks)); ?> of <?= $totalRecords ; ?> entries</p></span>
                 <ul class="pagination pull-right"><?php echo $links; ?></ul>
-             </div>
+             </div> -->
 
         </div>
         </div>
-        <div style="margin-bottom: 60px">
-     
+       <!-- Profile -->
+       <?php
+            $this->load->view('profile');
+
+        ?>
         <div class="menu-hider"></div>
     </div>
    
@@ -169,14 +160,6 @@ $CI=&get_instance();
             $("#addnotesdivid").val($("#c_id").text());
         }
     </script>
-
-    <script>
-          function hello(){
-                $(".accordion-content").show();
-                $(this).html('<i class="accordion-icon-right fa fa-arrow-up"></i>');
-          
-          }
-        </script>
 
 
 </body>
@@ -269,21 +252,20 @@ $CI=&get_instance();
                         <?php } ?>           
                     </select>
                 </div>
-                <div class="form-group col-md-6 showall" onclick="hello()">
-               
-                  <a class="accordion-toggle-last">
+                <div class="form-group col-md-6">
+                  <div class="content reassign accordion-style-2">
+                    <a data-accordion="accordion-content-6" href="#" class="accordion-toggle-last">
                     <i class="accordion-icon-left fa fa-users  color-blue2-dark"></i>
                       Reassign Another
                     <i class="accordion-icon-right fa fa-arrow-down"></i>
                     </a>
 
-                    <div id="accordion-content-6" class="accordion-content mt-5 bottom-10">
-                       <input type="datetime-local" id="birthdaytime" name="birthdaytime">
+                    <div id="accordion-content-6" class="accordion-content bottom-10">
+                    <input type="datetime-local" id="birthdaytime" name="birthdaytime">
                        
                     </div>
                  </div>
-
-               
+                </div>
                
             </div>
             <div class="form-row hidden">

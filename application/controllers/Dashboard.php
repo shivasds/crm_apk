@@ -513,6 +513,16 @@ class Dashboard extends CI_Controller {
 
     public function get_callback_details(){
         $id=$this->input->get('id');
+        if($id)
+        {
+            echo $id."if";
+        }
+        else
+        {
+            $id= $this->input->post("idoftable");
+
+        }
+
         $query=$this->callback_model->get_callback_details($id);
         $data = array(
             'id' =>$id,           
@@ -1323,4 +1333,399 @@ class Dashboard extends CI_Controller {
         $data['previous_callback'] = $previous_callback;
         return $data;
            }
-}
+
+        public function update_callback_details(){
+        $id = $this->input->post('idoftable');
+        $update_data = array(
+            'last_update' => date('Y-m-d H:s:i')
+        );
+         
+        if($this->input->post('status_id'))
+            $update_data['status_id'] = $this->input->post('status_id'); 
+        if($this->input->post('user_id'))
+            $update_data['user_id'] = $this->input->post('user_id');
+        // if($this->input->post('approve')){
+        //     $update_data['active'] = 0;
+        //     $update_data['verified_by'] = $this->session->userdata('user_id');
+        //     $update_data['verified_on'] = date('Y-m-d H:s:i');
+        // }
+
+        /*if($this->input->post('reason_for_dead'))
+            $update_data['reason_for_dead'] = $this->input->post('reason_for_dead');*/
+           // print_r($update_data);die;
+        if($this->input->post('reason_cause'))
+            $update_data['reason_cause'] = $this->input->post('reason_cause');
+
+        if($this->input->post('sitevisit_date') && $this->input->post('sitevisit')){
+            $projects = $this->input->post('sitevisit_project_id');                 
+            if($this->input->post('extrxDataIds') !='') {       //for update the table 
+                $clause = 'id IN ('.$this->input->post('extrxDataIds').')';
+                $this->callback_model->delete_extra_details($clause);
+            }
+            
+            foreach ($projects as $key => $value) {
+                $data=array(
+                    'callback_id'=>$id,
+                    'date'=>$this->input->post('sitevisit_date'),
+                    'project_id'=>$value,
+                    'type'=>'1',
+                    'date_added'=>date('Y-m-d H:s:i'),
+                    'flag'=>1
+                );
+                $query=$this->callback_model->add_extra_details($data);
+
+            }
+        }
+
+        if($this->input->post('sitevisitdone_date') && $this->input->post('sitevisitdone') ){
+            $projects = $this->input->post('sitevisitdone_project_id');
+            foreach ($projects as $key => $value) {
+                $data=array(
+                    'callback_id'=>$id,
+                    'date'=>$this->input->post('sitevisitdone_date'),
+                    'project_id'=>$value,
+                    'type'=>'2',
+                    'date_added'=>date('Y-m-d H:s:i'),
+                );
+                $query=$this->callback_model->add_extra_details($data);
+            }
+            $params = array('flag'=>0);
+            $clause = 'id IN ('.$this->input->post('extrxDataIds').')';
+            $this->callback_model->update_extra_details($params, $clause);
+            $this->session->unset_userdata('siteVisitIds');
+        }
+        if($this->input->post('notdone_date') && $this->input->post('sitevisitnotdone') ){
+            $param=array(
+                'callback_id'=>$id,
+                'date'=>$this->input->post('notdone_date'), 
+                'reason'=>$this->input->post('notdone_reason'), 
+                'type'=>'4',
+                'date_added'=>date('Y-m-d H:s:i'),
+            );
+            $query=$this->callback_model->add_extra_details($param);
+            $params = array('flag'=>0);
+            $clause = 'id IN ('.$this->input->post('extrxDataIds').')';
+            $this->callback_model->update_extra_details($params, $clause);
+            $this->session->unset_userdata('siteVisitIds');
+        }
+
+
+        if($this->input->post('facetoface_date')){
+            $projects = $this->input->post('facetoface_project_id');
+            foreach ($projects as $key => $value) {
+                $data=array(
+                    'callback_id'=>$id,
+                    'date'=>$this->input->post('facetoface_date'),
+                    'project_id'=>$value,
+                    'type'=>'3',
+                    'date_added'=>date('Y-m-d H:s:i'),
+                );
+
+                $query=$this->callback_model->add_extra_details($data);
+            }
+        }
+
+        if($this->input->post('due_date'))
+            $update_data['due_date'] = $this->input->post('due_date');
+
+        if($this->input->post('important') !== null)
+            $update_data['important'] = $this->input->post('important')?1:0;
+        
+        $query = $this->callback_model->update_callback($update_data,$id);
+
+        if(!$this->input->post('user_id') && ($this->session->userdata('user_id') == $this->input->post('current_user_id')) )
+            $this->tracksCallbacks($this->session->userdata('user_id'), $this->session->userdata('user_name'), $id);
+
+        if($this->input->post('status_id')=='5'){
+            $data=array(
+                'callback_id'=>$id,
+                'advisor1_id'=>$this->input->post('advisor1_id'),
+                'advisor2_id'=>$this->input->post('advisor2_id'),
+                'booking'=>$this->input->post('booking'),
+                'booking_month'=>$this->input->post('booking_month'),
+                'closure_date'=>$this->input->post('closure_date'),
+                'customer'=>$this->input->post('customer'),
+                'sub_source_id'=>$this->input->post('sub_source_id'),
+                'project_id'=>$this->input->post('close_project_id'),
+                'sqft_sold'=>$this->input->post('sqft_sold'),
+                'plc_charge'=>$this->input->post('plc_charge'),
+                'floor_rise'=>$this->input->post('floor_rise'),
+                'basic_cost'=>$this->input->post('basic_cost'),
+                'other_cost'=>$this->input->post('other_cost'),
+                'car_park'=>$this->input->post('car_park'),
+                'total_cost'=>$this->input->post('total_cost'),
+                'commission'=>$this->input->post('commission'),
+                'gross_revenue'=>$this->input->post('gross_revenue'),
+                'cash_back'=>$this->input->post('cash_back'),
+                'sub_broker_amo'=>$this->input->post('sub_broker_amo'),
+                'net_revenue'=>$this->input->post('net_revenue'),
+                'share_of_advisor1'=>$this->input->post('share_of_advisor1'),
+                'share_of_advisor2'=>$this->input->post('share_of_advisor2'),
+                'est_month_of_invoice'=> $this->input->post('est_month_of_invoice'),
+                'agreement_status' => $this->input->post('agreement_status'),
+                'project_type' => $this->input->post('project_type'),
+
+            );
+
+            $notification_data = array(
+                'callback_id'=>$id,
+                'user_id'=>$this->session->userdata('user_id'),
+                'project_id'=>$this->input->post('close_project_id')
+            );
+            
+            $this->callback_model->insert_notification($notification_data);
+
+            $query=$this->callback_model->update_callback_details($data,$id);
+        }
+
+        $current_callback=$this->input->post('current_callback');
+        $user_id = $this->session->userdata('user_id');
+        $date_added = date('Y-m-d H:s:i');
+        $ind_callback_data = array(
+            "current_callback" => $current_callback,
+            "user_id" => $user_id,
+            "callback_id" => $id,
+            "status_id" => $this->input->post('status_id'),
+            "date_added" => $date_added
+        );
+        $query = $this->callback_model->add_callback_data($ind_callback_data);
+
+        $data = array(
+            'status' =>true
+        );
+        // header('Content-Type: application/json');
+        // echo json_encode($data);
+        redirect("view_callbacks");
+    }
+    public function imp_callbacks($value='')
+    {
+         $data['user_id'] = $this->session->userdata('user_id');
+       $data['imp_callbacks'] = $this->callback_model->fetch_important_callbacks($data['user_id']);
+       $this->load->view('reports/imp_callbacks',$data);
+    }
+    public function Registration_email($value='')
+    {
+        $data['name'] ="callbacks";
+        $data['heading'] ="Callbacks";
+        $where="";
+        $user_type = $this->session->userdata("user_type");
+        if($this->input->post()){
+            $dept=$this->input->post('dept');
+            $project=$this->input->post('project');
+            $lead_source=$this->input->post('lead_source');
+            $user_name=$this->input->post('user_name');
+            $sub_broker=$this->input->post('sub_broker');
+            $status=$this->input->post('status');
+            $city=$this->input->post('city');
+            $advisor=$this->input->post('advisor');
+            $self=$this->input->post('self');
+            $city_user=$this->input->post('city_user');
+           
+            if($city_user!=null)
+            {
+                $this->session->set_userdata("city_user",$city_user);
+                $where.=" AND cb.user_id=".trim($city_user);
+               // echo $city_user."this is selected user id";die;
+            }
+            if($dept!==null){
+                $this->session->set_userdata("department",$dept);
+                if($dept)
+                    $where.=" AND cb.dept_id=".trim($dept);
+            }
+            if($project!==null){
+                $this->session->set_userdata("project",$project);
+                if($project)
+                    $where.=" AND cb.project_id=".trim($project);
+            }
+            if($lead_source!==null){
+                $this->session->set_userdata("lead_source",$lead_source);
+                if($lead_source)
+                    $where.=" AND cb.lead_source_id=".trim($lead_source);
+            }
+            if($user_name!==null){
+                $this->session->set_userdata("search_username",$user_name);
+                if($user_name)
+                    $where.=" AND cb.user_id=".trim($user_name);
+            }
+            if($sub_broker!==null){
+                $this->session->set_userdata("sub_broker",$sub_broker);
+                if($sub_broker)
+                    $where.=" AND cb.broker_id=".trim($sub_broker);
+            }
+            if($status!==null){
+                $this->session->set_userdata("status",$status);
+                if($status)
+                {
+                    $where.=" AND cb.status_id=".trim($status);
+
+                }
+            }
+            if($city!==null){
+                $this->session->set_userdata("city",$city);
+                if($city)
+                    $where.=" AND u.city_id=".trim($city);
+            }
+            if($advisor!==null){
+                $this->session->set_userdata("advisor",$advisor);
+                if($advisor)
+                    $where.=" AND cb.user_id=".trim($advisor);
+            }
+            if($self!==null){
+                $this->session->set_userdata("self",$self);
+                if($self == "1")
+                    $user_type = "user";
+            }
+
+            $srxhtxt = trim($this->input->post('srxhtxt'));
+            if($srxhtxt !==null ){
+                $this->session->set_userdata('SRCHTXT', $srxhtxt);
+                if($srxhtxt)
+                    $where .=" AND (cb.name='".$srxhtxt."' OR cb.email1='".$srxhtxt."' OR cb.contact_no1='".$srxhtxt."' OR cb.leadid='".$srxhtxt."' OR p.name='".$srxhtxt."' OR ls.name = '".$srxhtxt."' OR concat(u.first_name,' ',u.last_name) ='".$srxhtxt."' OR b.name='".$srxhtxt."' OR u.first_name= '".$srxhtxt."')";
+            }
+            $searchDate = $this->input->post('searchDate');
+            if($searchDate  !==null) {
+                $this->session->set_userdata('SRCHDT', $searchDate);
+                if($searchDate && $searchDate == 'today')
+                    $where .=" AND cb.due_date like '%".date('Y-m-d')."%'";
+                elseif ($searchDate && $searchDate == 'yesterday') 
+                    $where .=" AND cb.due_date < '".date('Y-m-d')."'";
+                elseif ($searchDate && $searchDate == 'tomorrow') 
+                    $where .=" AND cb.due_date > '".date('Y-m-d')."'";
+            }
+
+          
+        }
+        else{
+            
+            if($this->session->userdata('city_user'))
+            {
+                $where.=" AND cb.user_id=".trim($this->session->userdata('city_user'));
+            }
+            if($this->session->userdata("department"))
+                $where.=" AND cb.dept_id=".trim($this->session->userdata("department"));
+            if($this->session->userdata("project"))
+                $where.=" AND cb.project_id=".trim($this->session->userdata("project"));
+            if($this->session->userdata("lead_source"))
+                $where.=" AND cb.lead_source_id=".trim($this->session->userdata("lead_source"));
+            if($this->session->userdata("search_username"))
+                $where.=" AND cb.user_id=".trim($this->session->userdata("search_username"));
+            if($this->session->userdata("sub_broker"))
+                $where.=" AND cb.broker_id=".trim($this->session->userdata("sub_broker"));
+            if($this->session->userdata("status"))
+                $where.=" AND cb.status_id=".trim($this->session->userdata("status"));
+            if($this->session->userdata("city"))
+                $where.=" AND u.city_id=".trim($this->session->userdata("city"));
+            if($this->session->userdata("advisor"))
+                $where.=" AND cb.user_id=".trim($this->session->userdata("advisor"));
+            if($this->session->userdata("self")){
+                if($this->session->userdata("self") == "1")
+                    $user_type = "user";
+            }
+            if($this->session->userdata('SRCHTXT')){
+                $searchVal = $this->session->userdata('SRCHTXT');
+                $where .=" AND (cb.name='".$searchVal."' OR cb.email1='".$searchVal."' OR cb.contact_no1='".$searchVal."' OR cb.leadid='".$searchVal."' OR p.name='".$searchVal."' OR ls.name = '".$searchVal."' OR concat(u.first_name,' ',u.last_name) ='".$searchVal."' OR b.name='".$searchVal."' OR u.first_name= '".$searchVal."')";
+            }
+
+            if($this->session->userdata('SRCHDT')){
+                if($this->session->userdata('SRCHDT') == 'today')
+                    $where .=" AND cb.due_date like '%".date('Y-m-d')."%'";
+                elseif ($this->session->userdata('SRCHDT') == 'yesterday') 
+                    $where .=" AND cb.due_date < '".date('Y-m-d')."'";
+                elseif ($this->session->userdata('SRCHDT') == 'tomorrow') 
+                    $where .=" AND cb.due_date > '".date('Y-m-d')."'";
+            }
+        }
+        
+        //------- pagination ------
+        $rowCount               = $this->callback_model->count_search_records(null,$where,null,null,$user_type);
+        //echo $rowCount;die;
+        $data["totalRecords"]   = $rowCount;
+        //print_r($data["totalRecords"]);die;
+        $data["links"]          = paginitaion(base_url().'callbacks/', 2,VIEW_PER_PAGE, $rowCount);
+        $page = $this->uri->segment(2);
+        $offset = !$page ? 0 : $page;
+        //------ End --------------
+
+        //$data['result'] = $this->callback_model->search_callback(null,$where,null,null,$user_type);
+        $data['result'] = $this->callback_model->search_callback(null,$where,$offset,VIEW_PER_PAGE, $user_type);
+        $this->load->view("registration",$data);
+    }
+    public function send_mail($type=""){
+        if($this->input->post()){
+            $this->load->library('email');
+
+            $this->email->initialize(email_config());
+            $to = null;
+
+            switch ($type) {
+                case 'site-visit':
+                    $client_name=$this->input->post('client_name');
+                    $client_email=$this->input->post('client_email');
+                    $client_visit=$this->input->post('client_visit');
+                    $assign_by=$this->input->post('assign_by');
+                    $subject=$this->input->post('subject');
+                    $relationship_manager=$this->input->post('relationship_manager');
+                    $message=$this->input->post('message');
+                    $callback_id=$this->input->post('callback_id');
+                    $this->db->insert('svd_follow_callback_details',array(
+                        'callback_id' => $callback_id,
+                        'user_id' => $this->session->userdata('user_id'),
+                        'client_name' => $client_name,
+                        'client_email' => $client_email,
+                        'client_visit' => $client_visit,
+                        'assign_by' => $assign_by,
+                        'subject' => $subject,
+                        'relationship_manager' => $relationship_manager,
+                        'message' => $message,
+                        'date_added' => date('Y-m-d H:i:s')
+                    ));
+                    $to = $client_email;
+                    break;
+
+                case 'client-reg':
+                    $client_email=$this->input->post('client_email');
+                    $message=$this->input->post('message');
+                    $subject=$this->input->post('subject');
+                    $callback_id=$this->input->post('callback_id');
+                    $this->db->insert('client_reg',array(
+                        'callback_id' => $callback_id,
+                        'user_id' => $this->session->userdata('user_id'),
+                        'client_email' => $client_email,
+                        'subject' => $subject,
+                        'message' => $message,
+                        'date_added' => date('Y-m-d H:i:s')
+                    ));
+                    $to = $client_email;
+                    break;
+
+            }
+
+            $message = str_replace ("\r\n", "<br>", $message );
+            $message = str_replace ("\n", "<br>", $message );
+            $this->email->set_mailtype("html");
+
+            if($to){
+                $this->email->from($this->session->userdata('user_email'), $this->session->userdata('user_name'));
+                $this->email->to($to);
+
+                $this->email->subject($subject);
+                $this->email->message($message);
+
+                $cc = $this->user_model->get_vp_director_admin_emails();
+                $cc[] = $this->session->userdata('user_email');
+
+                $this->email->bcc($cc);
+
+                header('Content-Type: application/json');
+                if($this->email->send())
+                    echo json_encode(array("success" => true));
+                else
+                    echo json_encode(array("success" => false));
+            }
+            else
+                echo json_encode(array("success" => false));
+
+        }
+    }
+
+ }
