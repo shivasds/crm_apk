@@ -85,16 +85,16 @@ $CI=&get_instance();
                             <th>Customer Name</th>
                             <th>Assigned User</th>
                             <th>Email</th> 
-                            <th>    Last added Note</th> 
+                            <th>Last added Note</th> 
                             
                         </tr>
                     </thead>
                     <tbody>
                                                 <?php
 
-                                                                                            if(count($imp_callbacks)>0)
-                                                                                            {
-                                                                                              foreach ($imp_callbacks as $callback) { ?>
+                                     if(count($imp_callbacks)>0)
+                                      {
+                                      foreach ($imp_callbacks as $callback) { ?>
                                                                                             
                                         <tr>
                                             <td><a href="<?php echo base_url().'dashboard/view_callbacks/'.$user_id; ?>" data-type="user_important" data-id="<?php echo $callback->id; ?>"><?php echo $callback->name; ?></a></td>
@@ -111,7 +111,7 @@ $CI=&get_instance();
                                     <?php }
                                 }
                                  else
-                                        echo '<tr><td colspan="3">No records found!</td></tr>';
+                                        echo '<tr><td colspan="4">No records found!</td></tr>';
 
                                      ?>
                          

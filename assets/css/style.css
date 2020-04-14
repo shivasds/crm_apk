@@ -1195,3 +1195,15 @@ input[type=date], input[type=time], input[type=datetime-local], input[type=month
     border: 1px solid #e0dada;
     display: block;
 }
+.New{
+	color: green;
+}
+.In{
+	color: rgb(214, 145, 18);
+}
+.Follow{
+	color: rgb(73, 214, 45);
+}
+.SVD-Folloup{
+	color: rgb(241, 55, 22);
+}
