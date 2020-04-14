@@ -195,7 +195,7 @@ $this->load->view('inc/header');
         <div class="modal-body">
           <p  style="margin-bottom: 8px; text-align: center;">Register a Client</p>
           <table>
-          <div id="abc" hidden="" style="display: block;">
+          <div id="abc" style="display: block;">
                         <div class="col-sm-6 form-group">
                             <label for="client_name">Client name:</label>
                             <input type="text" class="form-control" id="c_client_name" name="client_name" placeholder="Client name">
@@ -243,6 +243,14 @@ Regards
 Team Fullbasket Property Services Pvt Ltd
                             </textarea>
                         </div>
+                        
+                        <div class="form-row">
+                                <div class="form-group col-md-12">
+                                <!-- <label class="label-control ">id</label> -->
+                                <input type="hidden" id="addnotesdivid" name="idoftable" value="">
+                                </div>
+                            </div>
+
                         <div class="col-sm-12 form-group">
                             <div class="alert alert-success" id="mail_success" style="display:none">
                                 <strong>Success!</strong> Email sent successfully.
