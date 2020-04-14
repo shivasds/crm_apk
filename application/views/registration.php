@@ -227,7 +227,7 @@ Team Fullbasket Property
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                <label class="label-control">id</label>
+                                <!-- <label class="label-control ">id</label> -->
                                 <input type="hidden" id="addnotesdivid" name="idoftable" value="">
                                 </div>
                             </div>
