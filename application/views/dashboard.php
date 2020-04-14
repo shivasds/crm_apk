@@ -86,11 +86,11 @@
             </div>
             
             
-            <div id="wrapper">
+            <!-- <div id="wrapper">
                 <button type="button" class="button  button-m bg-green2-dark" id="showAll">View All</button>
                 <button type="button" class="button  button-m bg-green2-dark" id="hideAll" style="display: none;">hide</button>
 
-            </div>
+            </div> -->
             </div>
             <div class="clear"></div>
 
