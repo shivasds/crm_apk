@@ -1728,4 +1728,153 @@ class Dashboard extends CI_Controller {
         }
     }
 
+    public function thankyou_mail($value='')
+    {
+
+        $data['name'] ="thankyou_mail";
+        $data['heading'] ="Thankyou Mails";
+        $where="";
+        $user_type = $this->session->userdata("user_type");
+        if($this->input->post()){
+            $dept=$this->input->post('dept');
+            $project=$this->input->post('project');
+            $lead_source=$this->input->post('lead_source');
+            $user_name=$this->input->post('user_name');
+            $sub_broker=$this->input->post('sub_broker');
+            $status=$this->input->post('status');
+            $city=$this->input->post('city');
+            $advisor=$this->input->post('advisor');
+            $self=$this->input->post('self');
+            $city_user=$this->input->post('city_user');
+           
+            if($city_user!=null)
+            {
+                $this->session->set_userdata("city_user",$city_user);
+                $where.=" AND cb.user_id=".trim($city_user);
+               // echo $city_user."this is selected user id";die;
+            }
+            if($dept!==null){
+                $this->session->set_userdata("department",$dept);
+                if($dept)
+                    $where.=" AND cb.dept_id=".trim($dept);
+            }
+            if($project!==null){
+                $this->session->set_userdata("project",$project);
+                if($project)
+                    $where.=" AND cb.project_id=".trim($project);
+            }
+            if($lead_source!==null){
+                $this->session->set_userdata("lead_source",$lead_source);
+                if($lead_source)
+                    $where.=" AND cb.lead_source_id=".trim($lead_source);
+            }
+            if($user_name!==null){
+                $this->session->set_userdata("search_username",$user_name);
+                if($user_name)
+                    $where.=" AND cb.user_id=".trim($user_name);
+            }
+            if($sub_broker!==null){
+                $this->session->set_userdata("sub_broker",$sub_broker);
+                if($sub_broker)
+                    $where.=" AND cb.broker_id=".trim($sub_broker);
+            }
+            if($status!==null){
+                $this->session->set_userdata("status",$status);
+                if($status)
+                {
+                    $where.=" AND cb.status_id=".trim($status);
+
+                }
+            }
+            if($city!==null){
+                $this->session->set_userdata("city",$city);
+                if($city)
+                    $where.=" AND u.city_id=".trim($city);
+            }
+            if($advisor!==null){
+                $this->session->set_userdata("advisor",$advisor);
+                if($advisor)
+                    $where.=" AND cb.user_id=".trim($advisor);
+            }
+            if($self!==null){
+                $this->session->set_userdata("self",$self);
+                if($self == "1")
+                    $user_type = "user";
+            }
+
+            $srxhtxt = trim($this->input->post('srxhtxt'));
+            if($srxhtxt !==null ){
+                $this->session->set_userdata('SRCHTXT', $srxhtxt);
+                if($srxhtxt)
+                    $where .=" AND (cb.name='".$srxhtxt."' OR cb.email1='".$srxhtxt."' OR cb.contact_no1='".$srxhtxt."' OR cb.leadid='".$srxhtxt."' OR p.name='".$srxhtxt."' OR ls.name = '".$srxhtxt."' OR concat(u.first_name,' ',u.last_name) ='".$srxhtxt."' OR b.name='".$srxhtxt."' OR u.first_name= '".$srxhtxt."')";
+            }
+            $searchDate = $this->input->post('searchDate');
+            if($searchDate  !==null) {
+                $this->session->set_userdata('SRCHDT', $searchDate);
+                if($searchDate && $searchDate == 'today')
+                    $where .=" AND cb.due_date like '%".date('Y-m-d')."%'";
+                elseif ($searchDate && $searchDate == 'yesterday') 
+                    $where .=" AND cb.due_date < '".date('Y-m-d')."'";
+                elseif ($searchDate && $searchDate == 'tomorrow') 
+                    $where .=" AND cb.due_date > '".date('Y-m-d')."'";
+            }
+
+          
+        }
+        else{
+            
+            if($this->session->userdata('city_user'))
+            {
+                $where.=" AND cb.user_id=".trim($this->session->userdata('city_user'));
+            }
+            if($this->session->userdata("department"))
+                $where.=" AND cb.dept_id=".trim($this->session->userdata("department"));
+            if($this->session->userdata("project"))
+                $where.=" AND cb.project_id=".trim($this->session->userdata("project"));
+            if($this->session->userdata("lead_source"))
+                $where.=" AND cb.lead_source_id=".trim($this->session->userdata("lead_source"));
+            if($this->session->userdata("search_username"))
+                $where.=" AND cb.user_id=".trim($this->session->userdata("search_username"));
+            if($this->session->userdata("sub_broker"))
+                $where.=" AND cb.broker_id=".trim($this->session->userdata("sub_broker"));
+            if($this->session->userdata("status"))
+                $where.=" AND cb.status_id=".trim($this->session->userdata("status"));
+            if($this->session->userdata("city"))
+                $where.=" AND u.city_id=".trim($this->session->userdata("city"));
+            if($this->session->userdata("advisor"))
+                $where.=" AND cb.user_id=".trim($this->session->userdata("advisor"));
+            if($this->session->userdata("self")){
+                if($this->session->userdata("self") == "1")
+                    $user_type = "user";
+            }
+            if($this->session->userdata('SRCHTXT')){
+                $searchVal = $this->session->userdata('SRCHTXT');
+                $where .=" AND (cb.name='".$searchVal."' OR cb.email1='".$searchVal."' OR cb.contact_no1='".$searchVal."' OR cb.leadid='".$searchVal."' OR p.name='".$searchVal."' OR ls.name = '".$searchVal."' OR concat(u.first_name,' ',u.last_name) ='".$searchVal."' OR b.name='".$searchVal."' OR u.first_name= '".$searchVal."')";
+            }
+
+            if($this->session->userdata('SRCHDT')){
+                if($this->session->userdata('SRCHDT') == 'today')
+                    $where .=" AND cb.due_date like '%".date('Y-m-d')."%'";
+                elseif ($this->session->userdata('SRCHDT') == 'yesterday') 
+                    $where .=" AND cb.due_date < '".date('Y-m-d')."'";
+                elseif ($this->session->userdata('SRCHDT') == 'tomorrow') 
+                    $where .=" AND cb.due_date > '".date('Y-m-d')."'";
+            }
+        }
+        
+        //------- pagination ------
+        $rowCount               = $this->callback_model->count_search_records(null,$where,null,null,$user_type);
+        //echo $rowCount;die;
+        $data["totalRecords"]   = $rowCount;
+        //print_r($data["totalRecords"]);die;
+        $data["links"]          = paginitaion(base_url().'callbacks/', 2,VIEW_PER_PAGE, $rowCount);
+        $page = $this->uri->segment(2);
+        $offset = !$page ? 0 : $page;
+        //------ End --------------
+
+        //$data['result'] = $this->callback_model->search_callback(null,$where,null,null,$user_type);
+        $data['result'] = $this->callback_model->search_callback(null,$where,$offset,VIEW_PER_PAGE, $user_type);
+        $this->load->view("send_thankyou_mail",$data);
+    }
+
  }
