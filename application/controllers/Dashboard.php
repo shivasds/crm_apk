@@ -513,6 +513,16 @@ class Dashboard extends CI_Controller {
 
     public function get_callback_details(){
         $id=$this->input->get('id');
+        if($id)
+        {
+            echo $id."if";
+        }
+        else
+        {
+            $id= $this->input->post("idoftable");
+
+        }
+
         $query=$this->callback_model->get_callback_details($id);
         $data = array(
             'id' =>$id,           
@@ -1323,4 +1333,174 @@ class Dashboard extends CI_Controller {
         $data['previous_callback'] = $previous_callback;
         return $data;
            }
-}
+
+        public function update_callback_details(){
+        $id = $this->input->post('idoftable');
+        $update_data = array(
+            'last_update' => date('Y-m-d H:s:i')
+        );
+         
+        if($this->input->post('status_id'))
+            $update_data['status_id'] = $this->input->post('status_id'); 
+        if($this->input->post('user_id'))
+            $update_data['user_id'] = $this->input->post('user_id');
+        // if($this->input->post('approve')){
+        //     $update_data['active'] = 0;
+        //     $update_data['verified_by'] = $this->session->userdata('user_id');
+        //     $update_data['verified_on'] = date('Y-m-d H:s:i');
+        // }
+
+        /*if($this->input->post('reason_for_dead'))
+            $update_data['reason_for_dead'] = $this->input->post('reason_for_dead');*/
+           // print_r($update_data);die;
+        if($this->input->post('reason_cause'))
+            $update_data['reason_cause'] = $this->input->post('reason_cause');
+
+        if($this->input->post('sitevisit_date') && $this->input->post('sitevisit')){
+            $projects = $this->input->post('sitevisit_project_id');                 
+            if($this->input->post('extrxDataIds') !='') {       //for update the table 
+                $clause = 'id IN ('.$this->input->post('extrxDataIds').')';
+                $this->callback_model->delete_extra_details($clause);
+            }
+            
+            foreach ($projects as $key => $value) {
+                $data=array(
+                    'callback_id'=>$id,
+                    'date'=>$this->input->post('sitevisit_date'),
+                    'project_id'=>$value,
+                    'type'=>'1',
+                    'date_added'=>date('Y-m-d H:s:i'),
+                    'flag'=>1
+                );
+                $query=$this->callback_model->add_extra_details($data);
+
+            }
+        }
+
+        if($this->input->post('sitevisitdone_date') && $this->input->post('sitevisitdone') ){
+            $projects = $this->input->post('sitevisitdone_project_id');
+            foreach ($projects as $key => $value) {
+                $data=array(
+                    'callback_id'=>$id,
+                    'date'=>$this->input->post('sitevisitdone_date'),
+                    'project_id'=>$value,
+                    'type'=>'2',
+                    'date_added'=>date('Y-m-d H:s:i'),
+                );
+                $query=$this->callback_model->add_extra_details($data);
+            }
+            $params = array('flag'=>0);
+            $clause = 'id IN ('.$this->input->post('extrxDataIds').')';
+            $this->callback_model->update_extra_details($params, $clause);
+            $this->session->unset_userdata('siteVisitIds');
+        }
+        if($this->input->post('notdone_date') && $this->input->post('sitevisitnotdone') ){
+            $param=array(
+                'callback_id'=>$id,
+                'date'=>$this->input->post('notdone_date'), 
+                'reason'=>$this->input->post('notdone_reason'), 
+                'type'=>'4',
+                'date_added'=>date('Y-m-d H:s:i'),
+            );
+            $query=$this->callback_model->add_extra_details($param);
+            $params = array('flag'=>0);
+            $clause = 'id IN ('.$this->input->post('extrxDataIds').')';
+            $this->callback_model->update_extra_details($params, $clause);
+            $this->session->unset_userdata('siteVisitIds');
+        }
+
+
+        if($this->input->post('facetoface_date')){
+            $projects = $this->input->post('facetoface_project_id');
+            foreach ($projects as $key => $value) {
+                $data=array(
+                    'callback_id'=>$id,
+                    'date'=>$this->input->post('facetoface_date'),
+                    'project_id'=>$value,
+                    'type'=>'3',
+                    'date_added'=>date('Y-m-d H:s:i'),
+                );
+
+                $query=$this->callback_model->add_extra_details($data);
+            }
+        }
+
+        if($this->input->post('due_date'))
+            $update_data['due_date'] = $this->input->post('due_date');
+
+        if($this->input->post('important') !== null)
+            $update_data['important'] = $this->input->post('important')?1:0;
+        
+        $query = $this->callback_model->update_callback($update_data,$id);
+
+        if(!$this->input->post('user_id') && ($this->session->userdata('user_id') == $this->input->post('current_user_id')) )
+            $this->tracksCallbacks($this->session->userdata('user_id'), $this->session->userdata('user_name'), $id);
+
+        if($this->input->post('status_id')=='5'){
+            $data=array(
+                'callback_id'=>$id,
+                'advisor1_id'=>$this->input->post('advisor1_id'),
+                'advisor2_id'=>$this->input->post('advisor2_id'),
+                'booking'=>$this->input->post('booking'),
+                'booking_month'=>$this->input->post('booking_month'),
+                'closure_date'=>$this->input->post('closure_date'),
+                'customer'=>$this->input->post('customer'),
+                'sub_source_id'=>$this->input->post('sub_source_id'),
+                'project_id'=>$this->input->post('close_project_id'),
+                'sqft_sold'=>$this->input->post('sqft_sold'),
+                'plc_charge'=>$this->input->post('plc_charge'),
+                'floor_rise'=>$this->input->post('floor_rise'),
+                'basic_cost'=>$this->input->post('basic_cost'),
+                'other_cost'=>$this->input->post('other_cost'),
+                'car_park'=>$this->input->post('car_park'),
+                'total_cost'=>$this->input->post('total_cost'),
+                'commission'=>$this->input->post('commission'),
+                'gross_revenue'=>$this->input->post('gross_revenue'),
+                'cash_back'=>$this->input->post('cash_back'),
+                'sub_broker_amo'=>$this->input->post('sub_broker_amo'),
+                'net_revenue'=>$this->input->post('net_revenue'),
+                'share_of_advisor1'=>$this->input->post('share_of_advisor1'),
+                'share_of_advisor2'=>$this->input->post('share_of_advisor2'),
+                'est_month_of_invoice'=> $this->input->post('est_month_of_invoice'),
+                'agreement_status' => $this->input->post('agreement_status'),
+                'project_type' => $this->input->post('project_type'),
+
+            );
+
+            $notification_data = array(
+                'callback_id'=>$id,
+                'user_id'=>$this->session->userdata('user_id'),
+                'project_id'=>$this->input->post('close_project_id')
+            );
+            
+            $this->callback_model->insert_notification($notification_data);
+
+            $query=$this->callback_model->update_callback_details($data,$id);
+        }
+
+        $current_callback=$this->input->post('current_callback');
+        $user_id = $this->session->userdata('user_id');
+        $date_added = date('Y-m-d H:s:i');
+        $ind_callback_data = array(
+            "current_callback" => $current_callback,
+            "user_id" => $user_id,
+            "callback_id" => $id,
+            "status_id" => $this->input->post('status_id'),
+            "date_added" => $date_added
+        );
+        $query = $this->callback_model->add_callback_data($ind_callback_data);
+
+        $data = array(
+            'status' =>true
+        );
+        // header('Content-Type: application/json');
+        // echo json_encode($data);
+        redirect("view_callbacks");
+    }
+    public function imp_callbacks($value='')
+    {
+         $data['user_id'] = $this->session->userdata('user_id');
+       $data['imp_callbacks'] = $this->callback_model->fetch_important_callbacks($data['user_id']);
+       $this->load->view('reports/imp_callbacks',$data);
+    }
+ }
