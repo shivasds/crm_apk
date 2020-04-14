@@ -195,49 +195,61 @@ $this->load->view('inc/header');
         <div class="modal-body">
           <p  style="margin-bottom: 8px; text-align: center;">Register a Client</p>
           <table>
-          <div id="clientEmail">
-                            <div class="col-sm-12 form-group">
-                                <label for="email_id">Email Id:</label>
-                                <input type="email" class="form-control" id="client_email_id" name="email_id" placeholder="Email Id">
-                            </div>
-                            <div class="col-sm-12 form-group">
-                                <label for="subject">Subject:</label>
-                                <input type="text" class="form-control" id="client_email_subject" name="subject" value="Client Registration" placeholder="Subject">
-                            </div>
-                            <div class="col-sm-12 form-group">
-                                <label for="comment">Email Body:</label>
-                                <textarea class="form-control" name="notes" id="client_email_body" rows="15" id="comment">          
-Dear sir / madam,
-
-Greetings From Fullbasket Property...
-
-Kindly register the below client For __________________ project On behalf Of Fullbasket Property 
-
-Property & acknowledge.
-
-Client Name : ________________
-
-Contact No. : ________________
-
-E-mail ID   : ________________
-
-Thanks & Regards
-Team Fullbasket Property
-                                </textarea>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-12">
-                                <!-- <label class="label-control ">id</label> -->
-                                <input type="hidden" id="addnotesdivid" name="idoftable" value="">
-                                </div>
-                            </div>
-                            <div class="col-sm-12 form-group">
-                                <div class="alert alert-success" id="regmail_success" style="display:none">
-                                    <strong>Success!</strong> Email sent successfully.
-                                </div>
-                                <button type="button" onclick="sendRegMail()" class="btn btn-success">Send</button>
-                            </div>
+          <div id="abc" hidden="" style="display: block;">
+                        <div class="col-sm-6 form-group">
+                            <label for="client_name">Client name:</label>
+                            <input type="text" class="form-control" id="c_client_name" name="client_name" placeholder="Client name">
                         </div>
+                        <div class="col-sm-6 form-group">
+                            <label for="email">Client Email Id:</label>
+                            <input type="email" class="form-control" id="c_client_email" name="client_email" placeholder="Client Email Id">
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label for="email">Site visit date:</label>
+                            <input type="text" class="form-control" id="c_client_visit" name="email2" placeholder="Site visit date" onchange="update_client_note();">
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label for="email">Site Assign by:</label>
+                            <input type="text" class="form-control" onblur="le()" id="c_assign_by" name="assign_by" placeholder="Site Assign by" onchange="update_client_note();">
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label for="email">Relation ship Manager:</label>
+                            <input type="text" class="form-control" id="c_relationShipManager" name="c_relationShipManager" placeholder="Relation ship Manager" onchange="update_client_note();">
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label for="email">Subject:</label>
+                            <input type="text" class="form-control" id="c_subject" name="email2" value="Thank you For the Site Visit" placeholder="Subject">
+                        </div>
+                        <div class="col-sm-12 form-group">
+                            <label for="comment">Mail Box:</label>
+                            <textarea class="form-control" name="notesClient" id="c_notesClient" rows="18">Greetings From Fullbasket Property.
+
+With reference to your site visit on  assisted by Mr. abhishek from Fullbasket Property, we thank you for giving us an opportunity to serve you in searching your dream home.  At FBP it is our endeavour to help you with all the possible Property options which will suit your requirement. Mr.  from FBP will be at your service. He/she will be there to assist you in searching your dream home.
+  
+1. Home search - Assisting and helping you find your dream home suiting your requirements by giving you info on market trends, legalities, site visit assistance etc.
+
+2. Home loan Assistance - We will take away your pain of running around the banks to get your loan approved by giving doorstep service of bankers of your choice at your place.
+
+3. Property Purchase Assistance - Ensuring that your home buying becomes a pleasant experience our Relationship Manager will be there throughout the process Of documentation.
+
+4. Post sales Service – This is what differentiates us from others. We will be there for all possible help and guidance till you move into your home.
+
+5. Interior Services - We are tied With best interior designers in the city who give the best designs and execute them at a competitive price.
+
+
+For any escalations/ complaints please write to admin@leads.com
+
+Regards
+Team Fullbasket Property Services Pvt Ltd
+                            </textarea>
+                        </div>
+                        <div class="col-sm-12 form-group">
+                            <div class="alert alert-success" id="mail_success" style="display:none">
+                                <strong>Success!</strong> Email sent successfully.
+                            </div>
+                            <button type="button" style="float: right;" class="btn btn-success" onclick="sendMail()">Send</button>
+                        </div>
+                    </div>
             </table>
             
         </div>
