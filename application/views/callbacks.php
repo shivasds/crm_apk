@@ -287,25 +287,30 @@ $CI=&get_instance();
                 </div>
                 <div class="form-group col-md-6 showall" onclick="hello()">
                
-               <a class="accordion-toggle-last">
-                 <i class="accordion-icon-left fa fa-users  color-blue2-dark"></i>
-                   Reassign Another
-                 <i class="accordion-icon-right fa fa-arrow-down"></i>
-                 </a>
+                  <a class="accordion-toggle-last">
+                    <i class="accordion-icon-left fa fa-users  color-blue2-dark"></i>
+                      Reassign Another
+                    <i class="accordion-icon-right fa fa-arrow-down"></i>
+                    </a>
 
-                 <div id="accordion-content-6" class="accordion-content mt-5 bottom-10">
-                    <input type="datetime-local" id="birthdaytime" name="birthdaytime">
-                    
-                 </div>
-              </div>
-
+                    <div id="accordion-content-6" class="accordion-content mt-5 bottom-10">
+                        <input type="datetime-local" id="birthdaytime" name="birthdaytime">
+                        
+                    </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                        <label class="label-control">Current Callback</label>
+                        <textarea class="form-control" name="current_callback" rows="5" id="current_callback1" name="current_callback1" onkeyup="curr(this.value)" placeholder="Please Update Your Changes To Save"></textarea>
+                  </div>
+                </div>
              </div>
-         
-
-                        <div class="fac fac-checkbox fac-blue"><span></span>
-                        <input id="box2-fac-checkbox" type="checkbox" value="1" checked="">
-                        <label for="box2-fac-checkbox">Important</label>
-                        </div>
+             <input type="checkbox" name="important" id="fancy-checkbox-warning" autocomplete="off" />
+             <div class="btn-group">
+                <label for="fancy-checkbox-warning" class="btn btn-default active">
+                  Important
+                </label>
+             </div>
             <button type="submit" class="btn btn-primary">Add</button>
             </form>
             
