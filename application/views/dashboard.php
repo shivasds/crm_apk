@@ -92,7 +92,8 @@
             </div>
             <div class="clear"></div>
 
-            <div class="top-20"></div>
+            <!-- <div class="top-20"></div> -->
+            <div style="margin-bottom: 80px">
             <!-- button -->
         </div>
 
