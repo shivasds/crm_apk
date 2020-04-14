@@ -1,6 +1,5 @@
 <?php
 $this->load->view('inc/header');
-$CI=&get_instance();
  
     if(!$this->session->userdata('permissions') && $this->session->userdata('permissions')=='' ) {
     ?>
@@ -126,7 +125,7 @@ $CI=&get_instance();
                                       <td class="<?php echo $data->status_name; ?>"><?php echo $data->status_name; ?></td> 
                                       <td class="hidden"><?php echo $data->contact_no1; ?></td>
                                      <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
-                                     <td class="hidden"><?= $CI->previous_callback_apk($data->id)['previous_callback']?></td>
+                                     <td class="hidden"> </td>
                                     <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-info-circle "></i></button></td>
                                   </tr>
                               <?php $i++; } } }
@@ -161,14 +160,29 @@ $CI=&get_instance();
                 });
             });
 
-            function getrowvalue(id){
-                var trid=$(id).parents('tr').children();
-                $("#customertdname").text($(trid[1]).text());
-                $(".custPhoneancor").text($(trid[4]).text());
-                $(".custPhoneancor").attr("href","tel:+91 "+$(trid[4]).text());
-                $("#previousNotesTxtArea").text($(trid[6]).text());
-              
+           function getrowvalue(id){
+            var trid=$(id).parents('tr').children();
+
+             $("#customertdname").text($(trid[1]).text());
+             $(".custPhoneancor").text($(trid[4]).text());
+             $(".custPhoneancor").attr("href","tel:+91 "+$(trid[4]).text());
+             $("#c_id").text($(trid[5]).text());
+             //$("#previousNotesTxtArea").text($(trid[7]).text());
+
+            $.ajax({
+            type:"POST",
+            url: "<?php echo base_url()?>dashboard/previous_callback_apk/"+$(trid[5]).text(),
+            data:{ 
+                callback_id:$(trid[5]).text()
+            },
+            success:function(data) {
+               // alert(data);               
+                   $("#previousNotesTxtArea").html(data);
+                
             }
+        }); 
+           
+        }
         </script>
         <script>
           function hello(){
