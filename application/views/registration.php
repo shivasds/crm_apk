@@ -55,9 +55,9 @@ $this->load->view('inc/header');
             <div class="divider divider-margins"></div>
 
             <div class="content">
-                            <div class="content-title has-border border-highlight bottom-18">
+               <div class="content-title has-border border-highlight bottom-18">
                           <h3>Callbacks</h3>
-                          <a href="#" class="color-highlight"><i class="fa fa-chevron-down"></i></a>
+               <a href="#" class="color-highlight"><i class="fa fa-chevron-down"></i></a>
                   </div>
 
                   <div class="">
@@ -83,11 +83,11 @@ $this->load->view('inc/header');
                                   <tr id="row<?php echo $i ?>" <?php if(strtotime($duedate)<strtotime('today')){?> class="highlight_past" <?php }elseif(strtotime($duedate) == strtotime('today')) {?> class="highlight_now" <?php }elseif(strtotime($duedate)>strtotime('today')){ ?> class="highlight_future" <?php } ?>>
                                       <td><?php echo $i; ?></td>
                                       <td><?php echo $data->name; ?></td>
-                                      <!-- <td><?php echo $data->contact_no1 ?></td>  -->
                                       <td><?php echo $data->project_name; ?></td>  
                                       <td><?php echo $data->status_name; ?></td> 
+                                      <td  class="hidden"><?php echo $data->id; ?></td>
                                       <td class="hidden"><?php echo $data->contact_no1; ?></td>
-                                      <td><button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fa fa-plus"></i></button></td>
+                                      <td><button style="cursor:pointer"  onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fa fa-plus"></i></button></td>
                   
                                      
                                   </tr>
@@ -176,6 +176,14 @@ $this->load->view('inc/header');
                 "sScrollX": true
             });
         });
+        
+        function getrowvalue(id){
+            debugger;
+            var trid=$(id).parents('tr').children();
+           $("#addnotesdivid").val($(trid[4]).text());
+           
+        }
+
     </script>
 </body>
 
@@ -217,6 +225,12 @@ E-mail ID   : ________________
 Thanks & Regards
 Team Fullbasket Property
                                 </textarea>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                <label class="label-control">id</label>
+                                <input  id="addnotesdivid" name="idoftable" value="">
+                                </div>
                             </div>
                             <div class="col-sm-12 form-group">
                                 <div class="alert alert-success" id="regmail_success" style="display:none">
