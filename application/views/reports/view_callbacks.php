@@ -171,11 +171,11 @@ $CI=&get_instance();
     </script>
 
     <script>
-        $(document).ready(function(){
-            $(".accordion-toggle-last").click(function(){
-                $(".accordion-content bottom-10").toggle();
-            });
-            });
+          function hello(){
+                $(".accordion-content").show();
+                $(this).html('<i class="accordion-icon-right fa fa-arrow-up"></i>');
+          
+          }
         </script>
 
 
@@ -269,19 +269,20 @@ $CI=&get_instance();
                         <?php } ?>           
                     </select>
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-6 showall" onclick="hello()">
                
-                    <a class="accordion-toggle-last">
+                  <a class="accordion-toggle-last">
                     <i class="accordion-icon-left fa fa-users  color-blue2-dark"></i>
                       Reassign Another
                     <i class="accordion-icon-right fa fa-arrow-down"></i>
                     </a>
 
-                    <div id="accordion-content-6" class="accordion-content bottom-10">
+                    <div id="accordion-content-6" class="accordion-content mt-5 bottom-10">
                        <input type="datetime-local" id="birthdaytime" name="birthdaytime">
                        
                     </div>
                  </div>
+
                
                
             </div>

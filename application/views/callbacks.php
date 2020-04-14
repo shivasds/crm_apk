@@ -194,6 +194,13 @@ $CI=&get_instance();
            
         }
     </script>
+        <script>
+          function hello(){
+                $(".accordion-content").show();
+                $(this).html('<i class="accordion-icon-right fa fa-arrow-up"></i>');
+          
+          }
+        </script>
 </body>
 
    <div class="modal fade" id="myModalcall" role="dialog">
@@ -276,19 +283,20 @@ $CI=&get_instance();
                     <option>...</option>
                 </select>
                 </div>
-                <div class="form-group col-md-6">
-                  <div class="content reassign accordion-style-2">
-                    <a data-accordion="accordion-content-6" href="#" class="accordion-toggle-last">
-                    <i class="accordion-icon-left fa fa-users  color-blue2-dark"></i>
-                      Reassign Another
-                    <i class="accordion-icon-right fa fa-arrow-down"></i>
-                    </a>
-                    <p id="accordion-content-6" class="accordion-content bottom-10">
-                    This is the accordion content. You can add any content you want to it. Really, anything!
-                    Add images, text, lists, captions or any element you want.
-                    </p>
+                <div class="form-group col-md-6 showall" onclick="hello()">
+               
+               <a class="accordion-toggle-last">
+                 <i class="accordion-icon-left fa fa-users  color-blue2-dark"></i>
+                   Reassign Another
+                 <i class="accordion-icon-right fa fa-arrow-down"></i>
+                 </a>
+
+                 <div id="accordion-content-6" class="accordion-content mt-5 bottom-10">
+                    <input type="datetime-local" id="birthdaytime" name="birthdaytime">
+                    
                  </div>
-                </div>
+              </div>
+
              </div>
          
 

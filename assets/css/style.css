@@ -1191,7 +1191,7 @@ input[type=search] {
 }
 
 input[type=date], input[type=time], input[type=datetime-local], input[type=month] {
-    line-height: 20px;
+	line-height: 27px;
     border: 1px solid #e0dada;
     display: block;
 }
