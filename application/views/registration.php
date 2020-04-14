@@ -5,8 +5,8 @@ $this->load->view('inc/header');
  <link rel="stylesheet" type="text/css" href="<?=base_url('assets/')?>styles/framework.css">
   
  <style>
-        
-        .table-scroll th {
+       
+       .table-scroll th {
             padding: 3px 10px;
         }
         
@@ -24,14 +24,13 @@ $this->load->view('inc/header');
             padding: 15px;
         }
         a {
-                color: #337ab7!important;
-                text-decoration: none;
-            }
-
-            td, th {
-                padding: 0;
-                padding: 9px 6px!important;
-            }
+            color: #337ab7!important;
+            text-decoration: none;
+        }
+        td, th {
+            padding: 0;
+            padding: 9px 4px;
+        }
     </style>
 
 <body class="theme-light" data-highlight="blue2">
@@ -52,22 +51,27 @@ $this->load->view('inc/header');
             <?php
               $this->load->view('inc/collapsable_header');
             ?>
+
+            <div class="clearfix"></div>
+
             <div class="divider divider-margins"></div>
 
             <div class="content">
-               <div class="content-title has-border border-highlight bottom-18">
+                   <div class="content-title has-border border-highlight bottom-18">
                           <h3>Callbacks</h3>
-               <a href="#" class="color-highlight"><i class="fa fa-chevron-down"></i></a>
+                           <a href="#" class="color-highlight"><i class="fa fa-chevron-down"></i></a>
                   </div>
 
                   <div class="">
-                      <table id="example"class="display" style="width:100%">
+                      <table id="tableexample"class="display" style="width:100%">
                           <thead>
                               <tr>
                                   <th>No</th>
                                   <th>Contact Name</th>  
                                   <th>Project</th>
-                                  <th>Status</th>    
+                                  <th>Status</th> 
+                                  <th class="hidden">dataid</th> 
+                                  <th class="hidden">contact</th> 
                                   <th>Register</th> 
                               </tr>
                           </thead> 
@@ -91,9 +95,9 @@ $this->load->view('inc/header');
                   
                                      
                                   </tr>
-                              <?php $i++; } 
-                          } }
-                                else
+                                    <?php $i++; } 
+                                    } }
+                                        else
                                       {
                                           echo "<tr><td colspan=13 align=center>No Data Found</td></tr>";
                                       }
@@ -101,8 +105,8 @@ $this->load->view('inc/header');
                           </tbody>
                       </table>
                       <div style="margin-top: 20px">
-                                  <span class="pull-left"><p>Showing <?php echo ($this->uri->segment(2)) ? $this->uri->segment(2)+1 : 1; ?> to <?= ($this->uri->segment(2)+count($result)); ?> of <?= $totalRecords; ?> entries</p></span>
-                                    <ul class="pagination pull-right"><?php echo $links; ?></ul> 
+                        <span class="pull-left"><p>Showing <?php echo ($this->uri->segment(2)) ? $this->uri->segment(2)+1 : 1; ?> to <?= ($this->uri->segment(2)+count($result)); ?> of <?= $totalRecords; ?> entries</p></span>
+                        <ul class="pagination pull-right"><?php echo $links; ?></ul> 
                       </div>
                   </div> 
            
@@ -156,10 +160,13 @@ $this->load->view('inc/header');
                         </div>
                     </div> -->
             </div>
+
             <div class="clearfix"></div>
 
-            </div>
-            <div style="margin-bottom: 60px">
+        </div>
+
+
+        <div style="margin-bottom: 60px">
         </div>
 
       
@@ -170,7 +177,7 @@ $this->load->view('inc/header');
 
     <script>
         $(document).ready(function() {
-            $('#example').DataTable({
+            $('#tableexample').DataTable({
                 pagingType: "simple",
                 //"sScrollY": "200px",
                 "sScrollX": true

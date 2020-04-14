@@ -83,16 +83,17 @@ $CI=&get_instance();
             </div>
 
             <div class="">
-                <table id="examplehide" class="display" style="width:100%">
+                <table id="table_viewCallback" class="display" style="width:100%">
                     <thead>
                         <tr>
                             <th>S.No</th>
                             <th>Customer Name</th>
                             <th>Project</th>
                             <th>Status</th>
-                            <th class="hidden"></th>
+                            <th class="hidden">contact</th>
+                            <th class="hidden">id</th>
                             <th>Call</th>
-                            <th class="hidden"></th>
+                            <th class="hidden">previous_callback</th>
                             <th>Info</th>
                             
                         </tr>
@@ -107,7 +108,7 @@ $CI=&get_instance();
                         ?>
 
                        <tr id="row<?php echo $data->id; ?>" <?php if(strtotime($duedate)<strtotime('today')){?> class="highlight_past" <?php }elseif(strtotime($duedate) == strtotime('today')) {?> class="highlight_now" <?php }elseif(strtotime($duedate)>strtotime('today')){ ?> class="highlight_future" <?php } ?>>
-                             <td><?php echo $i; ?></td>
+                            <td><?php echo $i; ?></td>
                             <td><?php echo $data->name; ?></td>
                             <td><?php echo $data->project_name; ?></td>
                             <td class="<?php echo $data->status_name; ?>"><?php echo $data->status_name; ?></td>
@@ -147,7 +148,7 @@ $CI=&get_instance();
 
     <script>
         $(document).ready(function() {
-            $('#examplehide').DataTable({
+            $('#table_viewCallback').DataTable({
                 "sScrollX": true
             });
         });

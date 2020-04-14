@@ -147,9 +147,9 @@ $CI=&get_instance();
                 <th>Contact Name</th>  
                 <th>Project</th>
                 <th>Status</th>   
-                <th class="hidden"></th>
+                <th class="hidden">contact</th>
                 <th>Call</th>
-                <th class="hidden"></th>
+                <th class="hidden">id</th>
                 <th>Info</th>
             </tr>
         </thead> 
@@ -163,18 +163,17 @@ $CI=&get_instance();
                 <tr id="row<?php echo $i ?>" <?php if(strtotime($duedate)<strtotime('today')){?> class="highlight_past" <?php }elseif(strtotime($duedate) == strtotime('today')) {?> class="highlight_now" <?php }elseif(strtotime($duedate)>strtotime('today')){ ?> class="highlight_future" <?php } ?>>
                     <td><?php echo $i; ?></td>
                     <td><?php echo $data->name; ?></td>
-                    <!-- <td><?php echo $data->contact_no1 ?></td>  -->
                     <td><?php echo $data->project_name; ?></td>  
                     <td><?php echo $data->status_name; ?></td> 
                     <td class="hidden"><?php echo $data->contact_no1; ?></td>
-                                <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
-                                <td class="hidden"></td>
-                                <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-info-circle "></i></button></td>
+                    <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
+                    <td class="hidden">id</td>
+                    <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-info-circle "></i></button></td>
                 </tr>
             <?php $i++; } } }
               else
                     {
-                        echo "<tr><td colspan=13 align=center>No Data Found</td></tr>";
+                        echo "<tr><td colspan=6 align=center>No Data Found</td></tr>";
                     }
                     ?>
         </tbody>

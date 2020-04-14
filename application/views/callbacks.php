@@ -116,6 +116,7 @@ $CI=&get_instance();
                   
     
              </style>
+
            <div class="divider divider-margins"></div>
    
             <div class="content">
@@ -133,9 +134,9 @@ $CI=&get_instance();
                                   <th>Contact Name</th>  
                                   <th>Project</th>
                                   <th>Status</th>   
-                                  <th class="hidden"></th>
+                                  <th class="hidden">contact</th>
                                   <th>Call</th>
-                                  <th class="hidden"></th>
+                                  <th class="hidden">id</th>
                                   <th>Info</th>
                               </tr>
                           </thead> 
@@ -172,28 +173,29 @@ $CI=&get_instance();
                   </div> 
             </div>
        </div>
-       <div style="margin-bottom: 60px">
+
+       <div style="margin-bottom: 60px"></div>
    
         <div class="menu-hider"></div>
-    </div>
+      </div>
    
 
-    <script>
-        $(document).ready(function() {
-            $('#example').DataTable({
-                "sScrollX": true
+        <script>
+            $(document).ready(function() {
+                $('#example').DataTable({
+                    "sScrollX": true
+                });
             });
-        });
 
-        function getrowvalue(id){
-            var trid=$(id).parents('tr').children();
-             $("#customertdname").text($(trid[1]).text());
-             $(".custPhoneancor").text($(trid[4]).text());
-             $(".custPhoneancor").attr("href","tel:+91 "+$(trid[4]).text());
-             $("#previousNotesTxtArea").text($(trid[6]).text());
-           
-        }
-    </script>
+            function getrowvalue(id){
+                var trid=$(id).parents('tr').children();
+                $("#customertdname").text($(trid[1]).text());
+                $(".custPhoneancor").text($(trid[4]).text());
+                $(".custPhoneancor").attr("href","tel:+91 "+$(trid[4]).text());
+                $("#previousNotesTxtArea").text($(trid[6]).text());
+              
+            }
+        </script>
         <script>
           function hello(){
                 $(".accordion-content").show();
