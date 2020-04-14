@@ -41,5 +41,30 @@
         padding: 11em 0;
         width: 100%;
     }
-  
+    
+    .table-scroll th {
+            padding: 3px 10px;
+        }
+        
+        th {
+            line-height: 25px;
+        }
+        
+        .table-scroll {
+            overflow-x: scroll;
+            padding: 0px 10px;
+        }
+        
+        #example_wrapper {
+            margin-bottom: 40px!important;
+            padding: 15px;
+        }
+        a {
+            color: #337ab7!important;
+            text-decoration: none;
+        }
+        td, th {
+            padding: 0;
+            padding: 9px 4px;
+        }
 </style>

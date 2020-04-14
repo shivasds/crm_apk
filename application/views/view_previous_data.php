@@ -1,7 +1,7 @@
 <table id="previous" class="table table-striped table-bordered dt-responsive " cellspacing="0" width="100%" >
     <thead>
         <tr>
-            <th>No</th>
+            <th class="hidden">No</th>
             <th>User</th> 
             <th>Callback</th>
             <th>Status</th>
@@ -14,7 +14,7 @@
             $i= 1;
             foreach ($result as $data) { ?>
                 <tr>
-                    <td><?php echo $i; ?></td>
+                    <td class="hidden"><?php echo $i; ?></td>
                     <td><?php echo $data->user_name; ?></td>
                     <td><?php echo $data->current_callback ?></td>
                     <td><?php echo $data->status; ?></td>

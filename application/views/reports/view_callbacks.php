@@ -28,34 +28,7 @@ $CI=&get_instance();
     ?>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<?=base_url('assets/')?>styles/framework.css">
-<style>
-        
-        .table-scroll th {
-            padding: 3px 10px;
-        }
-        
-        th {
-            line-height: 25px;
-        }
-        
-        .table-scroll {
-            overflow-x: scroll;
-            padding: 0px 10px;
-        }
-        
-        #example_wrapper {
-            margin-bottom: 40px!important;
-            padding: 15px;
-        }
-        a {
-            color: #337ab7!important;
-            text-decoration: none;
-        }
-        td, th {
-            padding: 0;
-            padding: 9px 4px;
-        }
-    </style>
+
 <body class="theme-light" data-highlight="blue2">
     <div id="page">
       <?php
@@ -79,14 +52,14 @@ $CI=&get_instance();
             
             <div class="content-title has-border border-highlight bottom-18">
                     <h3>Todays Due Call</h3>
-                    <a href="#" class="color-highlight"><i class="fa fa-chevron-down"></i></a>
+                   
             </div>
 
             <div class="">
                 <table id="table_viewCallback" class="display" style="width:100%">
                     <thead>
                         <tr>
-                            <th>S.No</th>
+                            <th class="hidden">S.No</th>
                             <th>Customer Name</th>
                             <th>Project</th>
                             <th>Status</th>
@@ -108,7 +81,7 @@ $CI=&get_instance();
                         ?>
 
                        <tr id="row<?php echo $data->id; ?>" <?php if(strtotime($duedate)<strtotime('today')){?> class="highlight_past" <?php }elseif(strtotime($duedate) == strtotime('today')) {?> class="highlight_now" <?php }elseif(strtotime($duedate)>strtotime('today')){ ?> class="highlight_future" <?php } ?>>
-                            <td><?php echo $i; ?></td>
+                            <td class="hidden"><?php echo $i; ?></td>
                             <td><?php echo $data->name; ?></td>
                             <td><?php echo $data->project_name; ?></td>
                             <td class="<?php echo $data->status_name; ?>"><?php echo $data->status_name; ?></td>
@@ -149,7 +122,10 @@ $CI=&get_instance();
     <script>
         $(document).ready(function() {
             $('#table_viewCallback').DataTable({
-                "sScrollX": true
+                "sScrollX": true,
+                "bInfo": false, //Dont display info e.g. "Showing 1 to 4 of 4 entries"
+                "paging": false,//Dont want paging                
+                "bPaginate": false,//Dont want paging  
             });
         });
 
@@ -165,7 +141,7 @@ $CI=&get_instance();
 
         function getmodeltablevalue(id)
         {
-            var trid=$(id).parents('tr').children();
+            var traid=$(id).parents('tr').children();
             $(".addnotesmodalbtn").attr('id',$("#c_id").text());
             $("#addnotesdivid").val($("#c_id").text());
         }

@@ -29,34 +29,6 @@ $CI=&get_instance();
  
  <link rel="stylesheet" type="text/css" href="<?=base_url('assets/')?>styles/framework.css">
   
- <style>
-        
-        .table-scroll th {
-            padding: 3px 10px;
-        }
-        
-        th {
-            line-height: 25px;
-        }
-        
-        .table-scroll {
-            overflow-x: scroll;
-            padding: 0px 10px;
-        }
-        
-        #example_wrapper {
-            margin-bottom: 40px!important;
-            padding: 15px;
-        }
-        a {
-            color: #337ab7!important;
-            text-decoration: none;
-        }
-        td, th {
-            padding: 0;
-            padding: 9px 4px;
-        }
-    </style>
 <body class="theme-light" data-highlight="blue2">
     <div id="page">
       <?php
@@ -143,7 +115,7 @@ $CI=&get_instance();
     <table id="example" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%" >
         <thead>
             <tr>
-                <th>No</th>
+                <th class="hidden">No</th>
                 <th>Contact Name</th>  
                 <th>Project</th>
                 <th>Status</th>   
@@ -161,7 +133,7 @@ $CI=&get_instance();
                 $duedate = explode(" ", $data->due_date);
                 $duedate = $duedate[0]; ?>
                 <tr id="row<?php echo $i ?>" <?php if(strtotime($duedate)<strtotime('today')){?> class="highlight_past" <?php }elseif(strtotime($duedate) == strtotime('today')) {?> class="highlight_now" <?php }elseif(strtotime($duedate)>strtotime('today')){ ?> class="highlight_future" <?php } ?>>
-                    <td><?php echo $i; ?></td>
+                    <td class="hidden"><?php echo $i; ?></td>
                     <td><?php echo $data->name; ?></td>
                     <td><?php echo $data->project_name; ?></td>  
                     <td><?php echo $data->status_name; ?></td> 
@@ -191,7 +163,10 @@ $CI=&get_instance();
     <script>
         $(document).ready(function() {
             $('#examplehide').DataTable({
-                "sScrollX": true
+                "sScrollX": true,
+                "bInfo": false, //Dont display info e.g. "Showing 1 to 4 of 4 entries"
+                "paging": false,//Dont want paging                
+                 "bPaginate": false,//Dont want paging  
             });
         });
 
