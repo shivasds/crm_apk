@@ -17,6 +17,11 @@
        <?php
           $this->load->view('inc/footer');
        ?>
+          <!-- Profile -->
+      <?php
+            $this->load->view('profile');
+
+        ?>
            <div class="page-content">
            <?php
               $this->load->view('inc/collapsable_header');
@@ -93,11 +98,7 @@
             <!-- button -->
         </div>
 
-      <!-- Profile -->
-      <?php
-            $this->load->view('profile');
-
-        ?>
+   
         <div class="menu-hider"></div>
 
     </div>

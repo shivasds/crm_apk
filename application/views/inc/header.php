@@ -26,7 +26,7 @@
     <script src="<?=base_url('assets/')?>js/bootstrap.min.js" ></script>
   
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="<?=base_url('assets/')?>scripts/plugins.js"></script>
+    <!-- <script type="text/javascript" src="<?=base_url('assets/')?>scripts/plugins.js"></script> -->
     <!-- <script type="text/javascript" src="<?=base_url('assets/')?>scripts/custom.js"></script> -->
     <!--clock init-->
 </head>
@@ -41,4 +41,5 @@
         padding: 11em 0;
         width: 100%;
     }
+  
 </style>

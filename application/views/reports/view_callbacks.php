@@ -64,7 +64,11 @@ $CI=&get_instance();
        <?php
           $this->load->view('inc/footer');
        ?>
+    <!-- Profile -->
+    <?php
+         $this->load->view('profile');
 
+        ?>
         <div class="page-content">
             <?php
               $this->load->view('inc/collapsable_header');
@@ -136,11 +140,7 @@ $CI=&get_instance();
         </div>
         </div>
         <div style="margin-bottom: 60px">
-       <!-- Profile -->
-       <?php
-            $this->load->view('profile');
-
-        ?>
+     
         <div class="menu-hider"></div>
     </div>
    
@@ -169,6 +169,14 @@ $CI=&get_instance();
             $("#addnotesdivid").text($("#c_id").text());
         }
     </script>
+
+    <script>
+        $(document).ready(function(){
+            $(".accordion-toggle-last").click(function(){
+                $(".accordion-content bottom-10").toggle();
+            });
+            });
+        </script>
 
 
 </body>
@@ -262,19 +270,19 @@ $CI=&get_instance();
                     </select>
                 </div>
                 <div class="form-group col-md-6">
-                  <div class="content reassign accordion-style-2">
-                    <a data-accordion="accordion-content-6" href="#" class="accordion-toggle-last">
+               
+                    <a class="accordion-toggle-last">
                     <i class="accordion-icon-left fa fa-users  color-blue2-dark"></i>
                       Reassign Another
                     <i class="accordion-icon-right fa fa-arrow-down"></i>
                     </a>
 
                     <div id="accordion-content-6" class="accordion-content bottom-10">
-                    <input type="datetime-local" id="birthdaytime" name="birthdaytime">
+                       <input type="datetime-local" id="birthdaytime" name="birthdaytime">
                        
                     </div>
                  </div>
-                </div>
+               
                
             </div>
             <div class="form-row hidden">
