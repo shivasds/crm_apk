@@ -1189,11 +1189,33 @@ input[type=search] {
     background-color: #337ab7;
     border-color: #337ab7;
 }
+@media only screen and (max-width:320px){
+	input[type=date], input[type=time], input[type=datetime-local], input[type=month] {
+		line-height: 34px;
+		border: 1px solid #e0dada!important;
+		display: block;
+	}
+	.icon-xs i {
+		width: 32px;
+		line-height: 32px;
+		font-size: 12px;
+	}	
+}
 
-input[type=date], input[type=time], input[type=datetime-local], input[type=month] {
-	line-height: 27px;
-    border: 1px solid #e0dada;
-    display: block;
+@media screen and (min-width:321px) and (max-width:768px){
+	input[type=date], input[type=time], input[type=datetime-local], input[type=month] {
+		line-height: 27px;
+		border: 1px solid #e0dada;
+		display: block;
+	}	
+}
+
+@media (min-width:769px) and (max-width:1600){
+	input[type=date], input[type=time], input[type=datetime-local], input[type=month] {
+		line-height: 27px;
+		border: 1px solid #e0dada;
+		display: block;
+	}	
 }
 .New{
 	color: green;
