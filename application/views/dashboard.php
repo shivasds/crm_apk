@@ -51,7 +51,7 @@
                     <i class="far fa-registered"></i>
                     <span>Register</span>
                 </a>
-                <a href="#" class="bg-gradient-blue2 round-small  scale-hover">
+                <a href="<?=base_url('thankyou_mail')?>" class="bg-gradient-blue2 round-small  scale-hover">
                     <i class="fa fa-envelope"></i>
                     <span>Send Thank you Mail</span>
                 </a>
