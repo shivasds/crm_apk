@@ -178,7 +178,6 @@ $this->load->view('inc/header');
         });
         
         function getrowvalue(id){
-            debugger;
             var trid=$(id).parents('tr').children();
            $("#addnotesdivid").val($(trid[4]).text());
            
