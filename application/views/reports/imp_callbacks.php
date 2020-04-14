@@ -111,7 +111,7 @@ $CI=&get_instance();
                                     <?php }
                                 }
                                  else
-                                        echo '<tr><td colspan="3">No records found!</td></tr>';
+                                        echo '<tr><td colspan="4">No records found!</td></tr>';
 
                                      ?>
                          

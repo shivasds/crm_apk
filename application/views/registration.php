@@ -87,7 +87,7 @@ $this->load->view('inc/header');
                                       <td><?php echo $data->status_name; ?></td> 
                                       <td  class="hidden"><?php echo $data->id; ?></td>
                                       <td class="hidden"><?php echo $data->contact_no1; ?></td>
-                                      <td><button style="cursor:pointer"  onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fa fa-plus"></i></button></td>
+                                      <td><button style="cursor:pointer"  onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="btn-register shadow-huge bg-icon">Register</button></td>
                   
                                      
                                   </tr>
