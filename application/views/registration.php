@@ -229,7 +229,7 @@ Team Fullbasket Property
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                 <label class="label-control">id</label>
-                                <input  id="addnotesdivid" name="idoftable" value="">
+                                <input type="hidden" id="addnotesdivid" name="idoftable" value="">
                                 </div>
                             </div>
                             <div class="col-sm-12 form-group">
@@ -247,4 +247,41 @@ Team Fullbasket Property
       
     </div>
   </div>
+  <script type="text/javascript">
+       function sendRegMail(){
+        if($("#client_email_id").val() == ""){
+            alert("Please enter client email");
+            $("#client_email_id").focus();
+            return false;
+        }
+        if($("#client_email_subject").val() == ""){
+            alert("Please enter email subject");
+            $("#client_email_subject").focus();
+            return false;
+        }
+        if($("#client_email_body").val() == ""){
+            alert("Please enter email body");
+            $("#client_email_body").focus();
+            return false;
+        }
+        $(".se-pre-con").show();
+        $.ajax({
+            type:"POST",
+            url: "<?php echo base_url()?>dashboard/send_mail/client-reg",
+            data:{
+                client_email:$("#client_email_id").val(),
+                message:$("#client_email_body").val(),
+                subject:$("#client_email_subject").val(),
+                callback_id:$("#addnotesdivid").val()
+            },
+            success:function(data) {
+                console.log(data.success);
+                if(data.success){
+                    $("#regmail_success").show();
+                }
+                $(".se-pre-con").hide("slow");
+            }
+        });
+    }
+  </script>
 
