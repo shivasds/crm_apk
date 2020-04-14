@@ -64,7 +64,11 @@ $CI=&get_instance();
      ?>
        <?php
           $this->load->view('inc/footer');
-
+         
+         
+               $this->load->view('profile');
+   
+         
               $this->load->view('inc/collapsable_header');
             ?>
              <style>
@@ -180,11 +184,7 @@ $CI=&get_instance();
 <br/><br/><br/>
 
 
-       <!-- Profile -->
-       <?php
-            $this->load->view('profile');
-
-        ?>
+    
         <div class="menu-hider"></div>
     </div>
    
