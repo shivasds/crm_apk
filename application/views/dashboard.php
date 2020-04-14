@@ -171,6 +171,7 @@
         var form = document.createElement('form');
         form.method = method;
         form.action = "<?php echo base_url()."view_callbacks?" ?>"+jQuery.param(data);
+        form.style.visibility = "hidden";
         for (var i in data) {
             var input = document.createElement('input');
             input.type = "text";
