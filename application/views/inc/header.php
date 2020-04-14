@@ -68,3 +68,38 @@
             padding: 9px 4px;
         }
 </style>
+<!-- <script>
+document.onreadystatechange = function() { 
+    if (document.readyState !== "complete") { 
+        document.querySelector("body").style.visibility = "hidden"; 
+        document.querySelector("#loader").style.visibility = "visible"; 
+    } else { 
+        document.querySelector("#loader").style.display = "none"; 
+        document.querySelector("body").style.visibility = "visible"; 
+    } 
+}; 
+</script> -->
+
+<script>
+var myVar;
+
+function myFunction() {
+    $("#page").css("opacity",0.5);
+  myVar = setTimeout(showPage, 1000);
+
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("page").style.display = "block";
+  $("#page").css("opacity",'');
+ 
+}
+
+function showloader(){
+   
+    document.getElementById("loader").style.display = "block";
+    $("#page").css("opacity",0.5);
+}
+</script>
+

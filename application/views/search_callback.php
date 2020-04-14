@@ -27,7 +27,8 @@ $this->load->view('inc/header');
  
  <link rel="stylesheet" type="text/css" href="<?=base_url('assets/')?>styles/framework.css">
   
-<body class="theme-light" data-highlight="blue2">
+ <body class="theme-light"  onload="myFunction()" style="margin:0;" data-highlight="blue2">
+<div id="loader"></div>  
     <div id="page">
       <?php
         $this->load->view('inc/fixed_header');
