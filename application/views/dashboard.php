@@ -29,19 +29,19 @@
             <div class="content">
 
             <div class="grid-icons grid-icons-3">
-                <a href="#"  data-type="user_total" class="bg-gradient-blue2 round-small  scale-hover view_callbacks">
+                <a href="#"  data-type="user_total" class="bg-gradient-blue2 round-small  scale-hover view_callbacks"  onclick="showloader()">
                     <i class="fas fa-phone-volume"></i>
                     <span>Call for the day</span>
                 </a>
-                <a href="#"  data-type="user_overdue" class="bg-gradient-blue2 round-small  scale-hover view_callbacks">
+                <a href="#"  data-type="user_overdue" class="bg-gradient-blue2 round-small  scale-hover view_callbacks"  onclick="showloader()">
                     <i class="fas fa-headset"></i>
                     <span>Over Due Calls</span>
                 </a>
-                <a href="<?=base_url('search_callback')?>" class="bg-gradient-blue2 round-small  scale-hover ">
+                <a href="<?=base_url('search_callback')?>" class="bg-gradient-blue2 round-small  scale-hover "  onclick="showloader()">
                     <i class="fab fa-searchengin"></i>
                     <span>Search</span>
                 </a>
-                <a href="<?=base_url('callbacks')?>" class="bg-gradient-blue2 round-small  scale-hover">
+                <a href="<?=base_url('callbacks')?>" class="bg-gradient-blue2 round-small  scale-hover"  onclick="showloader()">
                     <i class="fa fa-phone"></i>
                     <span>View Calls</span>
                 </a>

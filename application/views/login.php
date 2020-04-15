@@ -3,7 +3,7 @@
 $this->load->view('inc/header');
 ?>
  
-<body>
+<body onload="myFunction()" style="margin:0;">
 
 
     <div class="error_page">
@@ -35,7 +35,7 @@ $this->load->view('inc/header');
                     <input type="text" class="text" value="username" name="userName" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'username';}">
                     <input type="password" value="Password" name="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
  
-                    <input type="submit" class="btn btn-success"name="login" value="Login">
+                    <input type="submit" class="btn btn-success"name="login" value="Login" onclick="showloader()">
                     <div class="clearfix"></div>
 
                     <div class="new">

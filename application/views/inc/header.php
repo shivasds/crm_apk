@@ -79,14 +79,32 @@ document.onreadystatechange = function() {
     } 
 }; 
 </script> -->
-
+<script>
+$(document).ready(function(){
+    function alignModal(){
+        var modalDialog = $(this).find(".modal-dialog");
+        
+        // Applying the top margin on modal dialog to align it vertically center
+        modalDialog.css("margin-top", Math.max(0, ($(window).height() - modalDialog.height()) / 2));
+    }
+    // Align modal when it is displayed
+    $(".modal").on("shown.bs.modal", alignModal);
+    
+    // Align modal when user resize the window
+    $(window).on("resize", function(){
+        $(".modal:visible").each(alignModal);
+    });   
+});
+</script>
 <script>
 var myVar;
 
 function myFunction() {
-    $("#page").css("opacity",0.5);
-  myVar = setTimeout(showPage, 1000);
-
+//     $("#page").css("opacity",0.5);
+//   myVar = setTimeout(showPage, 1000);
+document.getElementById("loader").style.display = "none";
+  document.getElementById("page").style.display = "block";
+  $("#page").css("opacity",'');
 }
 
 function showPage() {
