@@ -168,9 +168,18 @@ $this->load->view('inc/header');
                                             </table>
                                             <div style="margin-top: 20px">
                                                 <span class="pull-left"><p>Showing <?php echo ($this->uri->segment(2)) ? $this->uri->segment(2)+1 : 1; ?> to <?= ($this->uri->segment(2)+count($result)); ?> of <?= $totalRecords; ?> entries</p></span>
-                                                <ul class="pagination pull-right">
+                                               <ul class="pagination pull-right">
                                                     <?php echo $links; ?>
                                                 </ul>
+                                                <div class="pagination">
+                                                    <a href="#" class="shadow-huge"><<</a>
+                                                    <a href="#" class="shadow-huge"><</a>
+                                                    <a href="#" class="shadow-huge bg-highlight">1</a>
+                                                    <a href="#" class="shadow-huge">2</a>
+                                                    <a href="#" class="shadow-huge ">3</a>
+                                                    <a href="#" class="shadow-huge">></a>
+                                                    <a href="#" class="shadow-huge">>></i></a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
