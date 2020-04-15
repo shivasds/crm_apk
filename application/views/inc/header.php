@@ -55,10 +55,10 @@
             padding: 0px 10px;
         }
         
-        #example_wrapper {
+        /* #example_wrapper {
             margin-bottom: 40px!important;
             padding: 15px;
-        }
+        } */
         a {
             color: #337ab7!important;
             text-decoration: none;

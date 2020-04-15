@@ -97,6 +97,10 @@ $this->load->view('inc/header');
                                             border: 1px solid #aaa;
                                             padding: 5px
                                         }
+                                        /* td, th {
+                                            padding: 0;
+                                            padding: 9px 18px;
+                                        } */
                                     </style>
 
                                     <div class="divider divider-margins"></div>
@@ -105,8 +109,8 @@ $this->load->view('inc/header');
 
                                         <div class="content-title has-border border-highlight bottom-18">
                                             <label>Callbacks</label>
-
                                         </div>
+                                       
 
                                         <div class="">
                                             <table id="example" class="display" style="width:100%">
@@ -182,9 +186,10 @@ $this->load->view('inc/header');
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                            </div>
 
+                                    </div>
+                           
+                            </div>
                             <div style="margin-bottom: 60px"></div>
 
                             <div class="menu-hider"></div>
