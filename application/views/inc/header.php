@@ -67,18 +67,12 @@
             padding: 0;
             padding: 9px 4px;
         }
+        .star {
+            font-size: 25px;
+                color:gold;
+            }
 </style>
-<!-- <script>
-document.onreadystatechange = function() { 
-    if (document.readyState !== "complete") { 
-        document.querySelector("body").style.visibility = "hidden"; 
-        document.querySelector("#loader").style.visibility = "visible"; 
-    } else { 
-        document.querySelector("#loader").style.display = "none"; 
-        document.querySelector("body").style.visibility = "visible"; 
-    } 
-}; 
-</script> -->
+
 <script>
 $(document).ready(function(){
     function alignModal(){
@@ -107,17 +101,31 @@ document.getElementById("loader").style.display = "none";
   $("#page").css("opacity",'');
 }
 
-function showPage() {
-  document.getElementById("loader").style.display = "none";
-  document.getElementById("page").style.display = "block";
-  $("#page").css("opacity",'');
+// function showPage() {
+//   document.getElementById("loader").style.display = "none";
+//   document.getElementById("page").style.display = "block";
+//   $("#page").css("opacity",'');
  
-}
+// }
 
 function showloader(){
    
     document.getElementById("loader").style.display = "block";
     $("#page").css("opacity",0.5);
 }
+
+function favorite(id){
+          
+          if($(id).hasClass("glyphicon-star-empty")){
+           $(".star").removeClass("glyphicon-star-empty");
+           $(".star").addClass("glyphicon-star");
+           
+          }
+          else{
+           $(".star").addClass("glyphicon-star-empty");
+           $(".star").removeClass("glyphicon-star");
+          }
+           
+         }
 </script>
 

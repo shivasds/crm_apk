@@ -258,12 +258,20 @@ $CI=&get_instance();
                 </div>
             </div>
 
-                        <input type="checkbox" name="important" id="fancy-checkbox-warning" autocomplete="off" />
+                        <!-- <input type="checkbox" name="important" id="fancy-checkbox-warning" autocomplete="off" />
                             <div class="btn-group">
                                 
                                 <label for="fancy-checkbox-warning" class="btn btn-default active">
                                    Important
                                 </label>
+                            </div> -->
+                            <div class="col-md-1">
+                                <span onclick="favorite(this)" class="star glyphicon glyphicon-star-empty">
+                              </span>
+
+                            </div>
+                            <div class="col-md-11">
+                                <p class="text-muted">Mark as Important</p>
                             </div>
             <button type="submit" id="" class="btn btn-primary addnotesmodalbtn">Add</button>
             </form>

@@ -1,4 +1,4 @@
-
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
 html, body{
 	font-family: 'Roboto', sans-serif;
 	font-size: 100%;
@@ -1203,9 +1203,11 @@ input[type=search] {
 
 @media screen and (min-width:321px) and (max-width:768px){
 	input[type=date], input[type=time], input[type=datetime-local], input[type=month] {
-		line-height: 27px;
-		border: 1px solid #e0dada;
-		display: block;
+		line-height: 15px; 
+	     border: 1px solid #e0dada; 
+		 display: block; 
+	     padding: 8px; 
+		 background: white;
 	}	
 }
 
