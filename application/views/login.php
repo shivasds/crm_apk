@@ -21,16 +21,16 @@ $this->load->view('inc/header');
                 </div>
                 <?php
   
-  if ($this->session->flashdata('error')) {
-      ?>
-      <div class="alert alert-danger">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          <strong style="color: #a94442;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></strong> <span
-                  style="color: #a94442;"><?= $this->session->flashdata('error') ?></span>
-      </div>
-      <?php
-  } 
-  ?>
+            if ($this->session->flashdata('error')) {
+                ?>
+                <div class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <strong style="color: #a94442;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></strong> <span
+                            style="color: #a94442;"><?= $this->session->flashdata('error') ?></span>
+                </div>
+                <?php
+            } 
+            ?>
                 <form action="<?php echo base_url()?>login" method="POST" enctype="multipart/form-data" role="form" autocomplete="off">
                     <input type="text" class="text" value="username" name="userName" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'username';}">
                     <input type="password" value="Password" name="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
@@ -42,6 +42,7 @@ $this->load->view('inc/header');
                         <p>
                             <label class="checkbox11">
                                 <input type="checkbox" name="checkbox"><i> </i>Forgot Password ?</label>
+                                <button class="">Forgot Password</button>
                         </p>
 
                         <div class="clearfix"></div>

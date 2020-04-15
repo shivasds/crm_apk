@@ -94,7 +94,7 @@ $this->load->view('inc/header');
             <div class="content">
                   
                   <div class="content-title has-border border-highlight bottom-18">
-                          <h3>Callbacks</h3>
+                     <label>Callbacks</label>
                        
                   </div>
 
@@ -107,8 +107,8 @@ $this->load->view('inc/header');
                                   <th>Project</th>
                                   <th>Status</th>   
                                   <th class="hidden">contact</th>
-                                  <th>Call</th>
                                   <th class="hidden">id</th>
+                                  <th>Call</th>
                                   <th>Info</th>
                               </tr>
                           </thead> 
@@ -127,7 +127,6 @@ $this->load->view('inc/header');
                                       <td class="hidden"><?php echo $data->contact_no1; ?></td>
                                       <td  class="hidden" onclick="getrowvalue(this)"><?php echo $data->id; ?></td>
                                      <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModalcall" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-phone "></i></button></td>
-                                     <td class="hidden"> </td>
                                     <td><button style="cursor:pointer" onclick="getrowvalue(this)" href="#myModal" data-toggle="modal" data-target="#myModal" class="icon icon-xs icon-circle shadow-huge bg-icon"><i class="fas fa-info-circle "></i></button></td>
                                   </tr>
                               <?php $i++; } } }

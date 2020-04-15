@@ -32,7 +32,7 @@ $this->load->view('inc/header');
 
             <div class="content">
                    <div class="content-title has-border border-highlight bottom-18">
-                          <h3>Callbacks</h3>
+                          <label>Callbacks</label>
                         
                   </div>
 

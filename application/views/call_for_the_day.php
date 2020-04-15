@@ -29,7 +29,7 @@ $this->load->view('inc/header');
            
            
                 <div class="content-title has-border border-highlight bottom-18">
-                        <h3>Todays Call</h3>
+                        <label>Todays Call</label>
                         <p class="bottom-25">
                         Want to Call Back ..
                     </p>

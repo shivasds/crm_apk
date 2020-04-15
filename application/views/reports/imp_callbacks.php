@@ -28,34 +28,7 @@ $CI=&get_instance();
     ?>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<?=base_url('assets/')?>styles/framework.css">
-<style>
-        
-        .table-scroll th {
-            padding: 3px 10px;
-        }
-        
-        th {
-            line-height: 25px;
-        }
-        
-        .table-scroll {
-            overflow-x: scroll;
-            padding: 0px 10px;
-        }
-        
-        #example_wrapper {
-            margin-bottom: 40px!important;
-            padding: 15px;
-        }
-        a {
-            color: #337ab7!important;
-            text-decoration: none;
-        }
-        td, th {
-            padding: 0;
-            padding: 9px 4px;
-        }
-    </style>
+
 <body class="theme-light"  onload="myFunction()" style="margin:0;" data-highlight="blue2">
 <div id="loader"></div>  
     <div id="page">
@@ -65,8 +38,8 @@ $CI=&get_instance();
        <?php
           $this->load->view('inc/footer');
        ?>
-  <!-- Profile -->
-  <?php
+        <!-- Profile -->
+        <?php
             $this->load->view('profile');
 
         ?>
@@ -79,7 +52,7 @@ $CI=&get_instance();
             <div class="content">
             
             <div class="content-title has-border border-highlight bottom-18">
-                    <h3>Todays Due Call</h3>
+               <label>Todays Due Call</label>
                   
             </div>
 

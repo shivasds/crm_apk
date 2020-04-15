@@ -28,18 +28,18 @@
     font-size: 15px!important;
 }
 
-.sidenav a:hover {
+.sidenav a:hover{
   color: #f1f1f1;
 }
 
-.sidenav .closebtn {
+.sidenav .closebtn{
     position: absolute;
     /* right: 25px; */
     color: black!important;
     font-size: 28px;
     padding: 4px 0px 1px 18px;
 }
-@media screen and (max-height: 450px) {
+@media screen and (max-height: 450px){
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
@@ -48,7 +48,7 @@
 <div id="mySidenav" class="sidenav" >
             <div class="caption shadow-huge" >
                 <div class="caption-top top-10 right-10">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 </div>
                 <div class="down top-30">
                     <a><img src="https://newcrm.fullbasketproperty.com/uploads/<?= $this->session->userdata('profile_pic');?>" style="width: 100px; height: 100px;"></a>

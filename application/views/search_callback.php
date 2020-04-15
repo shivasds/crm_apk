@@ -44,7 +44,7 @@ $this->load->view('inc/header');
             ?>
              <style>
                   @media screen and (min-width: 768px) {
-                    modal_
+                
                     .modal-dialog  {
                       width:900px;
                     }
