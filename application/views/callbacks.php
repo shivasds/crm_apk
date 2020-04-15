@@ -264,51 +264,34 @@ $this->load->view('inc/header');
 
             </div>
         </div>
-       
-      </div>
-      
-    </div>
-  </div>
 
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
 
-  <div class="modal fade" id="addnotes" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-      
-        <div class="modal-body">
-          <p style="margin-bottom: 1px;text-align: center;">Add Notes</p>
-          <form method="post" action="<?=base_url('update_callback_details');?>" name="callback_details" autocomplete="off">
-           
-            <div class="form-row">
-               <div class="form-group col-md-6">
-                    <label for="inputState">Status</label>
-                    <select  class="form-control"  id="m_status" onchange="status(this.value)" name="status_id" required="required">
-                        <option value="">Select</option>
-                        <?php $statuses= $this->common_model->all_active_statuses(); 
-                        foreach( $statuses as $status){ ?>
-                            <option value="<?php echo $status->id; ?>"><?php echo $status->name ?></option>
-                        <?php } ?>           
-                    </select>
-                </div>
-                 <div class="form-row hidden">
-                <div class="form-group col-md-12">
-                        <label class="label-control">id</label>
-                        <input  id="addnotesdivid" name="idoftable" >
-                </div>
-            </div> 
-                <div class="form-group col-md-6 showall" onclick="hello()">
-               
-                  <a class="accordion-toggle-last">
-                    <i class="accordion-icon-left fa fa-users  color-blue2-dark"></i>
-                      Reassign Another
-                    <i class="accordion-icon-right fa fa-arrow-down"></i>
-                    </a>
+                <!-- Modal content-->
+                <div class="modal-content">
 
-                    <div id="accordion-content-6" class="accordion-content mt-5 bottom-10">
-                        <input type="datetime-local" id="birthdaytime" name="birthdaytime">
-                        
+                    <div class="modal-body">
+                        <p style="margin-bottom: 1px;text-align: center;">Notes</p>
+                        <table>
+                            <tr>
+                                <th>Read Previos Note</th>
+                                <th>Add Notes</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <textarea class="form-control" name="notes" rows="5" cols="30" id="previousNotesTxtArea" readonly></textarea>
+                                </td>
+                                <td>
+                                    <button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#addnotes" class="icon icon-xs icon-circle shadow-huge bg-icon" data-dismiss="modal">
+                                        <i class="fas fa-plus-circle "></i>
+                                    </button>
+                                </td>
+
+                            </tr>
+
+                        </table>
+
                     </div>
 
                 </div>
@@ -327,13 +310,16 @@ $this->load->view('inc/header');
                         <form>
 
                             <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="inputState">Status</label>
-                                    <select id="inputState" class="form-control">
-                                        <option selected>Choose...</option>
-                                        <option>...</option>
-                                    </select>
-                                </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputState">Status</label>
+                                <select  class="form-control"  id="m_status" onchange="status(this.value)" name="status_id" required="required">
+                                    <option value="">Select</option>
+                                    <?php $statuses= $this->common_model->all_active_statuses(); 
+                                    foreach( $statuses as $status){ ?>
+                                        <option value="<?php echo $status->id; ?>"><?php echo $status->name ?></option>
+                                    <?php } ?>           
+                                </select>
+                            </div>
                                 <div class="form-group col-md-6 showall" onclick="hello()">
 
                                     <a class="accordion-toggle-last">
