@@ -265,16 +265,25 @@ $this->load->view('inc/header');
       
         <div class="modal-body">
           <p style="margin-bottom: 1px;text-align: center;">Add Notes</p>
-          <form>
+          <form method="post" action="<?=base_url('update_callback_details');?>" name="callback_details" autocomplete="off">
            
             <div class="form-row">
                <div class="form-group col-md-6">
-                <label for="inputState">Status</label>
-                <select id="inputState" class="form-control">
-                    <option selected>Choose...</option>
-                    <option>...</option>
-                </select>
+                    <label for="inputState">Status</label>
+                    <select  class="form-control"  id="m_status" onchange="status(this.value)" name="status_id" required="required">
+                        <option value="">Select</option>
+                        <?php $statuses= $this->common_model->all_active_statuses(); 
+                        foreach( $statuses as $status){ ?>
+                            <option value="<?php echo $status->id; ?>"><?php echo $status->name ?></option>
+                        <?php } ?>           
+                    </select>
                 </div>
+                 <div class="form-row hidden">
+                <div class="form-group col-md-12">
+                        <label class="label-control">id</label>
+                        <input  id="addnotesdivid" name="idoftable" >
+                </div>
+            </div> 
                 <div class="form-group col-md-6 showall" onclick="hello()">
                
                   <a class="accordion-toggle-last">
