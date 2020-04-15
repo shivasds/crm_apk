@@ -65,7 +65,11 @@ $CI=&get_instance();
        <?php
           $this->load->view('inc/footer');
        ?>
+  <!-- Profile -->
+  <?php
+            $this->load->view('profile');
 
+        ?>
         <div class="page-content">
             <?php
               $this->load->view('inc/collapsable_header');
@@ -85,7 +89,7 @@ $CI=&get_instance();
                         <tr> 
                             <th>Customer Name</th>
                             <th>Assigned User</th>
-                            <th>Email</th> 
+                            <th class="hidden">Email</th> 
                             <th>Last added Note</th> 
                             
                         </tr>
@@ -100,7 +104,7 @@ $CI=&get_instance();
                                         <tr>
                                             <td><a href="<?php echo base_url().'dashboard/view_callbacks/'.$user_id; ?>" data-type="user_important" data-id="<?php echo $callback->id; ?>"><?php echo $callback->name; ?></a></td>
                                             <td><?php echo $callback->user_name; ?></td>
-                                            <td>
+                                            <td class="hidden">
                                                 <?php 
                                                     echo $callback->email1; 
                                                     if($callback->email2)
@@ -128,11 +132,7 @@ $CI=&get_instance();
 
         </div>
         </div>
-       <!-- Profile -->
-       <?php
-            $this->load->view('profile');
-
-        ?>
+     
         <div class="menu-hider"></div>
     </div>
    

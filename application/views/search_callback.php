@@ -158,7 +158,13 @@ $this->load->view('inc/header');
     
         <div class="menu-hider"></div>
     </div>
-   
+    <script>
+          function hello(){
+                $(".accordion-content").show();
+                $(this).html('<i class="accordion-icon-right fa fa-arrow-up"></i>');
+          
+          }
+        </script>
 
     <script>
         $(document).ready(function() {
@@ -293,19 +299,19 @@ $this->load->view('inc/header');
                     <option>...</option>
                 </select>
                 </div>
-                <div class="form-group col-md-6">
-                  <div class="content reassign accordion-style-2">
-                    <a data-accordion="accordion-content-6" href="#" class="accordion-toggle-last">
-                    <i class="accordion-icon-left fa fa-users  color-blue2-dark"></i>
-                      Reassign Another
-                    <i class="accordion-icon-right fa fa-arrow-down"></i>
-                    </a>
-                    <p id="accordion-content-6" class="accordion-content bottom-10">
-                    This is the accordion content. You can add any content you want to it. Really, anything!
-                    Add images, text, lists, captions or any element you want.
-                    </p>
+                <div class="form-group col-md-6 showall" onclick="hello()">
+               
+               <a class="accordion-toggle-last">
+                 <i class="accordion-icon-left fa fa-users  color-blue2-dark"></i>
+                   Reassign Another
+                 <i class="accordion-icon-right fa fa-arrow-down"></i>
+                 </a>
+
+                 <div id="accordion-content-6" class="accordion-content mt-5 bottom-10">
+                    <input type="datetime-local" id="birthdaytime" name="birthdaytime">
+                    
                  </div>
-                </div>
+              </div>
 
                 <div class="form-row">
                 <div class="form-group col-md-12">
@@ -315,11 +321,13 @@ $this->load->view('inc/header');
             </div>
              </div>
          
-
-                        <div class="fac fac-checkbox fac-blue"><span></span>
-                        <input id="box2-fac-checkbox" type="checkbox" value="1" checked="">
-                        <label for="box2-fac-checkbox">Important</label>
-                        </div>
+             <input type="checkbox" name="important" id="fancy-checkbox-warning" autocomplete="off" />
+                            <div class="btn-group">
+                                
+                                <label for="fancy-checkbox-warning" class="btn btn-default active">
+                                   Important
+                                </label>
+                            </div>
             <button type="submit" class="btn btn-primary">Add</button>
             </form>
             
