@@ -45,7 +45,7 @@
 }
     </style>
     
-<div id="mySidenav" class="sidenav"  onload="myFunction()">
+<div id="mySidenav" class="sidenav" >
             <div class="caption shadow-huge" >
                 <div class="caption-top top-10 right-10">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
