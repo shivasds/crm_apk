@@ -203,9 +203,14 @@ $this->load->view('inc/header');
                         "paging": false, //Dont want paging                
                         "bPaginate": false, //Dont want paging  
                     });
+
+                    $("#m_status").change(function () {
+                        $("#dvhiddenshow").removeClass("hidden");
+                    });
                 });
 
                 function getrowvalue(id) {
+                    $("#dvhiddenshow").addClass("hidden");
                     var trid = $(id).parents('tr').children();
 
                     $("#customertdname").text($(trid[1]).text());
@@ -236,13 +241,6 @@ $this->load->view('inc/header');
 
                 }
 
-               
-                $(document).ready(function () {
-                   
-                    $("#m_status").change(function () {
-                        $("#dvhiddenshow").removeClass("hidden");
-                    });
-                });
             </script>
         </body>
 
