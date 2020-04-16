@@ -235,6 +235,14 @@ $this->load->view('inc/header');
                     $(this).html('<i class="accordion-icon-right fa fa-arrow-up"></i>');
 
                 }
+
+               
+                $(document).ready(function () {
+                   
+                    $("#m_status").change(function () {
+                        $("#dvhiddenshow").removeClass("hidden");
+                    });
+                });
             </script>
         </body>
 
@@ -320,6 +328,27 @@ $this->load->view('inc/header');
                                     <?php } ?>           
                                 </select>
                             </div>
+                                <div id="dvhiddenshow" class="hidden">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputState">abc</label>
+                                            <select  class="form-control"  id="" name="" required="required">
+                                                <option value="">Select</option>
+                                                <option value="">.....</option>
+                                                <option value="">.....</option>
+                                                    
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <label for="inputState1">abc1</label>
+                                            <select  class="form-control"  id=""  name="" required="required">
+                                                <option value="">Select</option>
+                                                <option value="">.....</option>
+                                                <option value="">.....</option>
+                                                    
+                                            </select>
+                                        </div> 
+                                </div> 
                                 <div class="form-group col-md-6 showall" onclick="hello()">
 
                                     <a class="accordion-toggle-last">
