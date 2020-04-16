@@ -1,4 +1,4 @@
-
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
 html, body{
 	font-family: 'Roboto', sans-serif;
 	font-size: 100%;
@@ -1165,7 +1165,9 @@ i.lnr.lnr-user {
 	align-items: center;
 	justify-content: center;
 }
-
+.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+    border: 0px solid #fff!important;
+}
 @media (max-width: 325px) {
 	.content {
 		margin: 72px 15px 30px!important;
@@ -1201,9 +1203,11 @@ input[type=search] {
 
 @media screen and (min-width:321px) and (max-width:768px){
 	input[type=date], input[type=time], input[type=datetime-local], input[type=month] {
-		line-height: 27px;
-		border: 1px solid #e0dada;
-		display: block;
+		line-height: 15px; 
+	     border: 1px solid #e0dada; 
+		 display: block; 
+	     padding: 8px; 
+		 background: white;
 	}	
 }
 
@@ -1273,7 +1277,12 @@ input[type=search] {
   .myOverlay{ background: black;
 	opacity: 0.2;}
 
-  
+	label {
+		display: inline-block;
+		max-width: 100%;
+		margin-bottom: 5px;
+		font-weight: 500;
+	}
 .New{
 	color: green;
 }

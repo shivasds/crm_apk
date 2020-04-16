@@ -26,70 +26,74 @@
             ?>
             <div class="divider divider-margins"></div>
 
-            <div class="content">
+                <div class="content">
 
-            <div class="grid-icons grid-icons-3">
-                <a href="#"  data-type="user_total" class="bg-gradient-blue2 round-small  scale-hover view_callbacks"  onclick="showloader()">
-                    <i class="fas fa-phone-volume"></i>
-                    <span>Call for the day</span>
-                </a>
-                <a href="#"  data-type="user_overdue" class="bg-gradient-blue2 round-small  scale-hover view_callbacks"  onclick="showloader()">
-                    <i class="fas fa-headset"></i>
-                    <span>Over Due Calls</span>
-                </a>
-                <a href="<?=base_url('search_callback')?>" class="bg-gradient-blue2 round-small  scale-hover "  onclick="showloader()">
-                    <i class="fab fa-searchengin"></i>
-                    <span>Search</span>
-                </a>
-                <a href="<?=base_url('callbacks')?>" class="bg-gradient-blue2 round-small  scale-hover"  onclick="showloader()">
-                    <i class="fa fa-phone"></i>
-                    <span>View Calls</span>
-                </a>
-               <!--  <a href="<?=base_url('dashboard/Registration_email');?>" class="bg-gradient-blue2 round-small  scale-hover">
-                    <i class="far fa-registered"></i>
-                    <span>Register</span>
-                </a>
-                <a href="<?=base_url('thankyou_mail')?>" class="bg-gradient-blue2 round-small  scale-hover">
-                    <i class="fa fa-envelope"></i>
-                    <span>Send Thank you Mail</span>
-                </a> -->
-                <!-- Hidden BUUTONS -->
-                <div class="" id="myDIV" style="display: none;">
-                    <a href="#" class="bg-gradient-blue2 round-small  scale-hover">
-                        <i class="fas fa-phone-volume"></i>
-                        <span>ABC</span>
-                    </a>
-                    <a href="#" class="bg-gradient-blue2 round-small  scale-hover">
-                        <i class="fas fa-headset"></i>
-                        <span>Over</span>
-                    </a>
-                    <a href="#" class="bg-gradient-blue2 round-small  scale-hover">
-                        <i class="fab fa-searchengin"></i>
-                        <span>Search</span>
-                    </a>
-                    <a href="#" class="bg-gradient-blue2 round-small  scale-hover">
-                        <i class="fa fa-phone"></i>
-                        <span>Hot Calls</span>
-                    </a>
-                    <a href="#" class="bg-gradient-blue2 round-small  scale-hover">
-                        <i class="far fa-registered"></i>
-                        <span>Register a Client</span>
-                    </a>
-                    <a href="#" class="bg-gradient-blue2 round-small  scale-hover">
-                        <i class="fa fa-envelope"></i>
-                        <span>Send Thank Mail</span>
-                    </a>
+                    <div class="grid-icons grid-icons-3">
+                        <a href="#"  data-type="user_total" class="bg-gradient-blue2 round-small  scale-hover view_callbacks"  onclick="showloader()">
+                            <i class="fas fa-phone-volume"></i>
+                            <span>Call for the day</span>
+                        </a>
+                        <a href="#"  data-type="user_overdue" class="bg-gradient-blue2 round-small  scale-hover view_callbacks"  onclick="showloader()">
+                            <i class="fas fa-headset"></i>
+                            <span>Over Due Calls</span>
+                        </a>
+                        <!-- <a href="<?=base_url('search_callback')?>" class="bg-gradient-blue2 round-small  scale-hover "  onclick="showloader()">
+                            <i class="fab fa-searchengin"></i>
+                            <span>Search</span>
+                        </a> -->
+                        <a href="#" class="bg-gradient-blue2 round-small  scale-hover">
+                                <i class="fas fa-mobile"></i>
+                                <span>Calls for next day</span>
+                            </a>
+                        <a href="<?=base_url('callbacks')?>" class="bg-gradient-blue2 round-small  scale-hover"  onclick="showloader()">
+                            <i class="fa fa-phone"></i>
+                            <span>View Calls</span>
+                        </a>
+                    <!--  <a href="<?=base_url('dashboard/Registration_email');?>" class="bg-gradient-blue2 round-small  scale-hover">
+                            <i class="far fa-registered"></i>
+                            <span>Register</span>
+                        </a>
+                        <a href="<?=base_url('thankyou_mail')?>" class="bg-gradient-blue2 round-small  scale-hover">
+                            <i class="fa fa-envelope"></i>
+                            <span>Send Thank you Mail</span>
+                        </a> -->
+                        <!-- Hidden BUUTONS -->
+                        <div class="" id="myDIV" style="display: none;">
+                            <a href="#" class="bg-gradient-blue2 round-small  scale-hover">
+                                <i class="fas fa-phone-volume"></i>
+                                <span>ABC</span>
+                            </a>
+                            <a href="#" class="bg-gradient-blue2 round-small  scale-hover">
+                                <i class="fas fa-headset"></i>
+                                <span>Over</span>
+                            </a>
+                            <a href="#" class="bg-gradient-blue2 round-small  scale-hover">
+                                <i class="fab fa-searchengin"></i>
+                                <span>Search</span>
+                            </a>
+                            <a href="#" class="bg-gradient-blue2 round-small  scale-hover">
+                                <i class="fa fa-phone"></i>
+                                <span>Hot Calls</span>
+                            </a>
+                            <a href="#" class="bg-gradient-blue2 round-small  scale-hover">
+                                <i class="far fa-registered"></i>
+                                <span>Register a Client</span>
+                            </a>
+                            <a href="#" class="bg-gradient-blue2 round-small  scale-hover">
+                                <i class="fa fa-envelope"></i>
+                                <span>Send Thank Mail</span>
+                            </a>
+                        </div>
+
+                    </div>
+                    
+                    
+                    <!-- <div id="wrapper">
+                        <button type="button" class="button  button-m bg-green2-dark" id="showAll">View All</button>
+                        <button type="button" class="button  button-m bg-green2-dark" id="hideAll" style="display: none;">hide</button>
+
+                    </div> -->
                 </div>
-
-            </div>
-            
-            
-            <!-- <div id="wrapper">
-                <button type="button" class="button  button-m bg-green2-dark" id="showAll">View All</button>
-                <button type="button" class="button  button-m bg-green2-dark" id="hideAll" style="display: none;">hide</button>
-
-            </div> -->
-            </div>
             <div class="clear"></div>
 
             <!-- <div class="top-20"></div> -->
@@ -101,7 +105,7 @@
         <div class="menu-hider"></div>
 
     </div>
-
+    </div>
 
     <script>
         $("#showAll").click(function() {
