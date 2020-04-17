@@ -38,7 +38,7 @@ $this->load->view('inc/header');
                                     <p>
                                         <label class="checkbox11">
                                             <input type="checkbox" name="checkbox"><i> </i>Forgot Password ?</label>
-                                        <button class="">Forgot Password</button>
+                                        <!-- <button class="">Forgot Password</button> -->
                                     </p>
 
                                     <div class="clearfix"></div>
