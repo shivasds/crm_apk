@@ -168,7 +168,6 @@ $this->load->view('inc/header');
 
                                 function getrowvalue(id) {
                                     var trid = $(id).parents('tr').children();
-
                                     $("#customertdname").text($(trid[1]).text());
                                     $(".custPhoneancor").text($(trid[4]).text());
                                     $(".custPhoneancor").attr("href", "tel:+91 " + $(trid[4]).text());
@@ -205,9 +204,11 @@ $this->load->view('inc/header');
                                 }
 
                                 function getmodeltablevalue(id) {
+                                    var datatableid=$("#c_id").text();
+                                    console.log("datatableid  " +datatableid)
                                     var traid = $(id).parents('tr').children();
                                     $(".addnotesmodalbtn").attr('id', $("#c_id").text());
-                                    $("#addnotesdivid").val($("#c_id").text());
+                                    $("#addnotesdivid").val(datatableid);
                                 }
                             </script>
 

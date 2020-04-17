@@ -347,8 +347,7 @@
                             <button type="submit" id="" class="btn btn-primary addnotesmodalbtn">Add</button>
 
 
-<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>    
-                            <script type="text/javascript">
+  <script type="text/javascript">
     $(function(){
         $('.datepicker').each(function(){
             $(this).datepicker({
@@ -372,7 +371,7 @@
  
 
                      
-                $(function(){
+      $(function(){
         $('#site_visit_data .sbmit').on('click', function() {
             var data = {
                 'callback_id':$('#addnotesdivid').val(),
