@@ -1,4 +1,4 @@
-                   <div class="form-row">
+ <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputState">Status</label>
                                     <select class="form-control" id="m_status" onchange="status(this.value)" name="status_id" required="required">
@@ -303,7 +303,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6 ">
                                     <label class="label-control">Current Callback</label>
-                                    <textarea class="form-control" name="current_callback" rows="5" id="current_callback1" name="current_callback1" onkeyup="curr(this.value)" placeholder="Please Update Your Changes To Save"></textarea>
+                                    <textarea class="form-control" name="current_callback" rows="5" id="current_callback1"  onkeyup="curr(this.value)" placeholder="Please Update Your Changes To Save"></textarea>
                                 </div>
                             </div>
                             <div class="form-group col-md-6 showall" onclick="hello()">
@@ -314,11 +314,11 @@
                                 </a>
 
                                 <div id="accordion-content-6" class="accordion-content mt-5 bottom-10">
-                                    <input type="datetime-local" id="birthdaytime" name="birthdaytime">
+                                    <input type="datetime-local" id="due_date" name="due_date">
 
                                 </div>
                             </div>
-                            <div class="form-row ">
+                            <div class="form-row hidden">
                                 <div class="form-group col-md-6">
                                     <label class="label-control">id</label>
                                     <input type="text" id="addnotesdivid" name="idoftable" value="">

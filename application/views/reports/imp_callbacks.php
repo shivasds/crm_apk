@@ -146,12 +146,9 @@ $CI=&get_instance();
     
       <!-- Modal content-->
       <div class="modal-content">
-                   <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title" id="myModalLabel">Call Now</h4>
-                    </div>
+      
         <div class="modal-body">
-         
+          <p style="margin-bottom: 1px;text-align: center;">Call Now.</p>
           <table>
             <tr>
                 <th>Customer</th>
@@ -177,12 +174,9 @@ $CI=&get_instance();
     
       <!-- Modal content-->
       <div class="modal-content">
-                   <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title" id="myModalLabel">Notes</h4>
-                    </div>
+      
         <div class="modal-body">
-         
+          <p style="margin-bottom: 1px;text-align: center;">Notes</p>
           <table>
             <tr>
                 <th>Read Previos Note</th>
@@ -219,12 +213,9 @@ $CI=&get_instance();
     
       <!-- Modal content-->
       <div class="modal-content">
-                 <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title" id="myModalLabel">Add Notes</h4>
-                    </div>
+      
         <div class="modal-body">
-          
+          <p style="margin-bottom: 1px;text-align: center;">Add Notes</p>
           <form method="post" action="<?=base_url('update_callback_details');?>" name="callback_details" autocomplete="off">
            
             <div class="form-row">
