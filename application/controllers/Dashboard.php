@@ -1348,23 +1348,43 @@ class Dashboard extends CI_Controller {
 
         public function update_callback_details(){
         $id = $this->input->post('idoftable');
+        print_r($id);die;
         $update_data = array(
             'last_update' => date('Y-m-d H:s:i')
         );
          
+        if($this->input->post('dept_id'))
+            $update_data['dept_id'] = $this->input->post('dept_id');
+        if($this->input->post('name'))
+            $update_data['name'] = $this->input->post('name');
+        if($this->input->post('contact_no1'))
+            $update_data['contact_no1'] = $this->input->post('contact_no1');
+        if($this->input->post('contact_no2'))
+            $update_data['contact_no2'] = $this->input->post('contact_no2');
+        if($this->input->post('callback_type_id'))
+            $update_data['callback_type_id'] = $this->input->post('callback_type_id');
+        if($this->input->post('email1'))
+            $update_data['email1'] = $this->input->post('email1');
+        if($this->input->post('email2'))
+            $update_data['email2'] = $this->input->post('email2');
+        if($this->input->post('project_id'))
+            $update_data['project_id'] = $this->input->post('project_id');
+        if($this->input->post('leadid'))
+            $update_data['leadid'] = $this->input->post('leadid');
         if($this->input->post('status_id'))
-            $update_data['status_id'] = $this->input->post('status_id'); 
+            $update_data['status_id'] = $this->input->post('status_id');
+        if($this->input->post('sub_source_id'))
+            $update_data['broker_id'] = $this->input->post('sub_source_id');
+        if($this->input->post('lead_source_id'))
+            $update_data['lead_source_id'] = $this->input->post('lead_source_id');
         if($this->input->post('user_id'))
             $update_data['user_id'] = $this->input->post('user_id');
-        // if($this->input->post('approve')){
-        //     $update_data['active'] = 0;
-        //     $update_data['verified_by'] = $this->session->userdata('user_id');
-        //     $update_data['verified_on'] = date('Y-m-d H:s:i');
-        // }
+        if($this->input->post('approve')){
+            $update_data['active'] = 0;
+            $update_data['verified_by'] = $this->session->userdata('user_id');
+            $update_data['verified_on'] = date('Y-m-d H:s:i');
+        }
 
-        /*if($this->input->post('reason_for_dead'))
-            $update_data['reason_for_dead'] = $this->input->post('reason_for_dead');*/
-           // print_r($update_data);die;
         if($this->input->post('reason_cause'))
             $update_data['reason_cause'] = $this->input->post('reason_cause');
 
@@ -1458,7 +1478,7 @@ class Dashboard extends CI_Controller {
                 'closure_date'=>$this->input->post('closure_date'),
                 'customer'=>$this->input->post('customer'),
                 'sub_source_id'=>$this->input->post('sub_source_id'),
-                'project_id'=>$this->input->post('close_project_id'),
+                'project_id'=>$this->input->post('m_project'),
                 'sqft_sold'=>$this->input->post('sqft_sold'),
                 'plc_charge'=>$this->input->post('plc_charge'),
                 'floor_rise'=>$this->input->post('floor_rise'),
@@ -1482,7 +1502,7 @@ class Dashboard extends CI_Controller {
             $notification_data = array(
                 'callback_id'=>$id,
                 'user_id'=>$this->session->userdata('user_id'),
-                'project_id'=>$this->input->post('close_project_id')
+                'project_id'=>$this->input->post('m_project')
             );
             
             $this->callback_model->insert_notification($notification_data);
@@ -1500,7 +1520,6 @@ class Dashboard extends CI_Controller {
             "status_id" => $this->input->post('status_id'),
             "date_added" => $date_added
         );
-        $query = $this->callback_model->add_callback_data($ind_callback_data);
 
         $data = array(
             'status' =>true

@@ -11,6 +11,7 @@
                                             <?php } ?>
                                     </select>
                                 </div>
+                              
                                 <div id="abc" class="hidemodal hidden">
                                             <div class="form-group col-md-6">
                                                 <label for="client_name">Client name:</label>
@@ -67,6 +68,77 @@
                                                 <button type="button" style="float: right;" class="btn btn-success" onclick="sendMail()" >Send</button>
                                             </div>
                                 </div>
+                                  <div id="facetoFace" class="hidemodal hidden" >
+                                <div class="col-md-6 form-group" >
+                                    <label for="leadId">Date:</label>
+                                    <input type="text" class="form-control datepicker" id="facetoface_date" name="facetoface_date" placeholder="Date" autocomplete="off">
+                                </div>
+                                <div class="col-md-6 form-group" >
+                                    <label for="leadId">Project:</label>
+                                    <select  class="form-control"  id="facetoface_project" name="facetoface_project" multiple>
+                                        <?php $projects= $this->common_model->all_active_projects(); 
+                                        foreach( $projects as $project){ ?>
+                                            <option value="<?php echo $project->id ?>" <?php if(($this->session->userdata("project"))==$project->id) echo 'selected' ?>><?php echo $project->name ?></option>
+                                        <?php }?>              
+                                    </select>
+                                </div>
+                                </div>
+                                 <div class="col-md-6 form-group">
+                    <label for="assign">Assign To:</label>
+                    <input type="hidden" id="hidden_user_id" name="hidden_user_id" value="<?= $user_name;?>">
+                    <select  class="form-control"  id="m_user_name" name="m_user_name"   <?php if(!$edit) echo 'disabled'; ?>>
+                        <option value="">Select</option>
+                        <?php if($edit){ ?>
+                            <option value="<?php echo $this->session->userdata("user_id"); ?>" <?php echo ($this->session->userdata("user_id") == $user_name) ? 'selected' : ''; ?>><?php echo $this->session->userdata("user_name"); ?></option>
+                            <?php if ($this->session->userdata("user_type")=="user" ){
+                                $name = $this->user_model->get_user_fullname($this->session->userdata("reports_to")); 
+                                ?>
+                                <option value="<?php echo $this->session->userdata("reports_to") ?>" <?php echo ($this->session->userdata("reports_to") == $user_name) ? 'selected' : ''; ?>><?php echo $name." (manager)"; ?></option>
+                            <?php }elseif ($this->session->userdata("user_type")=="manager" ){ 
+                                $users = $this->user_model->get_usersby_reports_to($this->session->userdata("user_id"));
+                                foreach ($users as $key => $value) { ?>
+                                    <option value="<?php echo $value->id ?>" <?php echo ($value->id  == $user_name) ? 'selected' : ''; ?>><?php echo $value->first_name." ".$value->last_name." (user)"; ?></option>
+                                <?php } }elseif ($this->session->userdata("user_type")=="City_head" ){ 
+                               // $users = $this->user_model->get_usersby_reports_to($this->session->userdata("user_id"));
+                                    $users = $this->user_model->get_city_users_active();;
+                                foreach ($users as $key => $value) { ?>
+                                    <option value="<?php echo $value->id ?>" <?php echo ($value->id  == $user_name) ? 'selected' : ''; ?>><?php echo $value->first_name." ".$value->last_name." (user)"; ?></option>
+                                <?php } ?>
+                                <option value="1">Admin</option>
+                            <?php } ?>
+                        <?php }else{ ?>
+                            <?php $all_user= $this->user_model->all_users("type in (1,2,3,4,5,6)"); 
+                            foreach( $all_user as $user){ 
+                                switch ($user->type) {
+                                    case '1':
+                                        $role = "User";
+                                        break;
+
+                                    case '2':
+                                        $role = "Manager";
+                                        break;
+
+                                    case '3':
+                                        $role = "VP";
+                                        break;
+                                    
+                                    case '4':
+                                        $role = "Director";
+                                        break;
+
+                                    case '5':
+                                        $role = "Admin";
+                                        break;
+                                    case '6':
+                                        $role = "City head";
+                                        break;
+                                }
+                                ?>
+                                <option value="<?php echo $user->id ?>" <?php if(($this->session->userdata("search_username"))==$user->id) echo 'selected' ?>><?php echo $user->first_name." ".$user->last_name." ($role)"; ?></option>
+                            <?php } ?>
+                        <?php } ?>
+                    </select>
+                </div>
                                 <div id="dead" class="hidemodal hidden">
                                         <div class="form-group col-md-6">
                                             <label for="comment">Reason of dead:</label>
@@ -86,7 +158,7 @@
                                 <div id="close" class="hidemodal hidden">
                                     <div class="form-group col-md-6">
                                         <label for="email">Advisor one:</label>
-                                        <select  class="form-control"  id="c_seniorAdvisor" name="c_seniorAdvisor" required="required" >
+                                        <select  class="form-control"  id="c_seniorAdvisor" name="c_seniorAdvisor" >
                                             <option value="">Select</option>
                                             <?php $all_user= $this->user_model->all_users("type in (1,2)"); 
                                             foreach( $all_user as $user){ 
@@ -107,7 +179,7 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="email">Advisor two:</label>
-                                        <select  class="form-control"  id="c_secondAdvisor" name="c_secondAdvisor" required="required" >
+                                        <select  class="form-control"  id="c_secondAdvisor" name="c_secondAdvisor"  >
                                             <option value="">Select</option>
                                             <?php $all_user= $this->user_model->all_users("type in (1,2)"); 
                                             foreach( $all_user as $user){ 
@@ -144,11 +216,11 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="email">Project:</label>
-                                        <select  class="form-control"  id="c_projectName" name="m_project" required="required" >
+                                        <select  class="form-control"  id="c_projectName" name="m_project" >
                                             <option value="">Select</option>
                                             <?php $projects= $this->common_model->all_active_projects(); 
                                             foreach( $projects as $project){ ?>
-                                                <option value="<?php echo $project->id ?>"><?php echo $project->name ?></option>
+                                                <option value="<?php echo $project->id ?>" <?php if($project==$project->id) echo "selected";?>><?php echo $project->name ?></option>
                                             <?php }?>
                                         </select>
                                     </div>
@@ -246,10 +318,10 @@
 
                                 </div>
                             </div>
-                            <div class="form-row hidden">
+                            <div class="form-row ">
                                 <div class="form-group col-md-6">
                                     <label class="label-control">id</label>
-                                    <input id="addnotesdivid" name="idoftable">
+                                    <input type="text" id="addnotesdivid" name="idoftable" value="">
                                 </div>
                             </div>
                          
@@ -671,6 +743,10 @@
                     } else if('4'==v){
                        
                         $('#dead').removeClass("hidden")
+                    }
+                    else if('9'==v){
+                       
+                        $('#facetoFace').removeClass("hidden")
                     } else{
                         
                         $('#hidemodal').removeClass("hidden")
