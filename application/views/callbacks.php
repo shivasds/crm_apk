@@ -212,9 +212,11 @@ $this->load->view('inc/header');
                 });
 
                 function status(v){
-                       
+                   $(".hidemodal").addClass("hidden")
+                    if(''==v){
                         $(".hidemodal").addClass("hidden")
-                    if('6'==v){
+                    }
+                    else if('6'==v){
                        
                         $('#abc').removeClass("hidden")
                     } else if('5'==v){

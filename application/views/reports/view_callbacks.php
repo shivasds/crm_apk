@@ -162,13 +162,15 @@ $this->load->view('inc/header');
                                     });
                                 });
 
-                                function status(v){
+               function status(v){
+                  $(".hidemodal").addClass("hidden")
+                    if(''==v){
+                        $(".hidemodal").addClass("hidden")
+                    }
+                    else if('6'==v){
                        
-                       $(".hidemodal").addClass("hidden")
-                   if('6'==v){
-                      
-                       $('#abc').removeClass("hidden")
-                   } else if('5'==v){
+                      $('#abc').removeClass("hidden")
+                    } else if('5'==v){
                       
                        $('#hidemodal').removeClass("hidden")
                    } else if('4'==v){
