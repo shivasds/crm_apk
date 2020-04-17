@@ -162,6 +162,24 @@ $this->load->view('inc/header');
                                     });
                                 });
 
+                                function status(v){
+                       
+                       $(".hidemodal").addClass("hidden")
+                   if('6'==v){
+                      
+                       $('#abc').removeClass("hidden")
+                   } else if('5'==v){
+                      
+                       $('#hidemodal').removeClass("hidden")
+                   } else if('4'==v){
+                      
+                       $('#dead').removeClass("hidden")
+                   } else{
+                       
+                       $('#dead').removeClass("hidden")
+                   }
+               }
+
                                 function getrowvalue(id) {
                                     var trid = $(id).parents('tr').children();
 
@@ -270,7 +288,8 @@ $this->load->view('inc/header');
         </div>
 
         <div class="modal fade" id="addnotes" role="dialog">
-            <div class="modal-dialog">
+        <div class="modal-dialog modal-lg" style="overflow-y: scroll; max-height:85%;  margin-top: 50px; margin-bottom:50px;" >
+
 
                 <!-- Modal content-->
                 <div class="modal-content">
@@ -292,6 +311,223 @@ $this->load->view('inc/header');
                                             <?php } ?>
                                     </select>
                                 </div>
+                                <div id="abc" class="hidemodal hidden">
+                                            <div class="form-group col-md-6">
+                                                <label for="client_name">Client name:</label>
+                                                <input type="text" class="form-control" id="c_client_name" name="client_name" placeholder="Client name">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="email">Client Email Id:</label>
+                                                <input type="email" class="form-control" id="c_client_email" name="client_email" placeholder="Client Email Id">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="email">Site visit date:</label>
+                                                <input type="text" class="form-control" id="c_client_visit" name="email2" placeholder="Site visit date" onchange="update_client_note();">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="email">Site Assign by:</label>
+                                                <input type="text" class="form-control" onblur="le()" id="c_assign_by" name="assign_by" placeholder="Site Assign by" onchange="update_client_note();">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="email">Relation ship Manager:</label>
+                                                <input type="text" class="form-control" id="c_relationShipManager" name="c_relationShipManager" placeholder="Relation ship Manager" onchange="update_client_note();">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="email">Subject:</label>
+                                                <input type="text" class="form-control" id="c_subject" name="email2" value="Thank you For the Site Visit" placeholder="Subject">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="comment">Mail Box:</label>
+                                                <textarea class="form-control" name="notesClient" id="c_notesClient" rows="18" id="comment">
+                                                    Greetings From Fullbasket Property.
+
+                                                    With reference to your site visit on  assisted by Mr. abhishek from Fullbasket Property, we thank you for giving us an opportunity to serve you in searching your dream home.  At FBP it is our endeavour to help you with all the possible Property options which will suit your requirement. Mr.  from FBP will be at your service. He/she will be there to assist you in searching your dream home.
+                                                    
+                                                    1. Home search - Assisting and helping you find your dream home suiting your requirements by giving you info on market trends, legalities, site visit assistance etc.
+
+                                                    2. Home loan Assistance - We will take away your pain of running around the banks to get your loan approved by giving doorstep service of bankers of your choice at your place.
+
+                                                    3. Property Purchase Assistance - Ensuring that your home buying becomes a pleasant experience our Relationship Manager will be there throughout the process Of documentation.
+
+                                                    4. Post sales Service – This is what differentiates us from others. We will be there for all possible help and guidance till you move into your home.
+
+                                                    5. Interior Services - We are tied With best interior designers in the city who give the best designs and execute them at a competitive price.
+
+
+                                                    For any escalations/ complaints please write to admin@leads.com
+
+                                                    Regards
+                                                    Team Fullbasket Property Services Pvt Ltd
+                                                </textarea>
+                                            </div>
+                                            <div class="form-group col-md-6" >
+                                                <div class="alert alert-success" id="mail_success" style="display:none">
+                                                    <strong>Success!</strong> Email sent successfully.
+                                                </div>
+                                                <button type="button" style="float: right;" class="btn btn-success" onclick="sendMail()" >Send</button>
+                                            </div>
+                                </div>
+                                <div id="dead" class="hidemodal hidden">
+                                        <div class="form-group col-md-6">
+                                            <label for="comment">Reason of dead:</label>
+                                            <select  class="form-control"  id="selectDeadRsn" name="selectDeadRsn" onchange="curr(this.value)">
+                                                <option value="">--Select--</option>
+                                                <?php $reasonSdata= $this->common_model->getDeadReasons(['status'=>'Y']); 
+                                                foreach( $reasonSdata as $rData){ ?>
+                                                    <option value="<?php echo $rData['name']; ?>"><?php echo $rData['name'] ?></option>
+                                                <?php } ?> 
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="comment">Reason of dead:</label>
+                                            <textarea class="form-control reasonOfDead" name="notes" id="notes" rows="3" ></textarea>
+                                        </div>
+                                </div>
+                                <div id="hidemodal" class="hidemodal hidden">
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Advisor one:</label>
+                                        <select  class="form-control"  id="c_seniorAdvisor" name="c_seniorAdvisor" required="required" >
+                                            <option value="">Select</option>
+                                            <?php $all_user= $this->user_model->all_users("type in (1,2)"); 
+                                            foreach( $all_user as $user){ 
+                                                switch ($user->type) {
+                                                    case '1':
+                                                        $role = "User";
+                                                        break;
+
+                                                    case '2':
+                                                        $role = "Manager";
+                                                        break;
+
+                                                }
+                                                ?>
+                                                <option value="<?php echo $user->id ?>"><?php echo $user->first_name." ".$user->last_name." ($role)"; ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Advisor two:</label>
+                                        <select  class="form-control"  id="c_secondAdvisor" name="c_secondAdvisor" required="required" >
+                                            <option value="">Select</option>
+                                            <?php $all_user= $this->user_model->all_users("type in (1,2)"); 
+                                            foreach( $all_user as $user){ 
+                                                switch ($user->type) {
+                                                    case '1':
+                                                        $role = "User";
+                                                        break;
+
+                                                    case '2':
+                                                        $role = "Manager";
+                                                        break;
+
+                                                }
+                                                ?>
+                                                <option value="<?php echo $user->id ?>"><?php echo $user->first_name." ".$user->last_name." ($role)"; ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Booking Name:</label>
+                                        <input type="text" class="form-control" id="c_bkngName" name="email2" placeholder="Booking Name">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Booking Month:</label>
+                                        <input type="text" class="form-control sdate-picker" id="c_bkngMnth" name="email2" placeholder="Booking Date">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Date of closure:</label>
+                                        <input type="text" class="form-control datepicker" id="c_dateofClosure" name="email2" placeholder="Date of closure">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Unit Number:</label>
+                                        <input type="text" class="form-control" id="c_customerName" name="email2" placeholder="Unit Number">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Project:</label>
+                                        <select  class="form-control"  id="c_projectName" name="m_project" required="required" >
+                                            <option value="">Select</option>
+                                            <?php $projects= $this->common_model->all_active_projects(); 
+                                            foreach( $projects as $project){ ?>
+                                                <option value="<?php echo $project->id ?>"><?php echo $project->name ?></option>
+                                            <?php }?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Sqft Sold:</label>
+                                        <input type="text" class="form-control" onblur="calculateTotalCost()" id="c_sqftSold" name="email2" placeholder="Sqft Sold">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="email">PLC Charges:</label>
+                                        <input type="text" class="form-control"  onblur="calculateTotalCost()" id="c_plcCharge" name="email2" placeholder="PLC charges">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Floor Rise:</label>
+                                        <input type="text" class="form-control"  onblur="calculateTotalCost()" id="c_floorRise" name="email2" placeholder="Floor Rise">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Basic Cost:</label>
+                                        <input type="text" class="form-control"  onblur="calculateTotalCost()" id="c_basicCost" name="email2" placeholder="Basic Cost">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Other Cost:</label>
+                                        <input type="text" class="form-control"  onblur="calculateTotalCost()" id="c_otherCost" name="email2" placeholder="Other Cost">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Car Park:</label>
+                                        <input type="text" class="form-control"  onblur="calculateTotalCost()" id="c_carPark" name="email2" placeholder="Car Park">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Total Cost:</label>
+                                        <input type="text" class="form-control"   id="c_totalCost" name="email2" placeholder="Total Cost">
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Commission(%):</label>
+                                        <input type="text" class="form-control" onblur="calculateGrossRevenue()"  id="c_comission" name="email2" placeholder="Commission">
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Gross Revenue:</label>
+                                        <input type="text" class="form-control" id="c_grossRevenue" name="email2" placeholder="Gros Revenue">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Cashback:</label>
+                                        <input type="text" class="form-control" onblur="calculateNetRevenue()"  id="c_cashBack" name="email2" placeholder="Cash Back">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Sub broker amount:</label>
+                                        <input type="text" class="form-control" onblur="calculateNetRevenue()"  id="c_subBrokerAmo" name="email2" placeholder="Sub Broker amount">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Net Revenue:</label>
+                                        <input type="text" class="form-control" id="c_netRevenue" name="email2" placeholder="Net Revenue">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Share of advisor 1:</label>
+                                        <input type="text" class="form-control" onblur="calculateAdvisorShare(2)" id="c_shareAdvisor1" name="email2" placeholder="Share of advisor 1">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Share of advisor 2:</label>
+                                        <input type="text" class="form-control" onblur="calculateAdvisorShare(1)" id="c_shareAdvisor2" name="email2" placeholder="Share of advisor 2">
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Estimated month of invoice:</label>
+                                        <input type="text" class="form-control" id="c_estMonthofInvoice" name="email2" placeholder="Estimated month of invoice">
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Agreement Status:</label>
+                                        <input type="text" class="form-control" id="c_agrmntStatus" name="email2" placeholder="Agreement Status">
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Project Type:</label>
+                                        <input type="text" class="form-control" id="c_projectType" name="email2" placeholder="Project Type">
+                                    </div>
+                                </div>
+
+                                </div>
                                 <div class="form-group col-md-6 showall" onclick="hello()">
 
                                     <a class="accordion-toggle-last">
@@ -303,17 +539,18 @@ $this->load->view('inc/header');
                                         <input type="datetime-local" id="birthdaytime" name="birthdaytime">
 
                                     </div>
-                                </div>
-
                             </div>
+
+                            
+
                             <div class="form-row hidden">
-                                <div class="form-group col-md-12">
+                                <div class="form-group col-md-6">
                                     <label class="label-control">id</label>
                                     <input id="addnotesdivid" name="idoftable">
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-md-12">
+                                <div class="form-group col-md-6 ">
                                     <label class="label-control">Current Callback</label>
                                     <textarea class="form-control" name="current_callback" rows="5" id="current_callback1" name="current_callback1" onkeyup="curr(this.value)" placeholder="Please Update Your Changes To Save"></textarea>
                                 </div>
@@ -326,13 +563,15 @@ $this->load->view('inc/header');
                                    Important
                                 </label>
                             </div> -->
-                            <div class="col-md-1">
-                                <span onclick="favorite(this)" class="star glyphicon glyphicon-star-empty">
-                              </span>
+                            <div class="form-group col-md-6 ">
+                                <div class="col-md-1">
+                                    <span onclick="favorite(this)" class="star glyphicon glyphicon-star-empty">
+                                </span>
 
-                            </div>
-                            <div class="col-md-11">
-                                <p class="text-muted">Mark as Important</p>
+                                </div>
+                                <div class="col-md-11">
+                                    <p class="text-muted">Mark as Important</p>
+                                </div>
                             </div>
 
                             <button type="submit" id="" class="btn btn-primary addnotesmodalbtn">Add</button>

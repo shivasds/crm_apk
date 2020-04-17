@@ -230,7 +230,6 @@ $this->load->view('inc/header');
                 }
 
                 function getrowvalue(id) {
-                    $("#dvhiddenshow").addClass("hidden");
                     var trid = $(id).parents('tr').children();
 
                     $("#customertdname").text($(trid[1]).text());
@@ -326,7 +325,7 @@ $this->load->view('inc/header');
         </div>
 
         <div class="modal fade" id="addnotes" role="dialog">
-            <div class="modal-dialog" style="overflow-y: scroll; max-height:85%;  margin-top: 50px; margin-bottom:50px;" >
+            <div class="modal-dialog modal-lg" style="overflow-y: scroll; max-height:85%;  margin-top: 20px; margin-bottom:50px;" >
 
                 <!-- Modal content-->
                 <div class="modal-content">
