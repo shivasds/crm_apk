@@ -186,7 +186,7 @@ $this->load->view('inc/header');
                                     $("#customertdname").text($(trid[1]).text());
                                     $(".custPhoneancor").text($(trid[4]).text());
                                     $(".custPhoneancor").attr("href", "tel:+91 " + $(trid[4]).text());
-                                    $("#c_id").text($(trid[5]).text());
+                                    $("#c_id").text(($(trid[5]).text()).trim());
                                     //$("#previousNotesTxtArea").text($(trid[7]).text());
 
                                     $.ajax({

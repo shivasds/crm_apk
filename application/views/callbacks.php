@@ -228,6 +228,12 @@ $this->load->view('inc/header');
                         $('#dead').removeClass("hidden")
                     }
                 }
+                              function getmodeltablevalue(id) {
+                                    var traid = $(id).parents('tr').children();
+                                    $(".addnotesmodalbtn").attr('id', $("#c_id").text());
+                                    debugger;
+                                    $("#addnotesdivid").val($("#c_id").text());
+                                }
 
                 function getrowvalue(id) {
                     var trid = $(id).parents('tr').children();
@@ -235,7 +241,7 @@ $this->load->view('inc/header');
                     $("#customertdname").text($(trid[1]).text());
                     $(".custPhoneancor").text($(trid[4]).text());
                     $(".custPhoneancor").attr("href", "tel:+91 " + $(trid[4]).text());
-                    $("#c_id").text($(trid[5]).text());
+                    $("#c_id").text(($(trid[5]).text()).trim());
                     //$("#previousNotesTxtArea").text($(trid[7]).text());
 
                     $.ajax({
@@ -301,14 +307,19 @@ $this->load->view('inc/header');
                         <table>
                             <tr>
                                 <th>Read Previos Note</th>
+                                <th class="hidden">id</th>
                                 <th>Add Notes</th>
                             </tr>
+                            
                             <tr>
                                 <td>
                                     <textarea class="form-control" name="notes" rows="5" cols="30" id="previousNotesTxtArea" readonly></textarea>
                                 </td>
+                                <td class="hidden">
+                                    <div id="c_id"></div>
+                                </td>
                                 <td>
-                                    <button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#addnotes" class="icon icon-xs icon-circle shadow-huge bg-icon" data-dismiss="modal">
+                                    <button style="cursor:pointer" onclick="getmodeltablevalue(this)" href="#myModal" data-toggle="modal" data-target="#addnotes" class="icon icon-xs icon-circle shadow-huge bg-icon" data-dismiss="modal">
                                         <i class="fas fa-plus-circle "></i>
                                     </button>
                                 </td>
@@ -562,8 +573,15 @@ $this->load->view('inc/header');
                                         <input type="text" class="form-control" id="c_projectType" name="email2" placeholder="Project Type">
                                     </div>
                                 </div>
-                            </div>         
-                            
+                            </div>
+
+
+                                    <div class="form-row hidden">
+                                        <div class="form-group col-md-6">
+                                            <label class="label-control">id</label>
+                                            <input id="addnotesdivid" name="idoftable" value="">
+                                        </div>
+                                    </div>
 
                                 
                                     <div class="form-group col-md-6">
@@ -593,7 +611,7 @@ $this->load->view('inc/header');
                                     <p class="text-muted">Mark as Important</p>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Add</button>
+                            <button type="submit" class="btn btn-primary addnotesmodalbtn">Add</button>
                         </form>
 
                     </div>
