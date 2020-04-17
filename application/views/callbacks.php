@@ -231,8 +231,7 @@ $this->load->view('inc/header');
                               function getmodeltablevalue(id) {
                                     var traid = $(id).parents('tr').children();
                                     $(".addnotesmodalbtn").attr('id', $("#c_id").text());
-                                    debugger;
-                                    $("#addnotesdivid").val($("#c_id").text());
+                                 $("#addnotesdivid").val($("#c_id").text());
                                 }
 
                 function getrowvalue(id) {
@@ -573,9 +572,9 @@ $this->load->view('inc/header');
                                         <input type="text" class="form-control" id="c_projectType" name="email2" placeholder="Project Type">
                                     </div>
                                 </div>
-                            </div>
+                        </div>
 
-
+                        <div class="form-row">
                                     <div class="form-row hidden">
                                         <div class="form-group col-md-6">
                                             <label class="label-control">id</label>
@@ -588,7 +587,8 @@ $this->load->view('inc/header');
                                         <label class="label-control">Current Callback</label>
                                         <textarea class="form-control" name="current_callback" rows="5" id="current_callback1" name="current_callback1" onkeyup="curr(this.value)" placeholder="Please Update Your Changes To Save"></textarea>
                                     </div>
-
+                        </div>
+                        <div class="form-row">
                                     <div class="form-group col-md-6 showall" onclick="hello()">
 
                                         <a class="accordion-toggle-last">
@@ -603,15 +603,17 @@ $this->load->view('inc/header');
                                    </div>
                               
 
-                             <div class="col-md-6">
-                                <div class="form-group col-md-2">
+                             <div class="col-md-6 ">
+                                <div class="form-group col-md-1 col-sm-4">
                                     <span onclick="favorite(this)" class="star glyphicon glyphicon-star-empty"></span>
                                 </div>
-                                <div class="form-group col-md-10">
+                                <div class="form-group col-md-10 col-sm-8">
                                     <p class="text-muted">Mark as Important</p>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary addnotesmodalbtn">Add</button>
+
+                        </div>
+                            <center><button type="submit" class="btn btn-primary addnotesmodalbtn">Add</button></center>
                         </form>
 
                     </div>

@@ -71,6 +71,12 @@
             font-size: 25px;
                 color:gold;
             }
+            @media screen and (-webkit-min-device-pixel-ratio: 0){
+             input[type=date], input[type=datetime-local], input[type=month], input[type=time] {
+             line-height: 20px;
+               }
+            
+            }
            
 </style>
 
