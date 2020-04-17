@@ -164,7 +164,7 @@ $this->load->view('inc/header');
 
               
 
-              
+
 
                                 function getrowvalue(id) {
                                     var trid = $(id).parents('tr').children();
@@ -208,10 +208,7 @@ $this->load->view('inc/header');
                                     var traid = $(id).parents('tr').children();
                                     $(".addnotesmodalbtn").attr('id', $("#c_id").text());
                                     $("#addnotesdivid").val($("#c_id").text());
-                                }
-                            </script>
-
-                            <script>
+                                } 
                                 function hello() {
                                     $(".accordion-content").show();
                                     $(this).html('<i class="accordion-icon-right fa fa-arrow-up"></i>');

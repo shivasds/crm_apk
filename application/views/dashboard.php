@@ -41,7 +41,7 @@
                             <i class="fab fa-searchengin"></i>
                             <span>Search</span>
                         </a> -->
-                        <a href="#" class="bg-gradient-blue2 round-small  scale-hover">
+                        <a href="<?=base_url('nextday_calls')?>" class="bg-gradient-blue2 round-small  scale-hover">
                                 <i class="fas fa-mobile"></i>
                                 <span>Calls for next day</span>
                             </a>
