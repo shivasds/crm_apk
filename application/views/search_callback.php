@@ -339,6 +339,13 @@ $this->load->view('inc/header');
                                         <option>...</option>
                                     </select>
                                 </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="label-control">Current Callback</label>
+                                        <textarea class="form-control" name="current_callback" rows="5" id="current_callback1" name="current_callback1" onkeyup="curr(this.value)" placeholder="Please Update Your Changes To Save"></textarea>
+                                    </div>
+                                </div>
                                 <div class="form-group col-md-6 showall" onclick="hello()">
 
                                     <a class="accordion-toggle-last">
@@ -352,19 +359,17 @@ $this->load->view('inc/header');
                                     </div>
                                 </div>
 
-                                <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <label class="label-control">Current Callback</label>
-                                        <textarea class="form-control" name="current_callback" rows="5" id="current_callback1" name="current_callback1" onkeyup="curr(this.value)" placeholder="Please Update Your Changes To Save"></textarea>
-                                    </div>
-                                </div>
+                              
                             </div>
+                            <div class="form-group col-md-6 ">
+                                <div class="col-md-1">
+                                    <span value="0" name="important" onclick="favorite(this)" class="star glyphicon glyphicon-star-empty">
+                                </span>
 
-                            <div class="col-md-1">
-                                <span onclick="favorite(this)" class="star glyphicon glyphicon-star-empty"></span>
-                            </div>
-                            <div class="col-md-11">
-                                <p class="text-muted">Mark as Important</p>
+                                </div>
+                                <div class="col-md-11">
+                                    <p class="text-muted">Mark as Important</p>
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Add</button>
                         </form>

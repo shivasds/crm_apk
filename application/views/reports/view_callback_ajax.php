@@ -335,7 +335,7 @@
                             </div> -->
                             <div class="form-group col-md-6 ">
                                 <div class="col-md-1">
-                                    <span onclick="favorite(this)" class="star glyphicon glyphicon-star-empty">
+                                    <span value="0" name="important" onclick="favorite(this)" class="star glyphicon glyphicon-star-empty">
                                 </span>
 
                                 </div>

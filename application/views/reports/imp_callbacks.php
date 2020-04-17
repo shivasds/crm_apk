@@ -265,13 +265,15 @@ $CI=&get_instance();
                                    Important
                                 </label>
                             </div> -->
-                            <div class="col-md-1">
-                                <span onclick="favorite(this)" class="star glyphicon glyphicon-star-empty">
-                              </span>
+                            <div class="form-group col-md-6 ">
+                                <div class="col-md-1">
+                                    <span value="0" name="important" onclick="favorite(this)" class="star glyphicon glyphicon-star-empty">
+                                </span>
 
-                            </div>
-                            <div class="col-md-11">
-                                <p class="text-muted">Mark as Important</p>
+                                </div>
+                                <div class="col-md-11">
+                                    <p class="text-muted">Mark as Important</p>
+                                </div>
                             </div>
             <button type="submit" id="" class="btn btn-primary addnotesmodalbtn">Add</button>
             </form>
