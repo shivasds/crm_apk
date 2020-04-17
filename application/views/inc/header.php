@@ -13,10 +13,12 @@
   <!-- Datatable-->
     <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
     <link href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css">
-   
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+    <link rel="stylesheet" href="https://rawgit.com/KidSysco/jquery-ui-month-picker/v3.0.0/demo/MonthPicker.min.css"/>
      <!-- jQuery -->
      <!-- Mobile styling -->
     <!-- <link rel="stylesheet" type="text/css" href="<?=base_url('assets/')?>styles/framework.css"> -->
+    <link href="https://newcrm.fullbasketproperty.com/assets/css/dropdown.css" rel='stylesheet' type='text/css' />
     <link rel="stylesheet" type="text/css" href="<?=base_url('assets/')?>fonts/css/fontawesome-all.min.css">
    
     <link rel="stylesheet" href="<?=base_url('assets/')?>css/icon-font.min.css" type='text/css' />
@@ -24,10 +26,16 @@
     <!-- //lined-icons -->
     <script src="<?=base_url('assets/')?>js/jquery-1.10.2.min.js"></script>
     <script src="<?=base_url('assets/')?>js/bootstrap.min.js" ></script>
-  
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <!-- <script type="text/javascript" src="<?=base_url('assets/')?>scripts/plugins.js"></script> -->
     <!-- <script type="text/javascript" src="<?=base_url('assets/')?>scripts/custom.js"></script> -->
+    
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
     <!--clock init-->
 </head>
 <style>
@@ -135,4 +143,30 @@ function favorite(id){
            
          }
 </script>
+
+
+<script type="text/javascript">
+    $(function(){
+        $('.datepicker').each(function(){
+            $(this).datepicker({
+                dateFormat: 'yy-mm-dd',
+                beforeShow: function() {
+                    setTimeout(function(){
+                        $('.ui-datepicker').css('z-index', 99999999999999);
+                    }, 0);
+                }
+             });
+        });
+        $('#ui-datepicker-div').draggable();
+        $('#c_bkngMnth, #c_estMonthofInvoice').MonthPicker({
+     Button: false
+		  });
+        $('.timePicker').each(function(){
+            $(this).timepicker({ 'timeFormat': 'H:i' });
+        });
+    });
+
+ 
+</script> 
+
 
