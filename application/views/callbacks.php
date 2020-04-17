@@ -225,18 +225,27 @@ $this->load->view('inc/header');
                 //         $('#dead').removeClass("hidden")
                 //     } else{
                         
+ 
                 //         $('#dead').removeClass("hidden")
                 //     }
                 // }
+ 
+                        $('#dead').removeClass("hidden")
+               
+                              function getmodeltablevalue(id) {
+                                    var traid = $(id).parents('tr').children();
+                                    $(".addnotesmodalbtn").attr('id', $("#c_id").text());
+                                    debugger;
+                                    $("#addnotesdivid").val($("#c_id").text());
+                                }
 
                 function getrowvalue(id) {
-                    $("#dvhiddenshow").addClass("hidden");
                     var trid = $(id).parents('tr').children();
 
                     $("#customertdname").text($(trid[1]).text());
                     $(".custPhoneancor").text($(trid[4]).text());
                     $(".custPhoneancor").attr("href", "tel:+91 " + $(trid[4]).text());
-                    $("#c_id").text($(trid[5]).text());
+                    $("#c_id").text(($(trid[5]).text()).trim());
                     //$("#previousNotesTxtArea").text($(trid[7]).text());
 
                     $.ajax({
@@ -302,14 +311,19 @@ $this->load->view('inc/header');
                         <table>
                             <tr>
                                 <th>Read Previos Note</th>
+                                <th class="hidden">id</th>
                                 <th>Add Notes</th>
                             </tr>
+                            
                             <tr>
                                 <td>
                                     <textarea class="form-control" name="notes" rows="5" cols="30" id="previousNotesTxtArea" readonly></textarea>
                                 </td>
+                                <td class="hidden">
+                                    <div id="c_id"></div>
+                                </td>
                                 <td>
-                                    <button style="cursor:pointer" href="#myModal" data-toggle="modal" data-target="#addnotes" class="icon icon-xs icon-circle shadow-huge bg-icon" data-dismiss="modal">
+                                    <button style="cursor:pointer" onclick="getmodeltablevalue(this)" href="#myModal" data-toggle="modal" data-target="#addnotes" class="icon icon-xs icon-circle shadow-huge bg-icon" data-dismiss="modal">
                                         <i class="fas fa-plus-circle "></i>
                                     </button>
                                 </td>
@@ -326,7 +340,7 @@ $this->load->view('inc/header');
         </div>
 
         <div class="modal fade" id="addnotes" role="dialog">
-            <div class="modal-dialog" style="overflow-y: scroll; max-height:85%;  margin-top: 50px; margin-bottom:50px;" >
+            <div class="modal-dialog modal-lg" style="overflow-y: scroll; max-height:85%;  margin-top: 20px; margin-bottom:50px;" >
 
                 <!-- Modal content-->
                 <div class="modal-content">
@@ -563,8 +577,15 @@ $this->load->view('inc/header');
                                         <input type="text" class="form-control" id="c_projectType" name="email2" placeholder="Project Type">
                                     </div>
                                 </div>
-                            </div>         
-                            
+                            </div>
+
+
+                                    <div class="form-row" hidden>
+                                        <div class="form-group col-md-6">
+                                            <label class="label-control">id</label>
+                                            <input type="hidden" id="addnotesdivid" name="callback_id" value="">
+                                        </div>
+                                    </div>
 
                                 
                                     <div class="form-group col-md-6">
@@ -594,7 +615,7 @@ $this->load->view('inc/header');
                                     <p class="text-muted">Mark as Important</p>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Add</button>
+                            <button type="submit" class="btn btn-primary addnotesmodalbtn">Add</button>
                         </form>
 
                     </div>
@@ -607,7 +628,7 @@ $this->load->view('inc/header');
                 $(function(){
         $('#site_visit_data .sbmit').on('click', function() {
             var data = {
-                'callback_id':$('#mhid').val(),
+                'callback_id':$('#addnotesdivid').val(),
                 'extrxDataIds' : ($('#extraDataIds').val()) ? $('#extraDataIds').val() : 0,
             };
             if($('#fancy-checkbox-default1').is(':checked')){
@@ -877,7 +898,7 @@ $this->load->view('inc/header');
         $(".se-pre-con").show();
         var data = {
             'extrxDataIds' : ($('#extraDataIds').val()) ? $('#extraDataIds').val() : 0,
-            'callback_id':$('#mhid').val(),
+            'callback_id':$('#addnotesdivid').val(),
             'status_id':$('#m_status').val(),
             'advisor1_id':$('#c_seniorAdvisor').val(),
             'advisor2_id':$('#c_secondAdvisor').val(),
@@ -1120,7 +1141,7 @@ $this->load->view('inc/header');
                 subject:$("#c_subject").val(),
                 relationship_manager:$("#c_relationShipManager").val(),
                 message:$("#c_notesClient").val(),
-                callback_id:$("#mhid").val()
+                callback_id:$("#addnotesdivid").val()
             },
             success:function(data) {
                 if(data.success){
@@ -1155,7 +1176,7 @@ $this->load->view('inc/header');
                 client_email:$("#client_email_id").val(),
                 message:$("#client_email_body").val(),
                 subject:$("#client_email_subject").val(),
-                callback_id:$("#mhid").val()
+                callback_id:$("#addnotesdivid").val()
             },
             success:function(data) {
                 console.log(data.success);

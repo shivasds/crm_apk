@@ -706,7 +706,7 @@ class Admin extends CI_Controller {
 					$subject=$this->input->post('subject');
 					$relationship_manager=$this->input->post('relationship_manager');
 					$message=$this->input->post('message');
-					$callback_id=$this->input->post('callback_id');
+					$callback_id=$this->input->post('callback_id'); 
 					$this->db->insert('svd_follow_callback_details',array(
 						'callback_id' => $callback_id,
 						'user_id' => $this->session->userdata('user_id'),

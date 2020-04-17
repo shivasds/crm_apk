@@ -1889,4 +1889,95 @@ class Dashboard extends CI_Controller {
         $this->load->view("send_thankyou_mail",$data);
     }
 
+    public function get_callback_details_ajax(){
+        $id=$this->input->post('callback_id_ajax');
+
+        $query=$this->callback_model->get_callback_details(trim($id));
+        // echo $this->db->last_query();
+        // echo "<script>console.log(".$this->db->last_query().")</script>";
+          
+        $data = array(
+            'id' =>$id,           
+            'name' =>$query->name,
+            'dept'=>$query->dept_id, 
+            'contact_no1'=>$query->contact_no1,
+            'contact_no2'=>$query->contact_no2,
+            'callback_type'=>$query->callback_type_id,
+            'email1'=>$query->email1,
+            'email2'=>$query->email2,
+            'project'=>$query->project_id,
+            'lead_source'=>$query->lead_source_id,
+            'leadid'=>$query->leadid,
+            'user_name'=>$query->user_id,
+            'sub_broker'=>$query->broker_id,
+            'manage_status'=>$query->status_id,
+            'due_date'=>$query->due_date,
+            'notes'=>$query->notes,
+            'date_added'=>$query->date_added,
+            'last_update'=>$query->last_update,
+            'active'=>$query->active, 
+        );
+
+        // $siteVisitResult = $this->callback_model->callbackSiteVisitDataByClause(['callback_id'=>$id, 'type !='=>1],['callback_id', 'project_id', 'date as visitDate']); 
+
+        $siteVisitData = $this->callback_model->callbackSiteVisitDataByClause(['callback_id'=>$id, 'flag'=>1, 'type'=>1],['id', 'callback_id', 'project_id', 'date as visitDate']); 
+        
+        $tmpArry = $tmpidsArry = array();
+        if($siteVisitData){            
+            foreach ($siteVisitData as $value) {
+                $tmpArry[]      = $value['project_id'];
+                $tmpidsArry[]   = $value['id'];
+            }
+        }
+        $this->session->set_userdata('siteVisitIds', implode(',', $tmpidsArry));
+        
+        $data['siteVisitProject']   = $tmpArry;
+        $data['siteVisitData']      = $siteVisitData;
+        $data['siteVisitDate']      = $siteVisitData ? $siteVisitData[0]['visitDate'] : '';
+       
+
+        $indiv_callback_data = $this->callback_model->get_callback_data($id);
+        //$indiv_callback_data = $this->callback_model->getCallbackDataByUserId($id, $query->user_id);
+        $previous_callback = "";
+        foreach ($indiv_callback_data as $callback_data) {
+            $previous_callback .= $callback_data->status."****".$callback_data->date_added."****".$callback_data->user;
+            $previous_callback .= "\n---------------------------------\n";
+            $previous_callback .= $callback_data->current_callback."\n\n";
+        }
+        $data['previous_callback'] = $previous_callback;
+        if($this->input->post('type')){
+            if($this->input->post('type') == "Close"){
+                $details = $this->callback_model->get_close_callback_details($id);
+                $data['advisor1_id'] = $details->advisor1_id;
+                $data['advisor2_id'] = $details->advisor2_id;
+                $data['booking'] = $details->booking;
+                $data['booking_month'] = $details->booking_month;
+                $data['closure_date'] = $details->closure_date;
+                $data['customer'] = $details->customer;
+                $data['sub_source_id'] = $details->sub_source_id;
+                $data['project_id'] = $details->project_id;
+                $data['sqft_sold'] = $details->sqft_sold;
+                $data['plc_charge'] = $details->plc_charge;
+                $data['floor_rise'] = $details->floor_rise;
+                $data['basic_cost'] = $details->basic_cost;
+                $data['other_cost'] = $details->other_cost;
+                $data['car_park'] = $details->car_park;
+                $data['total_cost'] = $details->total_cost;
+                $data['commission'] = $details->commission;
+                $data['gross_revenue'] = $details->gross_revenue;
+                $data['cash_back'] = $details->cash_back;
+                $data['sub_broker_amo'] = $details->sub_broker_amo;
+                $data['net_revenue'] = $details->net_revenue;
+                $data['share_of_advisor1'] = $details->share_of_advisor1;
+                $data['share_of_advisor2'] = $details->share_of_advisor2;
+                $data['est_month_of_invoice'] = $details->est_month_of_invoice;
+                $data['agreement_status'] = $details->agreement_status;
+                $data['project_type'] = $details->project_type;
+            }
+        }
+
+        //$data['name'] = "Call back details";
+        $data['heading'] = "Call back details";        
+        echo json_encode($data);
+    }
  }
