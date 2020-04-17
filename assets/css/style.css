@@ -1198,6 +1198,9 @@ input[type=search] {
 		line-height: 34px;
 		border: 1px solid #e0dada!important;
 		display: block;
+	}
+	.col-sm-4,.col-sm-8{
+		width:50%;
 	}	
 }
 
@@ -1209,6 +1212,9 @@ input[type=search] {
 	     padding: 8px; 
 		 background: white;
 	}	
+	.col-sm-4,.col-sm-8{
+		width:50%;
+	}
 }
 
 @media (min-width:769px) and (max-width:1600){
@@ -1294,4 +1300,10 @@ input[type=search] {
 }
 .SVD-Folloup{
 	color: rgb(241, 55, 22);
+}
+.modal-title {
+    margin: 0;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1;
 }

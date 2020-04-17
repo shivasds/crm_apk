@@ -1889,13 +1889,9 @@ class Dashboard extends CI_Controller {
         $this->load->view("send_thankyou_mail",$data);
     }
 
-    public function get_callback_details_ajax(){
+     public function get_callback_details_ajax(){
         $id=$this->input->post('callback_id_ajax');
-
         $query=$this->callback_model->get_callback_details(trim($id));
-        // echo $this->db->last_query();
-        // echo "<script>console.log(".$this->db->last_query().")</script>";
-          
         $data = array(
             'id' =>$id,           
             'name' =>$query->name,
@@ -1978,6 +1974,6 @@ class Dashboard extends CI_Controller {
 
         //$data['name'] = "Call back details";
         $data['heading'] = "Call back details";        
-        echo json_encode($data);
+       $this->load->view("reports/view_callback_ajax",$data);
     }
  }
