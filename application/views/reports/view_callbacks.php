@@ -14,6 +14,7 @@ $this->load->view('inc/header');
             font-size: 60px;
             color: #f1c836;
         }
+
     </style>
 
     <div class="container">
