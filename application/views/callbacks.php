@@ -221,13 +221,12 @@ $this->load->view('inc/header');
                         $('#abc').removeClass("hidden")
                     } else if('5'==v){
                        
-                        $('#hidemodal').removeClass("hidden")
+                        $('#close').removeClass("hidden")
                     } else if('4'==v){
-                       
                         $('#dead').removeClass("hidden")
                     } else{
                         
-                        $('#dead').removeClass("hidden")
+                        $(".hidemodal").addClass("hidden")
                     }
                 }
                               function getmodeltablevalue(id) {
@@ -275,9 +274,12 @@ $this->load->view('inc/header');
 
                 <!-- Modal content-->
                 <div class="modal-content">
-
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title" id="myModalLabel">Call Now</h4>
+                    </div>
                     <div class="modal-body">
-                        <p style="margin-bottom: 1px;text-align: center;">Call Now.</p>
+                        
                         <table>
                             <tr>
                                 <th>Customer</th>
@@ -302,9 +304,13 @@ $this->load->view('inc/header');
 
                 <!-- Modal content-->
                 <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">Notes</h4>
+                </div>
 
                     <div class="modal-body">
-                        <p style="margin-bottom: 1px;text-align: center;">Notes</p>
+                      
                         <table>
                             <tr>
                                 <th>Read Previos Note</th>
@@ -341,9 +347,13 @@ $this->load->view('inc/header');
 
                 <!-- Modal content-->
                 <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">Add Notes</h4>
+                </div>
 
                     <div class="modal-body">
-                        <p style="margin-bottom: 1px;text-align: center;">Add Notes</p>
+                      
                         <form>
 
                         <div class="form-row">
@@ -431,7 +441,7 @@ $this->load->view('inc/header');
                                             <textarea class="form-control reasonOfDead" name="notes" id="notes" rows="3" ></textarea>
                                         </div>
                                 </div>
-                                <div id="hidemodal" class="hidemodal hidden">
+                                <div id="close" class="hidemodal hidden">
                                     <div class="form-group col-md-6">
                                         <label for="email">Advisor one:</label>
                                         <select  class="form-control"  id="c_seniorAdvisor" name="c_seniorAdvisor" required="required" >
