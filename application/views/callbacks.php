@@ -213,13 +213,13 @@ $this->load->view('inc/header');
 
                 function status(v){
                        
-                        $(".close").addClass("hidden")
+                        $(".hidemodal").addClass("hidden")
                     if('6'==v){
                        
                         $('#abc').removeClass("hidden")
                     } else if('5'==v){
                        
-                        $('#close').removeClass("hidden")
+                        $('#hidemodal').removeClass("hidden")
                     } else if('4'==v){
                        
                         $('#dead').removeClass("hidden")
@@ -326,7 +326,7 @@ $this->load->view('inc/header');
         </div>
 
         <div class="modal fade" id="addnotes" role="dialog">
-            <div class="modal-dialog">
+            <div class="modal-dialog" style="overflow-y: scroll; max-height:85%;  margin-top: 50px; margin-bottom:50px;" >
 
                 <!-- Modal content-->
                 <div class="modal-content">
@@ -348,7 +348,7 @@ $this->load->view('inc/header');
                                     </div>
                                     
                                 
-                                <div id="abc" class="close hidden">
+                                <div id="abc" class="hidemodal hidden">
                                             <div class="form-group col-md-6">
                                                 <label for="client_name">Client name:</label>
                                                 <input type="text" class="form-control" id="c_client_name" name="client_name" placeholder="Client name">
@@ -404,7 +404,7 @@ $this->load->view('inc/header');
                                                 <button type="button" style="float: right;" class="btn btn-success" onclick="sendMail()" >Send</button>
                                             </div>
                                 </div>
-                                <div id="dead" class="close hidden">
+                                <div id="dead" class="hidemodal hidden">
                                         <div class="form-group col-md-6">
                                             <label for="comment">Reason of dead:</label>
                                             <select  class="form-control"  id="selectDeadRsn" name="selectDeadRsn" onchange="curr(this.value)">
@@ -420,7 +420,7 @@ $this->load->view('inc/header');
                                             <textarea class="form-control reasonOfDead" name="notes" id="notes" rows="3" ></textarea>
                                         </div>
                                 </div>
-                                <div id="close" class="close hidden">
+                                <div id="hidemodal" class="hidemodal hidden">
                                     <div class="form-group col-md-6">
                                         <label for="email">Advisor one:</label>
                                         <select  class="form-control"  id="c_seniorAdvisor" name="c_seniorAdvisor" required="required" >
@@ -483,10 +483,10 @@ $this->load->view('inc/header');
                                         <label for="email">Project:</label>
                                         <select  class="form-control"  id="c_projectName" name="m_project" required="required" >
                                             <option value="">Select</option>
-                                            <!-- <?php $projects= $this->common_model->all_active_projects(); 
+                                            <?php $projects= $this->common_model->all_active_projects(); 
                                             foreach( $projects as $project){ ?>
                                                 <option value="<?php echo $project->id ?>"><?php echo $project->name ?></option>
-                                            <?php }?>-->
+                                            <?php }?>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-6">
@@ -564,30 +564,35 @@ $this->load->view('inc/header');
                                     </div>
                                 </div>
                             </div>         
-                                <div class="form-group col-md-6 showall" onclick="hello()">
+                            
 
-                                    <a class="accordion-toggle-last">
-                                        <i class="accordion-icon-left fa fa-users  color-blue2-dark"></i> Reassign Another
-                                        <i class="accordion-icon-right fa fa-arrow-down"></i>
-                                    </a>
-
-                                    <div id="accordion-content-6" class="accordion-content mt-5 bottom-10">
-                                        <input type="datetime-local" id="birthdaytime" name="birthdaytime">
-
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-12">
+                                
+                                    <div class="form-group col-md-6">
                                         <label class="label-control">Current Callback</label>
                                         <textarea class="form-control" name="current_callback" rows="5" id="current_callback1" name="current_callback1" onkeyup="curr(this.value)" placeholder="Please Update Your Changes To Save"></textarea>
                                     </div>
+
+                                    <div class="form-group col-md-6 showall" onclick="hello()">
+
+                                        <a class="accordion-toggle-last">
+                                            <i class="accordion-icon-left fa fa-users  color-blue2-dark"></i> Reassign Another
+                                            <i class="accordion-icon-right fa fa-arrow-down"></i>
+                                        </a>
+
+                                        <div id="accordion-content-6" class="accordion-content mt-5 bottom-10">
+                                            <input type="datetime-local" id="birthdaytime" name="birthdaytime">
+
+                                        </div>
+                                   </div>
+                              
+
+                             <div class="col-md-6">
+                                <div class="form-group col-md-2">
+                                    <span onclick="favorite(this)" class="star glyphicon glyphicon-star-empty"></span>
                                 </div>
-                           
-                            <div class="col-md-1">
-                                <span onclick="favorite(this)" class="star glyphicon glyphicon-star-empty"></span>
-                            </div>
-                            <div class="col-md-11">
-                                <p class="text-muted">Mark as Important</p>
+                                <div class="form-group col-md-10">
+                                    <p class="text-muted">Mark as Important</p>
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Add</button>
                         </form>

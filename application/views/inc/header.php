@@ -71,9 +71,7 @@
             font-size: 25px;
                 color:gold;
             }
-            .close {
-    float: inherit!important;
-    }
+           
 </style>
 
 <script>
