@@ -34,7 +34,7 @@
     a {
     color: #ffffff00!important;
     text-decoration: none;
-}
+        }
     .error_page {
         background: #052963;
         position: relative;
@@ -71,6 +71,7 @@
             font-size: 25px;
                 color:gold;
             }
+           
 </style>
 
 <script>
