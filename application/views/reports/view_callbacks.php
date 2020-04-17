@@ -530,33 +530,34 @@ $this->load->view('inc/header');
                                 </div>
 
                                 </div>
-                                <div class="form-group col-md-6 showall" onclick="hello()">
-
-                                    <a class="accordion-toggle-last">
-                                        <i class="accordion-icon-left fa fa-users  color-blue2-dark"></i> Reassign Another
-                                        <i class="accordion-icon-right fa fa-arrow-down"></i>
-                                    </a>
-
-                                    <div id="accordion-content-6" class="accordion-content mt-5 bottom-10">
-                                        <input type="datetime-local" id="birthdaytime" name="birthdaytime">
-
-                                    </div>
-                            </div>
+                         
 
                             
-
-                            <div class="form-row hidden">
-                                <div class="form-group col-md-6">
-                                    <label class="label-control">id</label>
-                                    <input id="addnotesdivid" name="idoftable">
-                                </div>
-                            </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6 ">
                                     <label class="label-control">Current Callback</label>
                                     <textarea class="form-control" name="current_callback" rows="5" id="current_callback1" name="current_callback1" onkeyup="curr(this.value)" placeholder="Please Update Your Changes To Save"></textarea>
                                 </div>
                             </div>
+                            <div class="form-group col-md-6 showall" onclick="hello()">
+
+                                <a class="accordion-toggle-last">
+                                    <i class="accordion-icon-left fa fa-users  color-blue2-dark"></i> Reassign Another
+                                    <i class="accordion-icon-right fa fa-arrow-down"></i>
+                                </a>
+
+                                <div id="accordion-content-6" class="accordion-content mt-5 bottom-10">
+                                    <input type="datetime-local" id="birthdaytime" name="birthdaytime">
+
+                                </div>
+                            </div>
+                            <div class="form-row hidden">
+                                <div class="form-group col-md-6">
+                                    <label class="label-control">id</label>
+                                    <input id="addnotesdivid" name="idoftable">
+                                </div>
+                            </div>
+                         
 
                             <!-- <input type="checkbox" name="important" id="fancy-checkbox-warning" autocomplete="off" />
                             <div class="btn-group">
