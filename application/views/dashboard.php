@@ -29,11 +29,11 @@
                 <div class="content">
 
                     <div class="grid-icons grid-icons-3">
-                        <a href="#"  data-type="user_total" class="bg-gradient-blue2 round-small  scale-hover view_callbacks"  onclick="showloader()">
+                        <a href="#"  data-type="user_total" class="bg-gradient-blue round-small  scale-hover view_callbacks"  onclick="showloader()">
                             <i class="fas fa-phone-volume"></i>
                             <span>Call for the day</span>
                         </a>
-                        <a href="#"  data-type="user_overdue" class="bg-gradient-blue2 round-small  scale-hover view_callbacks"  onclick="showloader()">
+                        <a href="#"  data-type="user_overdue" class="bg-gradient-orange round-small  scale-hover view_callbacks"  onclick="showloader()">
                             <i class="fas fa-headset"></i>
                             <span>Over Due Calls</span>
                         </a>
@@ -41,11 +41,11 @@
                             <i class="fab fa-searchengin"></i>
                             <span>Search</span>
                         </a> -->
-                        <a href="<?=base_url('nextday_calls')?>" class="bg-gradient-blue2 round-small  scale-hover">
+                        <a href="<?=base_url('nextday_calls')?>" class="bg-gradient-purple round-small  scale-hover">
                                 <i class="fas fa-mobile"></i>
                                 <span>Calls for next day</span>
                             </a>
-                        <a href="<?=base_url('callbacks')?>" class="bg-gradient-blue2 round-small  scale-hover"  onclick="showloader()">
+                        <a href="<?=base_url('callbacks')?>" class="bg-gradient-green round-small  scale-hover"  onclick="showloader()">
                             <i class="fa fa-phone"></i>
                             <span>View Calls</span>
                         </a>
