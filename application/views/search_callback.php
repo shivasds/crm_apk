@@ -97,7 +97,7 @@ $this->load->view('inc/header');
                               </div>
                               <form method="POST">
                                   <div class="row">
-                                      <div class="col-sm-4 col-md-4 form-group">
+                                      <div class=" col-md-6 form-group">
                                           <label for="emp_code">Search type:</label>
                                           <select class="form-control" id="search_type" name="type" required="required">
                                               <option value="name" <?php if($this->session->userdata("type")=="name") echo 'selected' ?>>Name</option>
@@ -107,11 +107,11 @@ $this->load->view('inc/header');
                                           </select>
                                           <label></label>
                                       </div>
-                                      <div class="col-sm-4 col-md-4 form-group">
+                                      <div class="col-md-6 form-group">
                                           <label for="email">Enter Search key:</label>
                                           <input type="text" class="form-control" id="search_term" name="query" placeholder="Search key" value="<?php echo $this->session->userdata(" query "); ?>" required>
                                       </div>
-                                      <div class="col-sm-4 col-md-4 form-group">
+                                      <div class="col-md-6 form-group">
                                           <button type="submit" id="search" style="margin-top:25px;" class="btn btn-success btn-block">Search</button>
                                       </div>
                                   </div>
@@ -174,7 +174,7 @@ $this->load->view('inc/header');
                                             <?php $i++; } } }
                                         else
                                               {
-                                                  echo "<tr><td colspan=6 align=center>No Data Found</td></tr>";
+                                                  echo "<tr><td colspan=5 align=center>No Data Found</td></tr>";
                                               }
                                               ?>
                                     </tbody>

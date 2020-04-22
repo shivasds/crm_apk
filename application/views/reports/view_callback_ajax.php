@@ -314,7 +314,7 @@
                                 </a>
 
                                 <div id="accordion-content-6" class="accordion-content mt-5 bottom-10">
-                                    <input type="datetime-local" id="due_date" name="due_date">
+                                    <input type="datetime-local" id="due_date" name="due_date" placeholder="dd/mm/yy hour:minute">
 
                                 </div>
                             </div>

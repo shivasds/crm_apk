@@ -1241,12 +1241,13 @@ input[type=search] {
     top: 50%;
 	z-index: 11111;
     margin: 0 auto;
-    border: 10px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 10px solid #3498db;
-    border-bottom: 10px solid #3498db;
-    width: 70px;
-    height: 70px;
+    /* border: 10px solid #f3f3f3; */
+    /* border-radius: 50%; */
+    /* border-top: 10px solid #3498db;
+	border-bottom: 10px solid #3498db; */
+	background-image: url(../images/logo2.png);
+	width: 50px;
+    height: 50px;
 	-webkit-animation: spin 2s linear infinite;
 	animation: spin 2s linear infinite;
   }
@@ -1306,4 +1307,9 @@ input[type=search] {
     text-align: center;
     font-size: 14px;
     line-height: 1;
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+    border: 1px solid #003eff!important;
+    background: #02a5cb4f!important;
+	font-weight: 200;
 }
