@@ -329,12 +329,12 @@ $this->load->view('inc/header');
                                     var traid = $(id).parents('tr').children();
                                     $(".addnotesmodalbtn").attr('id', $("#c_id").text());
                                     $("#addnotesdivid").val($("#c_id").text());
+                                   
                                 } 
                                 function hello() {
                                     $(".accordion-content").show();
                                     $(this).html('<i class="accordion-icon-right fa fa-arrow-up"></i>');
-
-                                }
+                               }
                             </script>
         <div class="modal fade" id="addnotes" role="dialog">
             <div class="modal-dialog modal-lg" style="overflow-y: scroll; max-height:85%;  margin-top: 20px; margin-bottom:50px;" >
