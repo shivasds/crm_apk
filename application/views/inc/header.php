@@ -139,13 +139,13 @@ function showloader(){
 
 function favorite(id){
           if($(id).hasClass("glyphicon-star-empty")){
-              $(id).attr("value","1");
+              $("#importantCallback").attr("value","1");
            $(".star").removeClass("glyphicon-star-empty");
            $(".star").addClass("glyphicon-star");
            
           }
           else{
-            $(id).attr("value","0");
+            $("#importantCallback").attr("value","0");
            $(".star").addClass("glyphicon-star-empty");
            $(".star").removeClass("glyphicon-star");
           }

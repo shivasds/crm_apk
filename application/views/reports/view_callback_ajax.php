@@ -321,11 +321,13 @@
                             <div class="form-row hidden">
                                 <div class="form-group col-md-6">
                                     <label class="label-control">id</label>
-                                    <input type="text" id="addnotesdivid" name="idoftable" value="">
+                                    <input type="text" id="addnotesdivid" name="idoftable" value=""> 
                                 </div>
                             </div>
                          
-
+                            <script type="text/javascript">
+                                $("#addnotesdivid").val($("#c_id").text());
+                            </script>
                             <!-- <input type="checkbox" name="important" id="fancy-checkbox-warning" autocomplete="off" />
                             <div class="btn-group">
 
@@ -335,7 +337,8 @@
                             </div> -->
                             <div class="form-group col-md-6 ">
                                 <div class="col-md-1">
-                                    <span value="0" name="important" onclick="favorite(this)" class="star glyphicon glyphicon-star-empty">
+                                    <input type="hidden" name="important" value="0" id="importantCallback" >
+                                    <span  onclick="favorite(this)" class="star glyphicon glyphicon-star-empty">
                                 </span>
 
                                 </div>

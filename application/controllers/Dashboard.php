@@ -1459,16 +1459,16 @@ class Dashboard extends CI_Controller {
 
         if($this->input->post('due_date'))
         {
-            $date = str_replace("T"," ",$this->input->post('due_date'));
-            $update_data['due_date'] = $date;
+            $date_due = str_replace("T"," ",$this->input->post('due_date'));
+            $update_data['due_date'] = $date_due.":00";
         }
-
+       
         if($this->input->post('important') !== null)
             $update_data['important'] = $this->input->post('important')?1:0;
-        
-        $query = $this->callback_model->update_callback($update_data,$id);
+      //  print_r($update_data);
+        $query = $this->callback_model->update_callback($update_data,$this->input->post('idoftable'));
 
-       // print_r($this->input->post('important')?1:0);die;
+       
         if(!$this->input->post('user_id') && ($this->session->userdata('user_id') == $this->input->post('current_user_id')) )
             $this->tracksCallbacks($this->session->userdata('user_id'), $this->session->userdata('user_name'), $id);
 

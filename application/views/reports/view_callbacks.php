@@ -206,10 +206,11 @@ $this->load->view('inc/header');
 
                                 function getmodeltablevalue(id) {
                                     var datatableid=$("#c_id").text();
-                                    console.log("datatableid  " +datatableid)
+                                    console.log("datatableid  " +datatableid);
                                     var traid = $(id).parents('tr').children();
-                                    $(".addnotesmodalbtn").attr('id', $("#c_id").text());
-                                    $("#addnotesdivid").val($("#c_id").text());
+                                    $(".addnotesmodalbtn").attr('id', datatableid);
+                                    $("#addnotesdivid").val(datatableid);
+                                    return; 
                                 } 
                                 function hello() {
                                     $(".accordion-content").show();
