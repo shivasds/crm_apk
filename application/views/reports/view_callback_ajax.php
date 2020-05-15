@@ -1,4 +1,155 @@
  <div class="form-row">
+                                  <div class="col-sm-12 clint_req" style="background: #b9bdc04f;margin-bottom: 30px; padding-bottom: 10px;" >
+                    <h1 class="text-center" >Client Requirement</h1>
+                    <div class="col-sm-3 form-group">
+                        <label for="budget">Budget:</label>
+                         
+                        <select  class="form-control"  id="budget" name="budget"    >
+                                    <option value="">Select</option>  
+                                    <option value="1" <?php if($budget==1) echo 'selected';?> >50 Lakhs</option>
+                                    <option value="2" <?php if($budget==2) echo 'selected';?>>50-65L</option>
+                                    <option value="3" <?php if($budget==3) echo 'selected';?>>65L-80L</option>
+                                    <option value="4" <?php if($budget==4) echo 'selected';?>>1-1.5cr</option>
+                                    <option value="5" <?php if($budget==5) echo 'selected';?>>1.5-2 cr</option>
+                                    <option value="6" <?php if($budget==6) echo 'selected';?>>2 cr+</option>                                            
+                        </select>
+                    </div>
+                    <!-- <div class="col-sm-3 form-group">
+                        <label for="Locality">Locality:</label>
+                        <input type="text" class="form-control" id="Locality" name="Locality" placeholder="city, area*" value="<?=$Locality?>" required="">
+                    </div> -->
+                    <div class="col-sm-3 form-group">
+                        <label for="cities">City:</label>
+                        <input type="text" class="form-control" id="cities"  name="cities" value="<?=$cities;?>">
+                    </div>
+                    
+                    <script>
+                      $(document).ready(function(){
+
+     // Initialize 
+     $( "#cities" ).autocomplete({
+        source: function( request, response ) {
+          // Fetch data
+          $.ajax({
+            url: "<?=base_url()?>dashboard/allCities/",
+            type: 'post',
+            dataType: "json",
+            data: {
+              cities: request.term
+            },
+            success: function( data ) {
+                response($.map(data, function (value, key) {
+                return {
+                    label: value.name, 
+                }
+            }));
+            }
+          });
+        },
+        select: function (event, ui) {
+          // Set selection
+          $('#cities').val(ui.item.label); // display the selected text
+          //$('#userid').val(ui.item.value); // save selected id to input
+          return false;
+        }
+      });
+
+    });
+                    </script>
+                    <div class="col-sm-3 form-group">
+                        <label for="Location">Location:</label>
+                        <input type="text" class="form-control" id="Location" name="Location" value= "<?=$location;?>"placeholder="Location*">
+                    </div>
+                     <script>
+                      $(document).ready(function(){
+
+     // Initialize 
+     $( "#Location" ).autocomplete({
+        source: function( request, response ) {
+          // Fetch data
+          $.ajax({
+            url: "<?=base_url()?>dashboard/allLocations/",
+            type: 'post',
+            dataType: "json",
+            data: {
+              Location: request.term
+            },
+            success: function( data ) {
+                response($.map(data, function (value, key) {
+                return {
+                    label: value.name, 
+                }
+            }));
+            }
+          });
+        },
+        select: function (event, ui) {
+          // Set selection
+          $('#Location').val(ui.item.label); // display the selected text
+          //$('#userid').val(ui.item.value); // save selected id to input
+          return false;
+        }
+      });
+
+    });
+                    </script>
+                    <div class="col-sm-3 form-group">
+                        <label for="p_type">Purchase Type:</label>
+                         
+                        <select  class="form-control"  id="p_type" name="p_type"    >
+                                    <option value="">Select</option>  
+                                    <option value="1" <?php if($p_type==1) echo 'selected';?>>Apartment</option>
+                                    <option value="2" <?php if($p_type==2) echo 'selected';?>>Villas</option>
+                                    <option value="3" <?php if($p_type==3) echo 'selected';?>>Plots</option>
+                                    <option value="4" <?php if($p_type==4) echo 'selected';?>>Penthouse</option>     
+                                    <option value="5" <?php if($p_type==5) echo 'selected';?>>Duplex</option>     
+                                    <option value="6" <?php if($p_type==6) echo 'selected';?>>Commericial</option>                                        
+                        </select>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <label for="possesion">Possesion:</label>
+                        
+                        <select  class="form-control"  id="possesion" name="possesion"    >
+                                    <option value="">Select</option>  
+                                    <option value="1" <?php if($possesion==1) echo 'selected';?>>RTM</option>
+                                    <option value="2" <?php if($possesion==2) echo 'selected';?>>1 Year</option>
+                                    <option value="3" <?php if($possesion==3) echo 'selected';?>>2 Year</option>
+                                    <option value="4" <?php if($possesion==4) echo 'selected';?>>New Launch</option>                                        
+                        </select>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <label for="a_services">Additional Services:</label>
+                         
+                         <select  class="form-control"  id="a_services" name="a_services"    >
+                                    <option value="">Select</option>  
+                                    <option value="1" <?php if($a_services==1) echo 'selected';?>>Site Visit Assitance</option>
+                                    <option value="2" <?php if($a_services==2) echo 'selected';?>>Loans</option>
+                                    <option value="3" <?php if($a_services==3) echo 'selected';?>>Interiors</option>
+                                    <option value="4" <?php if($a_services==4) echo 'selected';?>>Resale Assistance</option>     
+                                    <option value="5" <?php if($a_services==5) echo 'selected';?>>Rental Assistance</option>     
+                                    <option value="6" <?php if($a_services==6) echo 'selected';?>>NONE</option>                                        
+                        </select>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <label for="tos">Type Of Sale:</label>
+                         
+                         <select  class="form-control"  id="tos" name="tos"    >
+                                    <option value="">Select</option>  
+                                    <option value="1" <?php if($tos==1) echo 'selected';?> >Primary</option>
+                                    <option value="2" <?php if($tos==2) echo 'selected';?> >Resale</option>
+                                    <option value="3" <?php if($tos==3) echo 'selected';?> >Rentals</option>                                            
+                        </select>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <label for="client_type">Client Type:</label> 
+                        <select  class="form-control"  id="client_type" name="client_type"   >
+                                    <option value="">Select</option>  
+                                    <option value="1" <?php if($client_type==1) echo 'selected';?>>End User</option>
+                                    <option value="2" <?php if($client_type==2) echo 'selected';?>>Investor</option>
+                                                
+                        </select>
+                    </div>
+                 </div>  
                                 <div class="form-group col-md-6">
                                     <label for="inputState">Status</label>
                                     <select class="form-control" id="m_status" onchange="status(this.value)" name="status_id" required="required">
@@ -11,6 +162,7 @@
                                             <?php } ?>
                                     </select>
                                 </div>
+
                               
                                 <div id="abc" class="hidemodal hidden">
                                             <div class="form-group col-md-6">
@@ -328,13 +480,7 @@
                             <script type="text/javascript">
                                 $("#addnotesdivid").val($("#c_id").text());
                             </script>
-                            <!-- <input type="checkbox" name="important" id="fancy-checkbox-warning" autocomplete="off" />
-                            <div class="btn-group">
-
-                                <label for="fancy-checkbox-warning" class="btn btn-default active">
-                                   Important
-                                </label>
-                            </div> -->
+              
                             <div class="form-group col-md-6 ">
                                 <div class="col-md-1">
                                     <input type="hidden" name="important" value="0" id="importantCallback" >
@@ -347,7 +493,12 @@
                                 </div>
                             </div>
 
+               
+
+
                             <button type="submit" id="" class="btn btn-primary addnotesmodalbtn">Add</button>
+
+              
 
 
   <script type="text/javascript">

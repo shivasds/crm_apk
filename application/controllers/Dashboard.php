@@ -1379,6 +1379,23 @@ class Dashboard extends CI_Controller {
             $update_data['lead_source_id'] = $this->input->post('lead_source_id');
         if($this->input->post('user_id'))
             $update_data['user_id'] = $this->input->post('user_id');
+        if($this->input->post('budget'))
+            $update_data['budget'] = $this->input->post('budget');
+        if($this->input->post('p_type'))
+            $update_data['p_type'] = $this->input->post('p_type');
+        if($this->input->post('Location'))
+            $update_data['location'] = $this->input->post('Location');
+        if($this->input->post('cities'))
+            $update_data['city'] = $this->input->post('cities');
+        if($this->input->post('possesion'))
+            $update_data['possesion'] = $this->input->post('possesion');
+        if($this->input->post('a_services'))
+            $update_data['a_services'] = $this->input->post('a_services');
+        if($this->input->post('tos'))
+            $update_data['tos'] = $this->input->post('tos');
+        if($this->input->post('client_type'))
+            $update_data['client_type'] = $this->input->post('client_type'); 
+
         if($this->input->post('approve')){
             $update_data['active'] = 0;
             $update_data['verified_by'] = $this->session->userdata('user_id');
@@ -1936,6 +1953,15 @@ $query = $this->callback_model->add_callback_data($ind_callback_data);
             'date_added'=>$query->date_added,
             'last_update'=>$query->last_update,
             'active'=>$query->active, 
+
+            'budget'=>$query->budget,  
+            'location' => $query->location,
+            'cities' => $query->city,
+            'p_type' => $query->p_type,
+            'possesion' => $query->possesion,
+            'a_services' => $query->a_services,
+            'tos' => $query->tos,
+            'client_type' => $query->client_type,
         );
 
         // $siteVisitResult = $this->callback_model->callbackSiteVisitDataByClause(['callback_id'=>$id, 'type !='=>1],['callback_id', 'project_id', 'date as visitDate']); 
@@ -2153,4 +2179,19 @@ $query = $this->callback_model->add_callback_data($ind_callback_data);
         $data['result'] = $this->callback_model->search_callback(null,$where,$offset,VIEW_PER_PAGE, $user_type);
         $this->load->view('reports/nextday_calls',$data);
     }
+    public function allCities($value='')
+        { 
+               $data  = $this->callback_model->getName('cities',$this->input->get_post('cities'));
+           echo json_encode($data);
+        }
+        public function allLocations($value='')
+        {
+           $data  = $this->callback_model->getName('Locations',$this->input->get_post('Location'));
+           echo json_encode($data);
+        }
+        public function mob_num($value='')
+        {
+           $data  = $this->callback_model->getMobile('callback',$this->input->get_post('contact_no1'));
+           echo json_encode($data);
+        }
  }

@@ -1230,6 +1230,33 @@ $list_id=implode(',', $ids);
         ->row();
         return $last;
     }
+ public function getName($table='',$where='')
+    {
+       $this->db->select('name')
+       
+       ->where('status',1);
+       if($where)
+        $this->db->like('name',$where);
+       $data =  $this->db->get($table)->result();
 
+       foreach($data as $row ){
+          $response[] = array("name"=>$row->name);
+       }
+
+        return $response;
+    }
+    public function getMobile($table='',$where='')
+    {
+       $this->db->select('contact_no1');
+       if($where)
+        $this->db->like('contact_no1',$where);
+       $data =  $this->db->get($table)->result();
+
+       foreach($data as $row ){
+          $response[] = array("contact_no1"=>$row->contact_no1);
+       }
+
+        return $response;
+    }
 
 }
