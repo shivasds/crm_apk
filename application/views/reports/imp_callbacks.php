@@ -124,7 +124,7 @@ $CI=&get_instance();
             var trid=$(id).parents('tr').children();
              $("#customertdname").text($(trid[1]).text());
              $(".custPhoneancor").text($(trid[4]).text());
-             $(".custPhoneancor").attr("href","tel:+91 "+$(trid[4]).text());
+             $(".custPhoneancor").attr("href","tel:+91 "+$(trid[4]).text().trim());
              $("#c_id").text($(trid[5]).text());
              $("#previousNotesTxtArea").text($(trid[7]).text());
            
