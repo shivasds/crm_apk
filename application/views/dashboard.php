@@ -51,7 +51,7 @@
                         </a>
                         <a class="bg-dar-pink round-small  scale-hover">
                             <i><?php if(isset($callsDone['totalCalls'])){echo $callsDone['totalCalls'] ? $callsDone['totalCalls'] : 0; }else{echo 0;}?></i>
-                            <span>today_callback_count</span>
+                            <span>Calls Done Today</span>
                         </a>
 
                         
